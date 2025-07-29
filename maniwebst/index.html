@@ -911,7 +911,7 @@
       const progressInterval = startProgress();
       
       try {
-        const response = await fetch('http://localhost:3002/api/manifest', {
+        const response = await fetch('https://maniwebst-backend-production.up.railway.app/api/manifest', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ userMessage: centerInput.value })
@@ -941,7 +941,14 @@
           centerAnswer.style.color = '#b71c1c';
         }
       } catch (err) {
-        centerAnswer.textContent = 'Bağlantı kurulamadı. Lütfen internetinizi ve sunucunun açık olduğundan emin olun.';
+        console.error('API Hatası:', err);
+        if (err.name === 'TypeError' && err.message.includes('fetch')) {
+          centerAnswer.textContent = 'Sunucuya bağlanılamıyor. Lütfen daha sonra tekrar deneyin.';
+        } else if (err.message.includes('CORS')) {
+          centerAnswer.textContent = 'CORS hatası. Lütfen farklı bir tarayıcı deneyin.';
+        } else {
+          centerAnswer.textContent = 'Bir hata oluştu. Lütfen internetinizi kontrol edin ve tekrar deneyin.';
+        }
         centerAnswer.style.color = '#b71c1c';
       }
       
