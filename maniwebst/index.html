@@ -45,7 +45,7 @@
     .floating-element {
       position: absolute;
       cursor: grab;
-      z-index: 2;
+      z-index: 10;
       user-select: none;
       transition: filter 0.3s, transform 0.3s, color 0.3s;
       filter: drop-shadow(0 8px 24px rgba(34,87,122,0.13));
@@ -104,7 +104,7 @@
       white-space: nowrap;
       min-width: 180px;
       text-align: center;
-      z-index: 10;
+      z-index: 15;
       animation: fadeIn 0.4s;
     }
     @keyframes fadeIn {
@@ -125,7 +125,7 @@
       width: 400px;
       max-height: 80vh;
       overflow-y: auto;
-      z-index: 20;
+      z-index: 5;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -264,6 +264,7 @@
         border-radius: 16px;
         max-height: 85vh;
         top: 45%;
+        z-index: 5;
       }
       .center-title {
         font-size: 1.2rem;
@@ -297,6 +298,7 @@
         min-height: 60px;
         touch-action: manipulation;
         -webkit-tap-highlight-color: transparent;
+        z-index: 10;
       }
       .floating-element:active {
         transform: scale(0.95);
@@ -309,6 +311,7 @@
         max-width: 80vw;
         white-space: normal;
         text-align: center;
+        z-index: 15;
       }
     }
     @media (max-height: 600px) {
@@ -749,12 +752,29 @@
       });
       // Touch events for mobile/tablet
       element.addEventListener('touchstart', function(e) {
+        const touch = e.touches[0];
+        const touchX = touch.clientX;
+        const touchY = touch.clientY;
+        
+        // Dokunma süresini kontrol et
+        const touchStartTime = Date.now();
+        
+        // Kısa dokunma (tıklama) - mesaj göster
+        setTimeout(() => {
+          if (!isDragging) {
+            document.querySelectorAll('.element-message').forEach(el => el.style.display = 'none');
+            msgDiv.textContent = msg;
+            msgDiv.style.display = 'block';
+            playEmojiClickSound();
+          }
+        }, 200);
+        
+        // Uzun dokunma (sürükleme)
         dragTarget = element;
         isDragging = true;
         element.classList.add('dragging');
-        const touch = e.touches[0];
-        startX = touch.clientX;
-        startY = touch.clientY;
+        startX = touchX;
+        startY = touchY;
         startLeft = parseFloat(element.style.left);
         startTop = parseFloat(element.style.top);
         e.preventDefault();
@@ -1046,18 +1066,24 @@
       document.querySelectorAll('.floating-element').forEach(element => {
         let touchStartTime;
         let touchEndTime;
+        let isTouchMoved = false;
         
         element.addEventListener('touchstart', function(e) {
           touchStartTime = new Date().getTime();
+          isTouchMoved = false;
           element.classList.add('touching');
+        });
+        
+        element.addEventListener('touchmove', function(e) {
+          isTouchMoved = true;
         });
         
         element.addEventListener('touchend', function(e) {
           touchEndTime = new Date().getTime();
           const touchDuration = touchEndTime - touchStartTime;
           
-          // Kısa dokunma (tıklama)
-          if (touchDuration < 200) {
+          // Kısa dokunma ve hareket yoksa (tıklama)
+          if (touchDuration < 300 && !isTouchMoved) {
             // Tek tıklama - mesaj göster
             const msgDiv = element.querySelector('.element-message');
             if (msgDiv) {
@@ -1068,7 +1094,7 @@
           }
           
           // Uzun dokunma (paylaşım menüsü)
-          if (touchDuration > 600) {
+          if (touchDuration > 600 && !isTouchMoved) {
             const text = element.textContent.trim();
             if (text) {
               // Mobil paylaşım API'si
