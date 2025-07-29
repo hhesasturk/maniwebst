@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manifest - Günün Manifestosu | Motivasyon ve Hayal Gücü</title>
+  <meta name="description" content="Manifest felsefesi ile hayallerinizi gerçeğe dönüştürün. Motivasyon, pozitif düşünce ve manifest teknikleri ile hedeflerinize ulaşın.">
+  <meta name="keywords" content="manifest, motivasyon, pozitif düşünce, hayal gücü, hedef belirleme, başarı, günün manifestosu">
+  <meta name="author" content="Günün Manifestosu">
+  <meta property="og:title" content="Manifest - Günün Manifestosu">
+  <meta property="og:description" content="Hayallerinizi gerçeğe dönüştürün. Manifest felsefesi ile motivasyon ve başarı.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gununmanifestosu.com">
+  <meta property="og:image" content="https://gununmanifestosu.com/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Manifest - Günün Manifestosu">
+  <meta name="twitter:description" content="Hayallerinizi gerçeğe dönüştürün. Manifest felsefesi ile motivasyon ve başarı.">
+  <meta name="twitter:image" content="https://gununmanifestosu.com/twitter-image.jpg">
+  <link rel="canonical" href="https://gununmanifestosu.com">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Indie+Flower&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Indie Flower', cursive;
+      background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .floating-element {
+      position: absolute;
+      cursor: grab;
+      z-index: 2;
+      user-select: none;
+      transition: filter 0.3s, transform 0.3s, color 0.3s;
+      filter: drop-shadow(0 8px 24px rgba(34,87,122,0.13));
+      will-change: transform;
+      border-radius: 50%;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: rgba(255,255,255,0.9);
+      font-weight: bold;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      user-select: none;
+      -webkit-user-drag: none;
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(5deg); }
+    }
+    .floating-element:hover {
+      filter: drop-shadow(0 16px 32px rgba(34,87,122,0.25));
+      transform: scale(1.15) rotate(-3deg);
+      color: rgba(255,255,255,1);
+      text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      cursor: grabbing;
+    }
+    .floating-element.dragging {
+      cursor: grabbing;
+      transform: scale(1.2) rotate(5deg);
+      filter: drop-shadow(0 20px 40px rgba(34,87,122,0.4));
+      z-index: 1000;
+    }
+    .floating-element.double-clicked {
+      animation: pulse 0.6s ease-in-out;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.4) rotate(10deg); }
+      100% { transform: scale(1); }
+    }
+    .element-message {
+      display: none;
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translate(-50%, 10px);
+      background: rgba(255,255,255,0.97);
+      color: #2193b0;
+      border-radius: 18px;
+      padding: 16px 22px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      box-shadow: 0 8px 24px 2px rgba(34,87,122,0.18), 0 2px 8px rgba(0,0,0,0.10);
+      white-space: nowrap;
+      min-width: 180px;
+      text-align: center;
+      z-index: 10;
+      animation: fadeIn 0.4s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, 30px); }
+      to { opacity: 1; transform: translate(-50%, 10px); }
+    }
+    .center-box {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 8px 32px 2px rgba(34,87,122,0.13), 0 2px 8px rgba(0,0,0,0.10);
+      border-radius: 32px;
+      padding: 38px 32px 32px 32px;
+      min-width: 320px;
+      max-width: 90vw;
+      width: 400px;
+      max-height: 80vh;
+      overflow-y: auto;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .center-title {
+      font-size: 2.2rem;
+      color: #2193b0;
+      font-weight: 700;
+      margin-bottom: 0;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      flex-shrink: 0;
+      animation: titleGlow 3s ease-in-out infinite alternate;
+    }
+    @keyframes titleGlow {
+      from { text-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+      to { text-shadow: 0 2px 12px rgba(33,147,176,0.3); }
+    }
+    .center-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .center-textarea {
+      padding: 16px;
+      border-radius: 16px;
+      border: none;
+      font-size: 1.08rem;
+      outline: none;
+      width: 100%;
+      min-height: 48px;
+      box-shadow: 0 4px 16px 2px rgba(34,87,122,0.13), 0 1px 4px rgba(0,0,0,0.10);
+      resize: vertical;
+      background: #f7fbfd;
+      color: #111;
+      font-family: 'Indie Flower', cursive;
+      transition: all 0.3s ease;
+    }
+    .center-textarea:focus {
+      box-shadow: 0 8px 24px 2px rgba(34,87,122,0.25), 0 2px 8px rgba(0,0,0,0.15);
+      transform: translateY(-2px);
+    }
+    .center-btn {
+      background: linear-gradient(135deg, #2193b0 0%, #176b8a 100%);
+      color: #fff;
+      border: none;
+      border-radius: 22px;
+      padding: 14px 0;
+      font-size: 1.08rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 24px 2px rgba(34,87,122,0.18), 0 2px 8px rgba(0,0,0,0.10);
+      margin-top: 2px;
+      width: 100%;
+      font-family: 'Indie Flower', cursive;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .center-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    .center-btn:hover::before {
+      left: 100%;
+    }
+    .center-btn:hover {
+      background: linear-gradient(135deg, #176b8a 0%, #0d3c53 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px 2px rgba(34,87,122,0.25), 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .center-btn:active {
+      transform: translateY(0);
+    }
+    .center-btn.loading {
+      background: linear-gradient(135deg, #6dd5ed 0%, #2193b0 100%);
+      pointer-events: none;
+    }
+    .center-answer {
+      margin-top: 8px;
+      font-size: 1.1rem;
+      color: #1a237e;
+      background: linear-gradient(135deg, #e3f6fd 0%, #b2ebf2 100%);
+      border-radius: 14px;
+      min-height: 32px;
+      max-height: 60vh;
+      overflow-y: auto;
+      font-weight: 500;
+      text-align: left;
+      transition: all 0.3s ease;
+      padding: 15px 12px;
+      line-height: 1.6;
+      word-wrap: break-word;
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      white-space: pre-wrap;
+      border: 1px solid rgba(33,147,176,0.1);
+      animation: answerFadeIn 0.5s ease;
+    }
+    @keyframes answerFadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .footer {
+      position: fixed;
+      bottom: 18px;
+      left: 0;
+      width: 100vw;
+      color: #fff;
+      font-size: 1rem;
+      opacity: 0.7;
+      text-align: center;
+      z-index: 100;
+      pointer-events: none;
+    }
+    @media (max-width: 600px) {
+      .center-box {
+        min-width: 90vw;
+        width: 98vw;
+        padding: 18px 2vw 18px 2vw;
+        border-radius: 16px;
+        max-height: 85vh;
+        top: 45%;
+      }
+      .center-title {
+        font-size: 1.2rem;
+      }
+      .center-answer {
+        font-size: 1rem;
+        max-height: 35vh;
+        padding: 8px 6px;
+      }
+      .share-bar {
+        gap: 12px;
+        padding: 6px 0;
+      }
+      .share-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1.5rem;
+      }
+      .center-textarea {
+        font-size: 1rem;
+        padding: 12px;
+      }
+      .center-btn {
+        font-size: 1rem;
+        padding: 12px 0;
+      }
+      /* Mobil emoji iyileştirmeleri */
+      .floating-element {
+        font-size: 2rem;
+        min-width: 60px;
+        min-height: 60px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .floating-element:active {
+        transform: scale(0.95);
+        filter: drop-shadow(0 4px 12px rgba(34,87,122,0.3));
+      }
+      .element-message {
+        font-size: 0.9rem;
+        padding: 12px 16px;
+        min-width: 150px;
+        max-width: 80vw;
+        white-space: normal;
+        text-align: center;
+      }
+    }
+    @media (max-height: 600px) {
+      .center-box {
+        max-height: 90vh;
+        top: 50%;
+        padding: 20px 32px 20px 32px;
+      }
+      .center-title {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+      }
+      .center-answer {
+        max-height: 30vh;
+        font-size: 1rem;
+      }
+    }
+    /* Mobil dokunma iyileştirmeleri */
+    @media (hover: none) and (pointer: coarse) {
+      .floating-element {
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+      }
+      .floating-element:hover {
+        transform: none;
+      }
+      .floating-element:active {
+        transform: scale(0.9);
+        filter: drop-shadow(0 8px 16px rgba(34,87,122,0.4));
+      }
+      .floating-element.touching {
+        transform: scale(0.85);
+        filter: drop-shadow(0 12px 24px rgba(34,87,122,0.5));
+      }
+      .share-btn:hover {
+        transform: none;
+      }
+      .share-btn:active {
+        transform: scale(0.9);
+        background: #b2ebf2;
+      }
+      .center-btn:hover {
+        transform: none;
+      }
+      .center-btn:active {
+        transform: translateY(1px);
+        box-shadow: 0 4px 12px 2px rgba(34,87,122,0.15), 0 2px 4px rgba(0,0,0,0.10);
+      }
+    }
+    
+    /* Mobil cihaz için özel ayarlar */
+    .mobile-device .floating-element {
+      font-size: 2.2rem;
+      min-width: 55px;
+      min-height: 55px;
+    }
+    
+    .mobile-device .center-box {
+      padding: 20px 16px 16px 16px;
+    }
+    
+    .mobile-device .center-title {
+      font-size: 1.1rem;
+      line-height: 1.3;
+    }
+    
+    .mobile-device .center-textarea {
+      font-size: 0.95rem;
+      padding: 10px;
+      min-height: 44px;
+    }
+    
+    .mobile-device .center-btn {
+      font-size: 0.95rem;
+      padding: 10px 0;
+    }
+    
+    .mobile-device .center-answer {
+      font-size: 0.9rem;
+      padding: 10px 8px;
+      line-height: 1.5;
+    }
+    
+    .mobile-device .share-btn {
+      width: 36px;
+      height: 36px;
+      font-size: 1.4rem;
+    }
+    
+    .mobile-device .share-bar {
+      gap: 10px;
+      padding: 4px 0;
+    }
+    
+    /* iOS Safari için özel ayarlar */
+    @supports (-webkit-touch-callout: none) {
+      .floating-element {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+      
+      .center-box {
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      .center-answer {
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+    /* Paylaşım butonları sabit ve gerçek sembollerle */
+    .share-bar {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      margin-top: 10px;
+      width: 100%;
+      flex-shrink: 0;
+      position: sticky;
+      bottom: 0;
+      background: rgba(255,255,255,0.95);
+      padding: 8px 0;
+      border-radius: 0 0 32px 32px;
+      backdrop-filter: blur(10px);
+    }
+    .share-btn {
+      background: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      box-shadow: 0 2px 8px rgba(34,87,122,0.13);
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+    .share-btn:hover {
+      background: #e3f6fd;
+      transform: scale(1.12) rotate(-6deg);
+      box-shadow: 0 4px 16px rgba(34,87,122,0.2);
+    }
+    .share-btn:active {
+      background: #b2ebf2;
+      transform: scale(1.08);
+    }
+    .share-btn .icon {
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Tooltip */
+    .share-btn .tooltip {
+      visibility: hidden;
+      opacity: 0;
+      width: max-content;
+      background: #2193b0;
+      color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      padding: 4px 10px;
+      position: absolute;
+      z-index: 1002;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .share-btn:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+    /* Konfeti efekti */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: #f0f;
+      animation: confetti-fall 3s linear forwards;
+      z-index: 1000;
+    }
+    @keyframes confetti-fall {
+      0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+    /* Progress bar */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #2193b0, #6dd5ed);
+      z-index: 1001;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  <div id="elements-container"></div>
+  <div class="center-box">
+    <div class="center-title">Sen yaz, birlikte manifestleyelim</div>
+    <form class="center-form" id="centerForm">
+      <textarea class="center-textarea" id="centerInput" placeholder="Buraya kendi duygu, düşünce veya sorunu yazabilirsin..."></textarea>
+      <button type="submit" class="center-btn" id="manifestBtn">Manifestle</button>
+    </form>
+    <div class="center-answer" id="centerAnswer"></div>
+    <div class="share-bar">
+      <button class="share-btn" id="shareX" title="X (Twitter)">
+        <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#000" d="M17.53 6.47L12 12l5.53 5.53-1.06 1.06L12 13.06l-5.47 5.53-1.06-1.06L10.94 12 5.41 6.47l1.06-1.06L12 10.94l5.47-5.53z"/></svg></span>
+        <span class="tooltip">X'te paylaş</span>
+      </button>
+      <button class="share-btn" id="shareWhatsapp" title="WhatsApp">
+        <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#25D366" d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l4.93-1.36A9.96 9.96 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.61 0-3.13-.39-4.45-1.08l-.32-.17-2.93.81.81-2.93-.17-.32A7.96 7.96 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.29-6.1c-.23-.12-1.36-.67-1.57-.75-.21-.08-.36-.12-.51.12-.15.23-.58.75-.71.9-.13.15-.26.17-.49.06-.23-.12-.97-.36-1.85-1.15-.68-.6-1.14-1.34-1.28-1.57-.13-.23-.01-.35.1-.47.1-.1.23-.26.34-.39.11-.13.15-.23.23-.38.08-.15.04-.29-.02-.41-.06-.12-.51-1.23-.7-1.68-.18-.44-.37-.38-.51-.39-.13-.01-.29-.01-.45-.01-.15 0-.39.06-.6.29-.21.23-.8.78-.8 1.9 0 1.12.82 2.2.93 2.35.12.15 1.61 2.46 3.91 3.35.55.19.98.3 1.31.38.55.14 1.05.12 1.45.07.44-.07 1.36-.56 1.55-1.1.19-.54.19-1 .13-1.1-.06-.1-.21-.16-.44-.28z"/></svg></span>
+        <span class="tooltip">WhatsApp'ta paylaş</span>
+      </button>
+      <button class="share-btn" id="shareInsta" title="Instagram Story">
+        <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24"><radialGradient id="ig" cx="0.5" cy="0.5" r="0.7"><stop offset="0%" stop-color="#f9ce34"/><stop offset="45%" stop-color="#ee2a7b"/><stop offset="100%" stop-color="#6228d7"/></radialGradient><circle cx="12" cy="12" r="10" fill="url(#ig)"/><rect x="7" y="7" width="10" height="10" rx="5" fill="#fff"/><circle cx="17" cy="7" r="1.5" fill="#fff"/></svg></span>
+        <span class="tooltip">Story at</span>
+      </button>
+      <button class="share-btn" id="shareCopy" title="Kopyala">
+        <span class="icon">📋</span>
+        <span class="tooltip">Kopyala</span>
+      </button>
+    </div>
+  </div>
+  <div class="footer">© Günün Manifestosu</div>
+  
+  <!-- Google Analytics (isteğe bağlı) -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+  -->
+  
+  <!-- Google Ads (isteğe bağlı) -->
+  <!--
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script>
+  -->
+  
+  <!-- Google Adsense Reklam Alanı (isteğe bağlı) -->
+  <!--
+  <div style="position: fixed; top: 10px; right: 10px; z-index: 1000; background: rgba(255,255,255,0.9); padding: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+         data-ad-slot="YOUR_AD_SLOT"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  -->
+  <audio id="bgMusic" src="melody.mp3" loop></audio>
+  <audio id="emojiSound" src="pop.mp3" preload="auto"></audio>
+  <audio id="emojiClickSound" src="../ses dosyaları/bubble-pop-06-351337.mp3" preload="auto"></audio>
+  <audio id="successSound" src="success.mp3" preload="auto"></audio>
+  <script>
+    // Motivasyon ve manifest cümleleri
+    const manifestMessages = [
+      "En kısa sürede hayallerime en sağlıklı ve mutlu şekilde ulaşacağım.",
+      "Hayatımda sevgi, huzur ve bolluk sürekli artıyor.",
+      "Her yeni gün bana umut, şans ve güzellik getiriyor.",
+      "Kendimi ve başkalarını koşulsuzca kabul ediyorum.",
+      "Her anımda şükredecek bir neden buluyorum.",
+      "İç huzurum ve sağlığım her geçen gün güçleniyor.",
+      "Hayat bana en güzel sürprizleri sunuyor.",
+      "Kendime ve yoluma güveniyorum.",
+      "Her zorluk bana güç ve bilgelik katıyor.",
+      "Hayallerim bana kolaylıkla ve sağlıkla geliyor.",
+      "Kendimi olduğum gibi seviyor ve onaylıyorum.",
+      "Her günüm bir öncekinden daha iyi geçiyor.",
+      "Bolluk, bereket ve mutluluk hayatımda akıyor.",
+      "Kendime ve başkalarına nazik davranıyorum.",
+      "Her nefeste huzur buluyorum.",
+      "Hayatımda mucizelere yer açıyorum.",
+      "Her şeyin en iyisi beni bulur.",
+      "İçimdeki ışıkla çevremi aydınlatıyorum.",
+      "Her anın tadını çıkarıyorum.",
+      "Kendime yeni fırsatlar yaratıyorum.",
+      "Sevgiyle çevriliyim ve sevgiyle yaşıyorum.",
+      "Her gün yeni bir umutla başlıyor.",
+      "Hayatın akışına güveniyorum.",
+      "Sağlık, huzur ve mutluluk benimle.",
+      "Kendimi affediyor ve özgürleşiyorum.",
+      "Her şeyin bir zamanı var, sabırlıyım.",
+      "Güçlü ve kararlıyım.",
+      "Hayatımda denge ve uyum var.",
+      "Her günüm sevgiyle dolu.",
+      "Kendime değer veriyorum ve kendimi önemsiyorum.",
+      "Hayat bana her zaman yeni fırsatlar sunar.",
+      "Kendimi geliştirmek için her gün bir adım atıyorum.",
+      "Hayatımda güzelliklere yer açıyorum.",
+      "Kendime ve başkalarına ilham veriyorum.",
+      "Her günüm sevgi, neşe ve huzurla dolu.",
+      "Kendimi ve hayatıma giren herkesi sevgiyle kucaklıyorum."
+    ];
+
+    // Yüzen elementler oluştur (yıldız, kalp, güneş, ay sembolleri)
+    const elementCount = 12;
+    const elementsContainer = document.getElementById('elements-container');
+    const usedMessages = [];
+    const symbols = [
+      '⭐', '💫', '✨', '🌟', '💖', '🌙', '☀️', '🌈',
+      '🦋', '🍀', '🌸', '🌻', '🍃', '🎈', '🎉', '🌺',
+      '🌞', '🧸', '🎵', '🎶', '🌼', '🍂', '🦜', '🦩',
+      '🍎', '🍉', '🍓', '🍒', '🍊', '🍋', '🍇', '🥝',
+      '🥑', '🥥', '🥕', '🌽', '🥦', '🥬', '🥒', '🍄',
+      '🍔', '🍟', '🍕', '🍩', '🍪', '🍰', '🍦', '🍭',
+      '🎂', '🍫', '🍬', '🍯', '🍵', '☕', '🥤', '🧃',
+      '🧋', '🥛', '🍼', '💎', '🔮', '🎀', '🎁', '🎊',
+      '🎠', '🎡', '🎢', '🎨', '🎤', '🎧', '🎹', '🎷',
+      '🎺', '🎸', '🥁', '🎻', '🏆', '🏅', '🥇', '🥈',
+      '🥉', '🏵️', '🎗️', '🎫', '🎟️', '🎬', '🎮', '🎲',
+      '🧩', '🧸', '🪁', '🪀', '🛼', '🛹', '🛴', '🚲',
+      '🛵', '🚗', '🚕', '🚙', '🚌', '🚎', '🚑', '🚒',
+      '🚚', '🚛', '🚁', '✈️', '🛩️', '🚀', '🛸', '🪐',
+      '🌍', '🌎', '🌏', '🌕', '🌖', '🌗', '🌘', '🌑',
+      '🌒', '🌓', '🌔', '🌙', '⭐', '🌟', '✨', '💫',
+      '💖', '💗', '💓', '💞', '💕', '💝', '💟', '❣️',
+      '💌', '🕊️', '🦋', '🌸', '🌼', '🌻', '🌺', '🌹',
+      '🌷', '🌱', '🌿', '🍀', '🍃'
+    ];
+    // Emoji bölgelerini ekranın görünür alanına göre ayarla
+    const elementZones = [
+      {left: 5, top: 10, width: 20, height: 20},   // sol üst
+      {left: 75, top: 10, width: 20, height: 20},  // sağ üst
+      {left: 5, top: 70, width: 20, height: 20},   // sol alt
+      {left: 75, top: 70, width: 20, height: 20},  // sağ alt
+      {left: 35, top: 5, width: 30, height: 10},   // üst kenar
+      {left: 35, top: 85, width: 30, height: 10},  // alt kenar
+      {left: 10, top: 35, width: 10, height: 30},  // sol kenar
+      {left: 80, top: 35, width: 10, height: 30},  // sağ kenar
+      {left: 25, top: 25, width: 15, height: 15},  // orta sol üst
+      {left: 60, top: 25, width: 15, height: 15},  // orta sağ üst
+      {left: 25, top: 60, width: 15, height: 15},  // orta sol alt
+      {left: 60, top: 60, width: 15, height: 15}   // orta sağ alt
+    ];
+    
+    function getRandomMessage() {
+      if (usedMessages.length === manifestMessages.length) usedMessages.length = 0;
+      let msg;
+      do {
+        msg = manifestMessages[Math.floor(Math.random() * manifestMessages.length)];
+      } while (usedMessages.includes(msg) && usedMessages.length < manifestMessages.length);
+      usedMessages.push(msg);
+      return msg;
+    }
+    
+    // Elementlerin ortadaki kutuya çarpmaması için bölgeler
+    // const elementZones = [
+    //   {left: 4, top: 8, width: 18, height: 18},   // sol üst
+    //   {left: 78, top: 8, width: 18, height: 18},  // sağ üst
+    //   {left: 4, top: 74, width: 18, height: 18},  // sol alt
+    //   {left: 78, top: 74, width: 18, height: 18}, // sağ alt
+    //   {left: 35, top: 2, width: 30, height: 10},  // üst kenar
+    //   {left: 35, top: 88, width: 30, height: 10}, // alt kenar
+    //   {left: 2, top: 35, width: 10, height: 30},  // sol kenar
+    //   {left: 88, top: 35, width: 10, height: 30}  // sağ kenar
+    // ];
+    
+    for (let i = 0; i < elementCount; i++) {
+      const element = document.createElement('div');
+      element.className = 'floating-element';
+      const size = Math.random() * 30 + 50; // 50-80px
+      element.style.width = size + 'px';
+      element.style.height = size + 'px';
+      
+      // Bölge seç ve elementi oraya yerleştir
+      const zone = elementZones[i % elementZones.length];
+      const left = zone.left + Math.random() * (zone.width - 8);
+      const top = zone.top + Math.random() * (zone.height - 8);
+      element.style.left = left + 'vw';
+      element.style.top = top + 'vh';
+      
+      // Sembol seç
+      const symbol = symbols[i % symbols.length];
+      element.innerHTML = symbol + `<div class="element-message"></div>`;
+      elementsContainer.appendChild(element);
+      
+      // Element mesajı
+      let msg = getRandomMessage();
+      if (i === 0) msg = "bugünkü hayatım dünün hayalleriydi";
+      if (i === 1) msg = "benim hayatım başkalarının hayalleri olabilir";
+      const msgDiv = element.querySelector('.element-message');
+      
+      // Sürükle-bırak özelliği (mouse)
+      let dragTarget = null;
+      let isDragging = false;
+      let startX, startY, startLeft, startTop;
+      // Mouse events
+      element.addEventListener('mousedown', function(e) {
+        dragTarget = element;
+        isDragging = true;
+        element.classList.add('dragging');
+        startX = e.clientX;
+        startY = e.clientY;
+        startLeft = parseFloat(element.style.left);
+        startTop = parseFloat(element.style.top);
+        e.preventDefault();
+      });
+      document.addEventListener('mousemove', function(e) {
+        if (isDragging && dragTarget === element) {
+          const deltaX = e.clientX - startX;
+          const deltaY = e.clientY - startY;
+          const newLeft = startLeft + (deltaX / window.innerWidth) * 100;
+          const newTop = startTop + (deltaY / window.innerHeight) * 100;
+          const maxLeft = 95 - (parseFloat(element.style.width) / window.innerWidth) * 100;
+          const maxTop = 95 - (parseFloat(element.style.height) / window.innerHeight) * 100;
+          element.style.left = Math.max(0, Math.min(maxLeft, newLeft)) + 'vw';
+          element.style.top = Math.max(0, Math.min(maxTop, newTop)) + 'vh';
+        }
+      });
+      document.addEventListener('mouseup', function() {
+        if (isDragging && dragTarget === element) {
+          isDragging = false;
+          dragTarget = null;
+          element.classList.remove('dragging');
+        }
+      });
+      // Touch events for mobile/tablet
+      element.addEventListener('touchstart', function(e) {
+        dragTarget = element;
+        isDragging = true;
+        element.classList.add('dragging');
+        const touch = e.touches[0];
+        startX = touch.clientX;
+        startY = touch.clientY;
+        startLeft = parseFloat(element.style.left);
+        startTop = parseFloat(element.style.top);
+        e.preventDefault();
+      }, {passive:false});
+      document.addEventListener('touchmove', function(e) {
+        if (isDragging && dragTarget === element) {
+          const touch = e.touches[0];
+          const deltaX = touch.clientX - startX;
+          const deltaY = touch.clientY - startY;
+          const newLeft = startLeft + (deltaX / window.innerWidth) * 100;
+          const newTop = startTop + (deltaY / window.innerHeight) * 100;
+          const maxLeft = 95 - (parseFloat(element.style.width) / window.innerWidth) * 100;
+          const maxTop = 95 - (parseFloat(element.style.height) / window.innerHeight) * 100;
+          element.style.left = Math.max(0, Math.min(maxLeft, newLeft)) + 'vw';
+          element.style.top = Math.max(0, Math.min(maxTop, newTop)) + 'vh';
+        }
+      }, {passive:false});
+      document.addEventListener('touchend', function() {
+        if (isDragging && dragTarget === element) {
+          isDragging = false;
+          dragTarget = null;
+          element.classList.remove('dragging');
+        }
+      });
+      
+      // Çift tıklama efekti
+      let clickCount = 0;
+      let clickTimer;
+      
+      element.addEventListener('click', function(e) {
+        if (isDragging) return;
+        
+        clickCount++;
+        if (clickCount === 1) {
+          clickTimer = setTimeout(() => {
+            // Tek tıklama - mesaj göster
+            document.querySelectorAll('.element-message').forEach(el => el.style.display = 'none');
+            msgDiv.textContent = msg;
+            msgDiv.style.display = 'block';
+            clickCount = 0;
+          }, 200);
+        } else {
+          // Çift tıklama - özel efekt
+          clearTimeout(clickTimer);
+          clickCount = 0;
+          element.classList.add('double-clicked');
+          setTimeout(() => {
+            element.classList.remove('double-clicked');
+          }, 600);
+          
+          // Renk değişimi
+          const colors = ['#FFD700', '#FF69B4', '#00CED1', '#FF6347', '#9370DB'];
+          const randomColor = colors[Math.floor(Math.random() * colors.length)];
+          element.style.filter = `drop-shadow(0 8px 24px ${randomColor}40) hue-rotate(${Math.random() * 360}deg)`;
+          
+          // Mesajı gizle
+          msgDiv.style.display = 'none';
+        }
+      });
+      
+      // Mesajı gizle
+      document.body.addEventListener('click', function(e) {
+        if (!element.contains(e.target)) {
+          msgDiv.style.display = 'none';
+        }
+      });
+    }
+    
+    // Daha akıcı ve doğal hareket için orbital ve sinus dalga karışımı
+    function animateElements() {
+      document.querySelectorAll('.floating-element').forEach((element, idx) => {
+        const baseLeft = parseFloat(element.style.left);
+        const baseTop = parseFloat(element.style.top);
+        const ampX = 2 + Math.random() * 2;
+        const ampY = 2 + Math.random() * 2;
+        const speed = 6000 + Math.random() * 6000;
+        const phase = Math.random() * Math.PI * 2;
+        const orbit = 2 + Math.random() * 2;
+        function move() {
+          const now = Date.now();
+          const t = now / speed + phase;
+          // Akıcı orbital ve dalga hareketi
+          element.style.left = (baseLeft + Math.sin(t) * ampX + Math.cos(t * 0.7) * orbit) + 'vw';
+          element.style.top = (baseTop + Math.cos(t * 0.8) * ampY + Math.sin(t * 0.5) * orbit) + 'vh';
+          requestAnimationFrame(move);
+        }
+        move();
+      });
+    }
+    animateElements();
+
+    // Ortadaki kutu: Kullanıcı yazısı ve motivasyon cevabı
+    const centerForm = document.getElementById('centerForm');
+    const centerInput = document.getElementById('centerInput');
+    const centerAnswer = document.getElementById('centerAnswer');
+    const centerBtn = document.getElementById('manifestBtn');
+    const progressBar = document.getElementById('progressBar');
+    const successSound = document.getElementById('successSound');
+
+    // Konfeti efekti
+    function createConfetti() {
+      const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3', '#54a0ff'];
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDelay = Math.random() * 3 + 's';
+        document.body.appendChild(confetti);
+        
+        setTimeout(() => {
+          confetti.remove();
+        }, 3000);
+      }
+    }
+
+    // Progress bar animasyonu
+    function startProgress() {
+      progressBar.style.width = '0%';
+      let width = 0;
+      const interval = setInterval(() => {
+        if (width >= 90) {
+          clearInterval(interval);
+        } else {
+          width += Math.random() * 15;
+          progressBar.style.width = width + '%';
+        }
+      }, 200);
+      return interval;
+    }
+
+    function completeProgress() {
+      progressBar.style.width = '100%';
+      setTimeout(() => {
+        progressBar.style.width = '0%';
+      }, 500);
+    }
+
+    centerForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      if (centerInput.value.trim().length === 0) {
+        centerAnswer.textContent = 'Lütfen bir şeyler yazın.';
+        centerAnswer.style.color = '#b71c1c';
+        return;
+      }
+      
+      // Loading durumu
+      centerBtn.disabled = true;
+      centerBtn.textContent = 'Manifestleniyor...';
+      centerBtn.classList.add('loading');
+      centerAnswer.textContent = '';
+      
+      // Progress bar başlat
+      const progressInterval = startProgress();
+      
+      try {
+        const response = await fetch('http://localhost:3002/api/manifest', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userMessage: centerInput.value })
+        });
+        const data = await response.json();
+        
+        // Progress bar tamamla
+        clearInterval(progressInterval);
+        completeProgress();
+        
+        if (data.answer) {
+          centerAnswer.textContent = data.answer;
+          centerAnswer.style.color = '#1a237e';
+          
+          // Başarı efektleri
+          createConfetti();
+          successSound.currentTime = 0;
+          successSound.play().catch(e => console.log('Ses çalınamadı'));
+          
+          // Başarı animasyonu
+          centerAnswer.style.animation = 'none';
+          centerAnswer.offsetHeight; // Reflow
+          centerAnswer.style.animation = 'answerFadeIn 0.5s ease';
+          
+        } else {
+          centerAnswer.textContent = 'Bir şeyler ters gitti. Lütfen tekrar deneyin veya daha sonra tekrar şansınızı deneyin.';
+          centerAnswer.style.color = '#b71c1c';
+        }
+      } catch (err) {
+        centerAnswer.textContent = 'Bağlantı kurulamadı. Lütfen internetinizi ve sunucunun açık olduğundan emin olun.';
+        centerAnswer.style.color = '#b71c1c';
+      }
+      
+      // Loading durumunu kaldır
+      centerBtn.disabled = false;
+      centerBtn.textContent = 'Manifestle';
+      centerBtn.classList.remove('loading');
+    });
+
+    // Otomatik başlat (bazı tarayıcılarda kullanıcı etkileşimi gerekebilir)
+    window.addEventListener('DOMContentLoaded', function() {
+      setTimeout(() => {
+        const bgMusic = document.getElementById('bgMusic');
+        bgMusic.play();
+      }, 500);
+    });
+
+    // --- PAYLAŞIM MENÜSÜ JS ---
+    // Paylaşım butonları fonksiyonları
+    document.getElementById('shareX').onclick = function() {
+      const url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(centerAnswer.textContent.trim());
+      window.open(url, '_blank');
+      document.getElementById('emojiSound').currentTime = 0; document.getElementById('emojiSound').play();
+    };
+    document.getElementById('shareWhatsapp').onclick = function() {
+      const url = 'https://wa.me/?text=' + encodeURIComponent(centerAnswer.textContent.trim());
+      window.open(url, '_blank');
+      document.getElementById('emojiSound').currentTime = 0; document.getElementById('emojiSound').play();
+    };
+    document.getElementById('shareInsta').onclick = function() {
+      // Instagram doğrudan metin paylaşımı desteklemez, kopyala önerisi
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(centerAnswer.textContent.trim());
+        alert('Instagram hikaye/metin paylaşımı için metin panoya kopyalandı!');
+      }
+      document.getElementById('emojiSound').currentTime = 0; document.getElementById('emojiSound').play();
+    };
+    document.getElementById('shareCopy').onclick = function() {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(centerAnswer.textContent.trim());
+      }
+      document.getElementById('emojiSound').currentTime = 0; document.getElementById('emojiSound').play();
+    };
+    // Web Share API desteği (mobilde)
+    if (navigator.share) {
+      [document.getElementById('shareX'), document.getElementById('shareWhatsapp'), document.getElementById('shareInsta'), document.getElementById('shareCopy')].forEach(btn => {
+        btn.addEventListener('dblclick', function() {
+          navigator.share({ text: centerAnswer.textContent.trim() });
+          document.getElementById('emojiSound').currentTime = 0; document.getElementById('emojiSound').play();
+        });
+      });
+    }
+
+    // --- EMOJİLERE SES EFEKTİ ---
+    function playEmojiClickSound() {
+      const audio = document.getElementById('emojiClickSound');
+      audio.currentTime = 0;
+      audio.play();
+    }
+    // Tüm emojilere tıklama ve dokunma olayında sesi oynat
+    function addEmojiSoundEvents() {
+      document.querySelectorAll('.floating-element').forEach(element => {
+        // Mouse events
+        element.addEventListener('mousedown', playEmojiClickSound);
+        
+        // Touch events (mobil için)
+        element.addEventListener('touchstart', function(e) {
+          playEmojiClickSound();
+          // Haptic feedback (vibrasyon)
+          if (navigator.vibrate) {
+            navigator.vibrate(50);
+          }
+          e.preventDefault();
+        }, { passive: false });
+        
+        // Mobil için özel dokunma efekti
+        element.addEventListener('touchstart', function() {
+          element.style.transform = 'scale(0.9)';
+        });
+        
+        element.addEventListener('touchend', function() {
+          element.style.transform = '';
+        });
+      });
+    }
+    // Sayfa yüklendiğinde ses olaylarını bağla
+    window.addEventListener('DOMContentLoaded', addEmojiSoundEvents);
+    
+    // Mobil için ek dokunma iyileştirmeleri
+    if ('ontouchstart' in window) {
+      // Mobil cihaz tespiti
+      document.body.classList.add('mobile-device');
+      
+      // Emoji dokunma olaylarını iyileştir
+      document.querySelectorAll('.floating-element').forEach(element => {
+        let touchStartTime;
+        let touchEndTime;
+        
+        element.addEventListener('touchstart', function(e) {
+          touchStartTime = new Date().getTime();
+          element.classList.add('touching');
+        });
+        
+        element.addEventListener('touchend', function(e) {
+          touchEndTime = new Date().getTime();
+          const touchDuration = touchEndTime - touchStartTime;
+          
+          // Kısa dokunma (tıklama)
+          if (touchDuration < 200) {
+            // Tek tıklama - mesaj göster
+            const msgDiv = element.querySelector('.element-message');
+            if (msgDiv) {
+              document.querySelectorAll('.element-message').forEach(el => el.style.display = 'none');
+              msgDiv.style.display = 'block';
+              playEmojiClickSound();
+            }
+          }
+          
+          // Uzun dokunma (paylaşım menüsü)
+          if (touchDuration > 600) {
+            const text = element.textContent.trim();
+            if (text) {
+              // Mobil paylaşım API'si
+              if (navigator.share) {
+                navigator.share({ text: text });
+              } else {
+                // Fallback: kopyala
+                navigator.clipboard.writeText(text);
+                alert('Emoji kopyalandı!');
+              }
+              playEmojiClickSound();
+            }
+          }
+          
+          element.classList.remove('touching');
+        });
+        
+        // Dokunma iptali
+        element.addEventListener('touchcancel', function() {
+          element.classList.remove('touching');
+        });
+      });
+    }
+  </script>
+</body>
+</html> 
