@@ -911,7 +911,7 @@
       const progressInterval = startProgress();
       
       try {
-        const response = await fetch('https://maniwebst-backend-production.up.railway.app/api/manifest', {
+        const response = await fetch('https://maniwebst.com/api/manifest', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ userMessage: centerInput.value })
