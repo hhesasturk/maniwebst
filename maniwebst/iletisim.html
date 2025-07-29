@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İletişim - Manifest | Günün Manifestosu</title>
+  <meta name="description" content="Manifest.com ile iletişime geçin. Sorularınız, önerileriniz ve geri bildirimleriniz için biz buradayız.">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Indie+Flower&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: 'Indie Flower', cursive;
+      background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      color: #fff;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    .content {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 30px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .content h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .content h3 {
+      font-size: 1.5rem;
+      margin: 25px 0 15px 0;
+      color: #fff;
+    }
+    .content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    .contact-item {
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .contact-item:hover {
+      transform: translateY(-5px);
+    }
+    .contact-item h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    .contact-item p {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    .contact-item a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+    .faq {
+      background: rgba(255,255,255,0.15);
+      border-radius: 15px;
+      padding: 25px;
+      margin: 20px 0;
+      border-left: 4px solid #fff;
+    }
+    .back-btn {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .back-btn:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px 15px;
+      }
+      .header h1 {
+        font-size: 2rem;
+      }
+      .content h2 {
+        font-size: 1.5rem;
+      }
+      .contact-info {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📞 İletişim</h1>
+      <p>Bizimle iletişime geçin</p>
+    </div>
+
+    <div class="content">
+      <h2>💌 Bizimle İletişime Geçin</h2>
+      <p>Manifest.com ile ilgili herhangi bir sorunuz, öneriniz veya geri bildiriminiz varsa, bizimle iletişime geçebilirsiniz. Size en kısa sürede dönüş yapacağız.</p>
+    </div>
+
+    <div class="content">
+      <h2>📧 İletişim Bilgileri</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <h3>📧 E-posta</h3>
+          <p><a href="mailto:maniwebst@gmail.com">maniwebst@gmail.com</a></p>
+          <p>En hızlı yanıt için e-posta gönderin</p>
+        </div>
+        <div class="contact-item">
+          <h3>⏰ Yanıt Süresi</h3>
+          <p>24-48 saat içinde</p>
+          <p>Hafta içi daha hızlı</p>
+        </div>
+        <div class="contact-item">
+          <h3>🌍 Çalışma Saatleri</h3>
+          <p>Pazartesi - Cuma</p>
+          <p>09:00 - 18:00 (GMT+3)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <h2>❓ Sık Sorulan Sorular</h2>
+      
+      <div class="faq">
+        <h3>🤖 Manifest özelliği nasıl çalışır?</h3>
+        <p>Yapay zeka destekli sistemimiz, yazdığınız metni analiz ederek size özel motivasyon ve manifest yanıtları oluşturur. Bu yanıtlar pozitif düşünce ve manifest felsefesine dayalıdır.</p>
+      </div>
+
+      <div class="faq">
+        <h3>🔒 Verilerim güvende mi?</h3>
+        <p>Evet, kişisel verileriniz güvende. Manifest özelliğinde yazdığınız metinler sunucularımızda saklanmaz ve işlem tamamlandıktan sonra silinir. Detaylı bilgi için gizlilik politikamızı inceleyebilirsiniz.</p>
+      </div>
+
+      <div class="faq">
+        <h3>📱 Mobil uyumlu mu?</h3>
+        <p>Evet, web sitemiz tüm cihazlarda mükemmel çalışır. Telefon, tablet ve bilgisayarınızdan rahatlıkla kullanabilirsiniz.</p>
+      </div>
+
+      <div class="faq">
+        <h3>💡 Önerilerinizi nasıl iletebilirim?</h3>
+        <p>Önerilerinizi maniwebst@gmail.com adresine gönderebilirsiniz. Her öneri dikkatle değerlendirilir ve uygun görülenler uygulamaya alınır.</p>
+      </div>
+    </div>
+
+    <div class="content">
+      <h2>🚀 Geri Bildirim</h2>
+      <p>Manifest.com'u daha iyi hale getirmek için geri bildirimleriniz çok değerli. Aşağıdaki konularda görüşlerinizi paylaşabilirsiniz:</p>
+      <ul>
+        <li>Site tasarımı ve kullanıcı deneyimi</li>
+        <li>Yeni özellik önerileri</li>
+        <li>Manifest yanıtlarının kalitesi</li>
+        <li>Teknik sorunlar</li>
+        <li>Genel iyileştirme önerileri</li>
+      </ul>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="index.html" class="back-btn">🏠 Ana Sayfaya Dön</a>
+    </div>
+  </div>
+</body>
+</html> 
