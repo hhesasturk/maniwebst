@@ -637,18 +637,22 @@ image.png<!DOCTYPE html>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1811756065125179" crossorigin="anonymous"></script>
   
   <!-- Google AdSense Reklam Alanları -->
-      <!-- Üst Banner Reklam -->
-    <div class="desktop-ad ad-container" style="position: fixed; top: 10px; left: 50%; transform: translateX(-50%); z-index: 50; background: rgba(255,255,255,0.95); padding: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 728px; width: 100%;">
+          <!-- Üst Banner Reklam - Açılır/Kapanır -->
+    <div class="desktop-ad ad-container" id="topAd" style="position: fixed; top: -100px; left: 50%; transform: translateX(-50%); z-index: 50; background: rgba(255,255,255,0.95); padding: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 728px; width: 100%; transition: top 0.5s ease;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+        <span style="font-size: 12px; color: #666;">Reklam</span>
+        <button onclick="toggleAd()" style="background: none; border: none; color: #999; cursor: pointer; font-size: 16px;">×</button>
+      </div>
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="ca-pub-1811756065125179"
            data-ad-slot="XXXXXXXXXX"
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
   
       <!-- Sağ Kenar Reklam -->
     <div class="desktop-ad ad-container" style="position: fixed; top: 50%; right: 10px; transform: translateY(-50%); z-index: 50; background: rgba(255,255,255,0.95); padding: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
@@ -1202,6 +1206,30 @@ image.png<!DOCTYPE html>
     }
     // Sayfa yüklendiğinde ses olaylarını bağla
     window.addEventListener('DOMContentLoaded', addEmojiSoundEvents);
+    
+    // Reklam açılır/kapanır fonksiyonu
+    function toggleAd() {
+      const ad = document.getElementById('topAd');
+      if (ad.style.top === '10px' || ad.style.top === '') {
+        ad.style.top = '-100px';
+        localStorage.setItem('adClosed', 'true');
+      } else {
+        ad.style.top = '10px';
+        localStorage.setItem('adClosed', 'false');
+      }
+    }
+    
+    // Sayfa yüklendiğinde reklam durumunu kontrol et
+    window.addEventListener('DOMContentLoaded', function() {
+      const ad = document.getElementById('topAd');
+      const adClosed = localStorage.getItem('adClosed');
+      
+      if (adClosed !== 'true') {
+        setTimeout(() => {
+          ad.style.top = '10px';
+        }, 2000); // 2 saniye sonra reklamı göster
+      }
+    });
     
     // Mobil için ek dokunma iyileştirmeleri
     if ('ontouchstart' in window) {
