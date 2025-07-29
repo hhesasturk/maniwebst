@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+image.png<!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
@@ -448,6 +448,30 @@
         -webkit-overflow-scrolling: touch;
       }
     }
+    
+    /* Reklam alanları için özel stiller */
+    .ad-container {
+      transition: all 0.3s ease;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .ad-container:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    
+    /* Reklam yükleme animasyonu */
+    .ad-loading {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+    
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
     /* Paylaşım butonları sabit ve gerçek sembollerle */
     .share-bar {
       display: flex;
@@ -589,36 +613,103 @@
     </div>
   </div>
   
-  <!-- Google Analytics (isteğe bağlı) -->
-  <!--
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'GA_MEASUREMENT_ID');
+    gtag('config', 'G-XXXXXXXXXX');
   </script>
-  -->
   
-  <!-- Google Ads (isteğe bağlı) -->
-  <!--
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script>
-  -->
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
   
-  <!-- Google Adsense Reklam Alanı (isteğe bağlı) -->
-  <!--
-  <div style="position: fixed; top: 10px; right: 10px; z-index: 1000; background: rgba(255,255,255,0.9); padding: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  <!-- Google AdSense Reklam Alanları -->
+  <!-- Üst Banner Reklam -->
+  <div class="desktop-ad ad-container" style="position: fixed; top: 10px; left: 50%; transform: translateX(-50%); z-index: 1000; background: rgba(255,255,255,0.95); padding: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 728px; width: 100%;">
     <ins class="adsbygoogle"
          style="display:block"
-         data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
-         data-ad-slot="YOUR_AD_SLOT"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
     <script>
          (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </div>
-  -->
+  
+  <!-- Sağ Kenar Reklam -->
+  <div class="desktop-ad ad-container" style="position: fixed; top: 50%; right: 10px; transform: translateY(-50%); z-index: 1000; background: rgba(255,255,255,0.95); padding: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  
+  <!-- Alt Banner Reklam -->
+  <div class="desktop-ad ad-container" style="position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); z-index: 1000; background: rgba(255,255,255,0.95); padding: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 728px; width: 100%;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  
+  <!-- Mobil Reklam Alanları -->
+  <style>
+    @media (max-width: 768px) {
+      .desktop-ad {
+        display: none !important;
+      }
+      .mobile-ad {
+        display: block !important;
+      }
+    }
+    @media (min-width: 769px) {
+      .mobile-ad {
+        display: none !important;
+      }
+      .desktop-ad {
+        display: block !important;
+      }
+    }
+  </style>
+  
+  <!-- Mobil Üst Reklam -->
+  <div class="mobile-ad ad-container" style="position: fixed; top: 10px; left: 10px; right: 10px; z-index: 1000; background: rgba(255,255,255,0.95); padding: 8px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  
+  <!-- Mobil Alt Reklam -->
+  <div class="mobile-ad ad-container" style="position: fixed; bottom: 80px; left: 10px; right: 10px; z-index: 1000; background: rgba(255,255,255,0.95); padding: 8px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
   <audio id="bgMusic" src="melody.mp3" loop></audio>
   <audio id="emojiSound" src="pop.mp3" preload="auto"></audio>
   <audio id="emojiClickSound" src="../ses dosyaları/bubble-pop-06-351337.mp3" preload="auto"></audio>
