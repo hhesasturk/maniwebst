@@ -389,8 +389,12 @@ image.png<!DOCTYPE html>
         padding: 18px 2vw 18px 2vw;
         border-radius: 16px;
         max-height: 85vh;
-        top: 45%;
+        top: 50%;
+        transform: translateY(-50%);
         z-index: 5;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
       }
       .center-title {
         font-size: 1.2rem;
@@ -439,6 +443,13 @@ image.png<!DOCTYPE html>
         white-space: normal;
         text-align: center;
         z-index: 15;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        font-weight: 500;
+        line-height: 1.4;
       }
     }
     @media (max-height: 600px) {
@@ -1032,20 +1043,20 @@ image.png<!DOCTYPE html>
       {left: 60, top: 60, width: 15, height: 15}   // orta sağ alt
     ];
     
-    // Mobil için emoji bölgelerini daha da sınırla - merkez alanından uzak tut
+    // Mobil için emoji bölgelerini yukarıda ve aşağıda konumlandır
     const mobileElementZones = [
-      {left: 2, top: 5, width: 12, height: 12},     // sol üst köşe
-      {left: 86, top: 5, width: 12, height: 12},    // sağ üst köşe
-      {left: 2, top: 83, width: 12, height: 12},    // sol alt köşe
-      {left: 86, top: 83, width: 12, height: 12},   // sağ alt köşe
-      {left: 5, top: 40, width: 10, height: 15},    // sol orta
-      {left: 85, top: 40, width: 10, height: 15},   // sağ orta
-      {left: 40, top: 5, width: 15, height: 10},    // üst orta
-      {left: 40, top: 85, width: 15, height: 10},   // alt orta
-      {left: 15, top: 15, width: 10, height: 10},   // sol üst iç
-      {left: 75, top: 15, width: 10, height: 10},   // sağ üst iç
-      {left: 15, top: 75, width: 10, height: 10},   // sol alt iç
-      {left: 75, top: 75, width: 10, height: 10}    // sağ alt iç
+      {left: 5, top: 5, width: 15, height: 15},     // sol üst
+      {left: 80, top: 5, width: 15, height: 15},    // sağ üst
+      {left: 25, top: 8, width: 12, height: 12},    // üst orta sol
+      {left: 63, top: 8, width: 12, height: 12},    // üst orta sağ
+      {left: 42, top: 3, width: 16, height: 12},    // üst merkez
+      {left: 5, top: 80, width: 15, height: 15},    // sol alt
+      {left: 80, top: 80, width: 15, height: 15},   // sağ alt
+      {left: 25, top: 80, width: 12, height: 12},   // alt orta sol
+      {left: 63, top: 80, width: 12, height: 12},   // alt orta sağ
+      {left: 42, top: 85, width: 16, height: 12},   // alt merkez
+      {left: 15, top: 12, width: 10, height: 10},   // üst iç sol
+      {left: 75, top: 12, width: 10, height: 10}    // üst iç sağ
     ];
     
     function getRandomMessage() {
