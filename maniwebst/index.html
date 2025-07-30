@@ -383,137 +383,54 @@ image.png<!DOCTYPE html>
       }
     }
     @media (max-width: 600px) {
-      body {
-        padding: 0;
-        margin: 0;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      }
-      
-      .container {
-        padding-top: 80px;
-        padding-bottom: 20px;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-      
       .center-box {
-        width: 95%;
-        max-width: 400px;
-        padding: 25px 20px;
-        margin: 10px auto;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(15px);
-        border-radius: 20px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-        position: relative;
-        z-index: 100;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        max-height: 80vh;
-        overflow-y: auto;
-      }
-      
-      .center-title {
-        font-size: 1.8rem;
-        margin-bottom: 20px;
-        text-align: center;
-        color: #2c3e50;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        line-height: 1.3;
-      }
-      
-      .center-textarea {
-        width: 100%;
-        min-height: 100px;
-        font-size: 16px;
-        padding: 15px;
-        margin-bottom: 20px;
-        border: 2px solid #e8f4fd;
-        border-radius: 15px;
-        background: rgba(255, 255, 255, 0.9);
-        transition: all 0.3s ease;
-        resize: none;
-        font-family: 'Indie Flower', cursive;
-        color: #2c3e50;
-      }
-      
-      .center-textarea:focus {
-        outline: none;
-        border-color: #3498db;
-        box-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
-        transform: translateY(-2px);
-      }
-      
-      .center-btn {
-        width: 100%;
-        padding: 15px;
-        font-size: 18px;
-        margin-bottom: 20px;
-        border-radius: 15px;
-        background: linear-gradient(135deg, #3498db, #2980b9);
-        border: none;
-        color: white;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-        font-family: 'Indie Flower', cursive;
-      }
-      
-      .center-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
-      }
-      
-      .center-btn:active {
-        transform: translateY(0);
-      }
-      
-      .center-answer {
-        width: 100%;
-        min-height: 120px;
-        font-size: 15px;
-        padding: 20px;
-        margin-top: 20px;
-        border-radius: 15px;
-        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-        border-left: 4px solid #3498db;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        color: #2c3e50;
-        line-height: 1.6;
-        max-height: 40vh;
-        overflow-y: auto;
-      }
-      
-      .floating-element {
-        font-size: 1.8rem;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
+        min-width: 90vw;
+        width: 98vw;
+        padding: 18px 2vw 18px 2vw;
+        border-radius: 16px;
+        max-height: 85vh;
+        top: 45%;
         z-index: 5;
+      }
+      .center-title {
+        font-size: 1.2rem;
+      }
+      .center-answer {
+        font-size: 1rem;
+        max-height: 35vh;
+        padding: 8px 6px;
+      }
+      .share-bar {
+        gap: 12px;
+        padding: 6px 0;
+      }
+      .share-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1.5rem;
+      }
+      .center-textarea {
+        font-size: 1rem;
+        padding: 12px;
+        min-height: 80px; /* Yazma alanını biraz daha rahat yap */
+      }
+      .center-btn {
+        font-size: 1rem;
+        padding: 12px 0;
+      }
+      /* Mobil emoji iyileştirmeleri */
+      .floating-element {
+        font-size: 2rem;
+        min-width: 60px;
+        min-height: 60px;
         touch-action: manipulation;
         -webkit-tap-highlight-color: transparent;
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        z-index: 10;
       }
-      
-      .floating-element:hover {
-        transform: scale(1.1);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-      }
-      
       .floating-element:active {
         transform: scale(0.95);
         filter: drop-shadow(0 4px 12px rgba(34,87,122,0.3));
       }
-      
       .element-message {
         font-size: 0.9rem;
         padding: 12px 16px;
@@ -522,39 +439,6 @@ image.png<!DOCTYPE html>
         white-space: normal;
         text-align: center;
         z-index: 15;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      }
-      
-      .share-bar {
-        gap: 15px;
-        padding: 10px 0;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-radius: 15px;
-        margin-top: 15px;
-      }
-      
-      .share-btn {
-        width: 45px;
-        height: 45px;
-        font-size: 1.6rem;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #3498db, #2980b9);
-        color: white;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-      }
-      
-      .share-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
-      }
-      
-      .share-btn:active {
-        transform: scale(0.95);
       }
     }
     @media (max-height: 600px) {
@@ -609,25 +493,18 @@ image.png<!DOCTYPE html>
     
     /* Mobil cihaz için özel ayarlar */
     .mobile-device .floating-element {
-      font-size: 1.8rem;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-      z-index: 5;
+      font-size: 2.2rem;
+      min-width: 55px;
+      min-height: 55px;
+      /* Mobilde emojilerin yazma alanını etkilememesi için */
       pointer-events: auto;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      z-index: 5;
     }
     
     /* Mobilde emojilerin merkez kutu alanını etkilememesi */
     .mobile-device .center-box {
       z-index: 100;
       position: relative;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(15px);
     }
     
     /* Mobilde emojilerin yazma alanı üzerinde olmaması */
@@ -641,21 +518,12 @@ image.png<!DOCTYPE html>
       .floating-element {
         /* Emojilerin merkez kutu alanından uzak durması */
         z-index: 5;
-        /* Emojilerin ekranın kenarlarında kalması için */
-        position: fixed;
       }
       
       .center-box {
         z-index: 100;
         position: relative;
         background: rgba(255,255,255,0.95);
-        backdrop-filter: blur(15px);
-      }
-      
-      /* Emojilerin merkez alanından uzak durması için */
-      .floating-element {
-        /* Ekranın %20'si içinde kalmayacak şekilde */
-        min-distance: 20%;
       }
     }
     
