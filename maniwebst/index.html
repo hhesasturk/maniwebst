@@ -1279,7 +1279,9 @@
         setTimeout(() => {
           if (!isDragging) {
             document.querySelectorAll('.element-message').forEach(el => el.style.display = 'none');
-            msgDiv.textContent = msg;
+            // Güncel dildeki mesajı al
+            const currentMsg = element.dataset.message || getRandomMessage();
+            msgDiv.textContent = currentMsg;
             msgDiv.style.display = 'block';
             playEmojiClickSound();
           }
@@ -1328,7 +1330,8 @@
           clickTimer = setTimeout(() => {
                       // Tek tıklama - mesaj göster
           document.querySelectorAll('.element-message').forEach(el => el.style.display = 'none');
-          const currentMsg = element.dataset.message || msg;
+          // Güncel dildeki mesajı al
+          const currentMsg = element.dataset.message || getRandomMessage();
           msgDiv.textContent = currentMsg;
           msgDiv.style.display = 'block';
           
@@ -1400,7 +1403,8 @@
           clickTimer = setTimeout(() => {
                       // Tek tıklama - mesaj göster
           document.querySelectorAll('.element-message').forEach(el => el.style.display = 'none');
-          const currentMsg = element.dataset.message || msg;
+          // Güncel dildeki mesajı al
+          const currentMsg = element.dataset.message || getRandomMessage();
           msgDiv.textContent = currentMsg;
           msgDiv.style.display = 'block';
           
