@@ -3,7 +3,7 @@ image.png<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manifest - Günün Manifestosu | Motivasyon ve Hayal Gücü</title>
+  <title data-tr="Manifest - Günün Manifestosu | Motivasyon ve Hayal Gücü" data-en="Manifest - Daily Manifesto | Motivation and Imagination">Manifest - Günün Manifestosu | Motivasyon ve Hayal Gücü</title>
   <meta name="description" content="Manifest felsefesi ile hayallerinizi gerçeğe dönüştürün. Motivasyon, pozitif düşünce ve manifest teknikleri ile hedeflerinize ulaşın.">
   <meta name="keywords" content="manifest, motivasyon, pozitif düşünce, hayal gücü, hedef belirleme, başarı, günün manifestosu">
   <meta name="author" content="Günün Manifestosu">
@@ -292,6 +292,64 @@ image.png<!DOCTYPE html>
       font-size: 0.8rem;
       opacity: 0.7;
     }
+    
+    /* Language Switcher Styles */
+    .language-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 25px;
+      padding: 8px 16px;
+      box-shadow: 0 4px 16px rgba(34, 87, 122, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .language-switcher:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(34, 87, 122, 0.25);
+    }
+    
+    .language-btn {
+      background: none;
+      border: none;
+      padding: 6px 12px;
+      margin: 0 2px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: 'Indie Flower', cursive;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      color: #2193b0;
+    }
+    
+    .language-btn.active {
+      background: linear-gradient(135deg, #2193b0 0%, #176b8a 100%);
+      color: white;
+      box-shadow: 0 2px 8px rgba(34, 87, 122, 0.2);
+    }
+    
+    .language-btn:hover:not(.active) {
+      background: rgba(33, 147, 176, 0.1);
+      transform: scale(1.05);
+    }
+    
+    @media (max-width: 600px) {
+      .language-switcher {
+        top: 10px;
+        right: 10px;
+        padding: 6px 12px;
+      }
+      
+      .language-btn {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+      }
+    }
     @media (max-width: 600px) {
       .center-box {
         min-width: 90vw;
@@ -405,6 +463,35 @@ image.png<!DOCTYPE html>
       font-size: 2.2rem;
       min-width: 55px;
       min-height: 55px;
+      /* Mobilde emojilerin yazma alanını etkilememesi için */
+      pointer-events: auto;
+      z-index: 5;
+    }
+    
+    /* Mobilde emojilerin merkez kutu alanını etkilememesi */
+    .mobile-device .center-box {
+      z-index: 100;
+      position: relative;
+    }
+    
+    /* Mobilde emojilerin yazma alanı üzerinde olmaması */
+    .mobile-device .floating-element {
+      /* Emojilerin merkez kutu alanında olmamasını sağla */
+      pointer-events: auto;
+    }
+    
+    /* Mobilde emoji bölgelerini daha da sınırla */
+    @media (max-width: 600px) {
+      .floating-element {
+        /* Emojilerin merkez kutu alanından uzak durması */
+        z-index: 5;
+      }
+      
+      .center-box {
+        z-index: 100;
+        position: relative;
+        background: rgba(255,255,255,0.95);
+      }
     }
     
     .mobile-device .center-box {
@@ -561,44 +648,48 @@ image.png<!DOCTYPE html>
   </style>
 </head>
 <body>
+  <div class="language-switcher">
+    <button class="language-btn active" data-lang="tr">TR</button>
+    <button class="language-btn" data-lang="en">EN</button>
+  </div>
   <div class="progress-bar" id="progressBar"></div>
   <div id="elements-container"></div>
   <div class="center-box">
-    <div class="center-title">Sen yaz, birlikte manifestleyelim</div>
+    <div class="center-title" data-tr="Sen yaz, birlikte manifestleyelim" data-en="You write, let's manifest together">Sen yaz, birlikte manifestleyelim</div>
     <form class="center-form" id="centerForm">
-      <textarea class="center-textarea" id="centerInput" placeholder="Buraya kendi duygu, düşünce veya sorunu yazabilirsin..."></textarea>
-      <button type="submit" class="center-btn" id="manifestBtn">Manifestle</button>
+      <textarea class="center-textarea" id="centerInput" data-tr-placeholder="Buraya kendi duygu, düşünce veya sorunu yazabilirsin..." data-en-placeholder="Write your feelings, thoughts, or concerns here..." placeholder="Buraya kendi duygu, düşünce veya sorunu yazabilirsin..."></textarea>
+              <button type="submit" class="center-btn" id="manifestBtn" data-tr="Manifestle" data-en="Manifest">Manifestle</button>
     </form>
     <div class="center-answer" id="centerAnswer"></div>
     <div class="share-bar">
       <button class="share-btn" id="shareX" title="X (Twitter)">
         <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#000" d="M17.53 6.47L12 12l5.53 5.53-1.06 1.06L12 13.06l-5.47 5.53-1.06-1.06L10.94 12 5.41 6.47l1.06-1.06L12 10.94l5.47-5.53z"/></svg></span>
-        <span class="tooltip">X'te paylaş</span>
+        <span class="tooltip" data-tr="X'te paylaş" data-en="Share on X">X'te paylaş</span>
       </button>
       <button class="share-btn" id="shareWhatsapp" title="WhatsApp">
         <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#25D366" d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l4.93-1.36A9.96 9.96 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.61 0-3.13-.39-4.45-1.08l-.32-.17-2.93.81.81-2.93-.17-.32A7.96 7.96 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.29-6.1c-.23-.12-1.36-.67-1.57-.75-.21-.08-.36-.12-.51.12-.15.23-.58.75-.71.9-.13.15-.26.17-.49.06-.23-.12-.97-.36-1.85-1.15-.68-.6-1.14-1.34-1.28-1.57-.13-.23-.01-.35.1-.47.1-.1.23-.26.34-.39.11-.13.15-.23.23-.38.08-.15.04-.29-.02-.41-.06-.12-.51-1.23-.7-1.68-.18-.44-.37-.38-.51-.39-.13-.01-.29-.01-.45-.01-.15 0-.39.06-.6.29-.21.23-.8.78-.8 1.9 0 1.12.82 2.2.93 2.35.12.15 1.61 2.46 3.91 3.35.55.19.98.3 1.31.38.55.14 1.05.12 1.45.07.44-.07 1.36-.56 1.55-1.1.19-.54.19-1 .13-1.1-.06-.1-.21-.16-.44-.28z"/></svg></span>
-        <span class="tooltip">WhatsApp'ta paylaş</span>
+        <span class="tooltip" data-tr="WhatsApp'ta paylaş" data-en="Share on WhatsApp">WhatsApp'ta paylaş</span>
       </button>
       <button class="share-btn" id="shareInsta" title="Instagram Story">
         <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24"><radialGradient id="ig" cx="0.5" cy="0.5" r="0.7"><stop offset="0%" stop-color="#f9ce34"/><stop offset="45%" stop-color="#ee2a7b"/><stop offset="100%" stop-color="#6228d7"/></radialGradient><circle cx="12" cy="12" r="10" fill="url(#ig)"/><rect x="7" y="7" width="10" height="10" rx="5" fill="#fff"/><circle cx="17" cy="7" r="1.5" fill="#fff"/></svg></span>
-        <span class="tooltip">Story at</span>
+        <span class="tooltip" data-tr="Story at" data-en="Share Story">Story at</span>
       </button>
       <button class="share-btn" id="shareCopy" title="Kopyala">
         <span class="icon">📋</span>
-        <span class="tooltip">Kopyala</span>
+        <span class="tooltip" data-tr="Kopyala" data-en="Copy">Kopyala</span>
       </button>
     </div>
   </div>
   <div class="footer">
     <div class="footer-content">
       <div class="footer-links">
-        <a href="hakkimizda.html">Hakkımızda</a>
-        <a href="gizlilik-politikasi.html">Gizlilik Politikası</a>
-        <a href="iletisim.html">İletişim</a>
+        <a href="hakkimizda.html" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a>
+        <a href="gizlilik-politikasi.html" data-tr="Gizlilik Politikası" data-en="Privacy Policy">Gizlilik Politikası</a>
+        <a href="iletisim.html" data-tr="İletişim" data-en="Contact">İletişim</a>
       </div>
-      <div class="footer-copyright">
-        © 2025 Günün Manifestosu - maniwebst@gmail.com
-      </div>
+              <div class="footer-copyright" data-tr="© 2025 Günün Manifestosu - maniwebst@gmail.com" data-en="© 2025 Daily Manifesto - maniwebst@gmail.com">
+          © 2025 Günün Manifestosu - maniwebst@gmail.com
+        </div>
     </div>
   </div>
   
@@ -620,8 +711,204 @@ image.png<!DOCTYPE html>
   <audio id="emojiClickSound" src="../ses dosyaları/bubble-pop-06-351337.mp3" preload="auto"></audio>
   <audio id="successSound" src="success.mp3" preload="auto"></audio>
   <script>
-    // Motivasyon ve manifest cümleleri
-    const manifestMessages = [
+    // Language Management
+    let currentLanguage = 'tr';
+    
+    // Language translations
+    const translations = {
+      tr: {
+        title: "Manifest - Günün Manifestosu | Motivasyon ve Hayal Gücü",
+        description: "Manifest felsefesi ile hayallerinizi gerçeğe dönüştürün. Motivasyon, pozitif düşünce ve manifest teknikleri ile hedeflerinize ulaşın.",
+        keywords: "manifest, motivasyon, pozitif düşünce, hayal gücü, hedef belirleme, başarı, günün manifestosu",
+        ogTitle: "Manifest - Günün Manifestosu",
+        ogDescription: "Hayallerinizi gerçeğe dönüştürün. Manifest felsefesi ile motivasyon ve başarı.",
+        twitterTitle: "Manifest - Günün Manifestosu",
+        twitterDescription: "Hayallerinizi gerçeğe dönüştürün. Manifest felsefesi ile motivasyon ve başarı.",
+        centerTitle: "Sen yaz, birlikte manifestleyelim",
+        placeholder: "Buraya kendi duygu, düşünce veya sorunu yazabilirsin...",
+        manifestBtn: "Manifestle",
+        aboutUs: "Hakkımızda",
+        privacyPolicy: "Gizlilik Politikası",
+        contact: "İletişim",
+        copyright: "© 2025 Günün Manifestosu - maniwebst@gmail.com",
+        shareX: "X'te paylaş",
+        shareWhatsapp: "WhatsApp'ta paylaş",
+        shareStory: "Story at",
+        copy: "Kopyala",
+        errorMessages: {
+          emptyInput: "Lütfen bir şeyler yazın.",
+          serverError: "Sunucuya bağlanılamıyor. Lütfen daha sonra tekrar deneyin.",
+          corsError: "CORS hatası. Lütfen farklı bir tarayıcı deneyin.",
+          generalError: "Bir hata oluştu. Lütfen internetinizi kontrol edin ve tekrar deneyin.",
+          loading: "Manifestleniyor...",
+          clipboardSuccess: "Instagram hikaye/metin paylaşımı için metin panoya kopyalandı!",
+          emojiCopied: "Emoji kopyalandı!"
+        }
+      },
+      en: {
+        title: "Manifest - Daily Manifesto | Motivation and Imagination",
+        description: "Transform your dreams into reality with manifest philosophy. Reach your goals with motivation, positive thinking, and manifest techniques.",
+        keywords: "manifest, motivation, positive thinking, imagination, goal setting, success, daily manifesto",
+        ogTitle: "Manifest - Daily Manifesto",
+        ogDescription: "Transform your dreams into reality. Motivation and success with manifest philosophy.",
+        twitterTitle: "Manifest - Daily Manifesto",
+        twitterDescription: "Transform your dreams into reality. Motivation and success with manifest philosophy.",
+        centerTitle: "You write, let's manifest together",
+        placeholder: "Write your feelings, thoughts, or concerns here...",
+        manifestBtn: "Manifest",
+        aboutUs: "About Us",
+        privacyPolicy: "Privacy Policy",
+        contact: "Contact",
+        copyright: "© 2025 Daily Manifesto - maniwebst@gmail.com",
+        shareX: "Share on X",
+        shareWhatsapp: "Share on WhatsApp",
+        shareStory: "Share Story",
+        copy: "Copy",
+        errorMessages: {
+          emptyInput: "Please write something.",
+          serverError: "Cannot connect to server. Please try again later.",
+          corsError: "CORS error. Please try a different browser.",
+          generalError: "An error occurred. Please check your internet connection and try again.",
+          loading: "Manifesting...",
+          clipboardSuccess: "Text copied to clipboard for Instagram story/text sharing!",
+          emojiCopied: "Emoji copied!"
+        }
+      }
+    };
+
+    // English manifest messages
+    const manifestMessagesEn = [
+      "I will reach my dreams in the healthiest and happiest way in the shortest time possible.",
+      "Love, peace, and abundance are constantly increasing in my life.",
+      "Each new day brings me hope, luck, and beauty.",
+      "I accept myself and others unconditionally.",
+      "I find a reason to be grateful in every moment.",
+      "My inner peace and health strengthen every day.",
+      "Life offers me the most beautiful surprises.",
+      "I trust myself and my path.",
+      "Every difficulty adds strength and wisdom to me.",
+      "My dreams come to me easily and healthily.",
+      "I love and approve of myself as I am.",
+      "Each day passes better than the previous one.",
+      "Abundance, prosperity, and happiness flow in my life.",
+      "I am kind to myself and others.",
+      "I find peace in every breath.",
+      "I make room for miracles in my life.",
+      "The best of everything finds me.",
+      "I illuminate my surroundings with the light within me.",
+      "I enjoy every moment.",
+      "I create new opportunities for myself.",
+      "I am surrounded by love and I live with love.",
+      "Each day starts with new hope.",
+      "I trust the flow of life.",
+      "Health, peace, and happiness are with me.",
+      "I forgive myself and become free.",
+      "Everything has its time, I am patient.",
+      "I am strong and determined.",
+      "There is balance and harmony in my life.",
+      "Every day is filled with love.",
+      "I value myself and care about myself.",
+      "Life always offers me new opportunities.",
+      "I take a step every day to improve myself.",
+      "I make room for beauty in my life.",
+      "I inspire myself and others.",
+      "Every day is filled with love, joy, and peace.",
+      "I embrace myself and everyone who enters my life with love."
+    ];
+
+    // Language switcher functionality
+    function switchLanguage(lang) {
+      currentLanguage = lang;
+      
+      // Update language buttons
+      document.querySelectorAll('.language-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) {
+          btn.classList.add('active');
+        }
+      });
+      
+      // Update page title
+      document.title = translations[lang].title;
+      
+      // Update meta tags
+      document.querySelector('meta[name="description"]').setAttribute('content', translations[lang].description);
+      document.querySelector('meta[name="keywords"]').setAttribute('content', translations[lang].keywords);
+      document.querySelector('meta[property="og:title"]').setAttribute('content', translations[lang].ogTitle);
+      document.querySelector('meta[property="og:description"]').setAttribute('content', translations[lang].ogDescription);
+      document.querySelector('meta[name="twitter:title"]').setAttribute('content', translations[lang].twitterTitle);
+      document.querySelector('meta[name="twitter:description"]').setAttribute('content', translations[lang].twitterDescription);
+      
+      // Update HTML lang attribute
+      document.documentElement.lang = lang;
+      
+      // Update all elements with data attributes
+      document.querySelectorAll('[data-tr], [data-en]').forEach(element => {
+        if (element.dataset[lang]) {
+          element.textContent = element.dataset[lang];
+        }
+      });
+      
+             // Update placeholders
+       document.querySelectorAll('[data-tr-placeholder], [data-en-placeholder]').forEach(element => {
+         if (element.dataset[lang + '-placeholder']) {
+           element.placeholder = element.dataset[lang + '-placeholder'];
+         }
+       });
+       
+       // Update textarea placeholder specifically
+       const textarea = document.getElementById('centerInput');
+       if (textarea) {
+         if (lang === 'tr') {
+           textarea.placeholder = "Buraya kendi duygu, düşünce veya sorunu yazabilirsin...";
+         } else {
+           textarea.placeholder = "Write your feelings, thoughts, or concerns here...";
+         }
+       }
+      
+             // Update manifest messages
+       if (lang === 'en') {
+         manifestMessages.length = 0;
+         manifestMessages.push(...manifestMessagesEn);
+       } else {
+         manifestMessages.length = 0;
+         manifestMessages.push(...manifestMessagesTr);
+       }
+       
+       // Update emoji messages for existing elements
+       document.querySelectorAll('.floating-element').forEach((element, index) => {
+         const msgDiv = element.querySelector('.element-message');
+         if (msgDiv) {
+           let newMsg = getRandomMessage();
+           if (index === 0) newMsg = lang === 'tr' ? "bugünkü hayatım dünün hayalleriydi" : "today's life was yesterday's dreams";
+           if (index === 1) newMsg = lang === 'tr' ? "benim hayatım başkalarının hayalleri olabilir" : "my life might be someone else's dreams";
+           // Update the stored message for this element
+           element.dataset.message = newMsg;
+         }
+       });
+      
+      // Save language preference
+      localStorage.setItem('preferredLanguage', lang);
+    }
+    
+    // Initialize language switcher
+    document.addEventListener('DOMContentLoaded', function() {
+      // Load saved language preference
+      const savedLang = localStorage.getItem('preferredLanguage');
+      if (savedLang && (savedLang === 'tr' || savedLang === 'en')) {
+        switchLanguage(savedLang);
+      }
+      
+      // Add click handlers to language buttons
+      document.querySelectorAll('.language-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          switchLanguage(this.dataset.lang);
+        });
+      });
+    });
+
+    // Turkish manifest messages
+    const manifestMessagesTr = [
       "En kısa sürede hayallerime en sağlıklı ve mutlu şekilde ulaşacağım.",
       "Hayatımda sevgi, huzur ve bolluk sürekli artıyor.",
       "Her yeni gün bana umut, şans ve güzellik getiriyor.",
@@ -659,6 +946,9 @@ image.png<!DOCTYPE html>
       "Her günüm sevgi, neşe ve huzurla dolu.",
       "Kendimi ve hayatıma giren herkesi sevgiyle kucaklıyorum."
     ];
+
+    // Motivasyon ve manifest cümleleri
+    const manifestMessages = [...manifestMessagesTr];
 
     // Yüzen elementler oluştur (yıldız, kalp, güneş, ay sembolleri)
     const elementCount = 12;
@@ -701,6 +991,22 @@ image.png<!DOCTYPE html>
       {left: 60, top: 60, width: 15, height: 15}   // orta sağ alt
     ];
     
+    // Mobil için emoji bölgelerini daha da sınırla
+    const mobileElementZones = [
+      {left: 2, top: 8, width: 15, height: 15},    // sol üst
+      {left: 83, top: 8, width: 15, height: 15},   // sağ üst
+      {left: 2, top: 77, width: 15, height: 15},   // sol alt
+      {left: 83, top: 77, width: 15, height: 15},  // sağ alt
+      {left: 40, top: 2, width: 20, height: 8},    // üst kenar
+      {left: 40, top: 90, width: 20, height: 8},   // alt kenar
+      {left: 2, top: 40, width: 8, height: 20},    // sol kenar
+      {left: 90, top: 40, width: 8, height: 20},   // sağ kenar
+      {left: 15, top: 20, width: 12, height: 12},  // orta sol üst
+      {left: 73, top: 20, width: 12, height: 12},  // orta sağ üst
+      {left: 15, top: 68, width: 12, height: 12},  // orta sol alt
+      {left: 73, top: 68, width: 12, height: 12}   // orta sağ alt
+    ];
+    
     function getRandomMessage() {
       if (usedMessages.length === manifestMessages.length) usedMessages.length = 0;
       let msg;
@@ -731,7 +1037,9 @@ image.png<!DOCTYPE html>
       element.style.height = size + 'px';
       
       // Bölge seç ve elementi oraya yerleştir
-      const zone = elementZones[i % elementZones.length];
+      const isMobile = window.innerWidth <= 600;
+      const zones = isMobile ? mobileElementZones : elementZones;
+      const zone = zones[i % zones.length];
       const left = zone.left + Math.random() * (zone.width - 8);
       const top = zone.top + Math.random() * (zone.height - 8);
       element.style.left = left + 'vw';
@@ -742,10 +1050,60 @@ image.png<!DOCTYPE html>
       element.innerHTML = symbol + `<div class="element-message"></div>`;
       elementsContainer.appendChild(element);
       
-      // Element mesajı
+      // Element mesajı - dil desteği ile
       let msg = getRandomMessage();
-      if (i === 0) msg = "bugünkü hayatım dünün hayalleriydi";
-      if (i === 1) msg = "benim hayatım başkalarının hayalleri olabilir";
+      if (i === 0) msg = currentLanguage === 'tr' ? "bugünkü hayatım dünün hayalleriydi" : "today's life was yesterday's dreams";
+      if (i === 1) msg = currentLanguage === 'tr' ? "benim hayatım başkalarının hayalleri olabilir" : "my life might be someone else's dreams";
+      
+      // Mesajı dil desteği ile güncelle
+      const updateMessage = () => {
+        if (currentLanguage === 'en') {
+          const englishMessages = [
+            "I will reach my dreams in the healthiest and happiest way in the shortest time possible.",
+            "Love, peace, and abundance are constantly increasing in my life.",
+            "Each new day brings me hope, luck, and beauty.",
+            "I accept myself and others unconditionally.",
+            "I find a reason to be grateful in every moment.",
+            "My inner peace and health strengthen every day.",
+            "Life offers me the most beautiful surprises.",
+            "I trust myself and my path.",
+            "Every difficulty adds strength and wisdom to me.",
+            "My dreams come to me easily and healthily.",
+            "I love and approve of myself as I am.",
+            "Each day passes better than the previous one.",
+            "Abundance, prosperity, and happiness flow in my life.",
+            "I am kind to myself and others.",
+            "I find peace in every breath.",
+            "I make room for miracles in my life.",
+            "The best of everything finds me.",
+            "I illuminate my surroundings with the light within me.",
+            "I enjoy every moment.",
+            "I create new opportunities for myself.",
+            "I am surrounded by love and I live with love.",
+            "Each day starts with new hope.",
+            "I trust the flow of life.",
+            "Health, peace, and happiness are with me.",
+            "I forgive myself and become free.",
+            "Everything has its time, I am patient.",
+            "I am strong and determined.",
+            "There is balance and harmony in my life.",
+            "Every day is filled with love.",
+            "I value myself and care about myself.",
+            "Life always offers me new opportunities.",
+            "I take a step every day to improve myself.",
+            "I make room for beauty in my life.",
+            "I inspire myself and others.",
+            "Every day is filled with love, joy, and peace.",
+            "I embrace myself and everyone who enters my life with love."
+          ];
+          return englishMessages[Math.floor(Math.random() * englishMessages.length)];
+        } else {
+          return getRandomMessage();
+        }
+      };
+      
+      // Mesajı güncelle
+      msg = updateMessage();
       const msgDiv = element.querySelector('.element-message');
       
       // Sürükle-bırak özelliği (mouse)
@@ -850,11 +1208,12 @@ image.png<!DOCTYPE html>
         clickCount++;
         if (clickCount === 1) {
           clickTimer = setTimeout(() => {
-            // Tek tıklama - mesaj göster
-            document.querySelectorAll('.element-message').forEach(el => el.style.display = 'none');
-            msgDiv.textContent = msg;
-            msgDiv.style.display = 'block';
-            clickCount = 0;
+                      // Tek tıklama - mesaj göster
+          document.querySelectorAll('.element-message').forEach(el => el.style.display = 'none');
+          const currentMsg = element.dataset.message || msg;
+          msgDiv.textContent = currentMsg;
+          msgDiv.style.display = 'block';
+          clickCount = 0;
           }, 200);
         } else {
           // Çift tıklama - özel efekt
@@ -956,14 +1315,14 @@ image.png<!DOCTYPE html>
     centerForm.addEventListener('submit', async function(e) {
       e.preventDefault();
       if (centerInput.value.trim().length === 0) {
-        centerAnswer.textContent = 'Lütfen bir şeyler yazın.';
+        centerAnswer.textContent = translations[currentLanguage].errorMessages.emptyInput;
         centerAnswer.style.color = '#b71c1c';
         return;
       }
       
       // Loading durumu
       centerBtn.disabled = true;
-      centerBtn.textContent = 'Manifestleniyor...';
+      centerBtn.textContent = translations[currentLanguage].errorMessages.loading;
       centerBtn.classList.add('loading');
       centerAnswer.textContent = '';
       
@@ -997,24 +1356,24 @@ image.png<!DOCTYPE html>
           centerAnswer.style.animation = 'answerFadeIn 0.5s ease';
           
         } else {
-          centerAnswer.textContent = 'Bir şeyler ters gitti. Lütfen tekrar deneyin veya daha sonra tekrar şansınızı deneyin.';
+          centerAnswer.textContent = translations[currentLanguage].errorMessages.generalError;
           centerAnswer.style.color = '#b71c1c';
         }
       } catch (err) {
         console.error('API Hatası:', err);
         if (err.name === 'TypeError' && err.message.includes('fetch')) {
-          centerAnswer.textContent = 'Sunucuya bağlanılamıyor. Lütfen daha sonra tekrar deneyin.';
+          centerAnswer.textContent = translations[currentLanguage].errorMessages.serverError;
         } else if (err.message.includes('CORS')) {
-          centerAnswer.textContent = 'CORS hatası. Lütfen farklı bir tarayıcı deneyin.';
+          centerAnswer.textContent = translations[currentLanguage].errorMessages.corsError;
         } else {
-          centerAnswer.textContent = 'Bir hata oluştu. Lütfen internetinizi kontrol edin ve tekrar deneyin.';
+          centerAnswer.textContent = translations[currentLanguage].errorMessages.generalError;
         }
         centerAnswer.style.color = '#b71c1c';
       }
       
       // Loading durumunu kaldır
       centerBtn.disabled = false;
-      centerBtn.textContent = 'Manifestle';
+      centerBtn.textContent = translations[currentLanguage].manifestBtn;
       centerBtn.classList.remove('loading');
     });
 
@@ -1042,7 +1401,7 @@ image.png<!DOCTYPE html>
       // Instagram doğrudan metin paylaşımı desteklemez, kopyala önerisi
       if (navigator.clipboard) {
         navigator.clipboard.writeText(centerAnswer.textContent.trim());
-        alert('Instagram hikaye/metin paylaşımı için metin panoya kopyalandı!');
+        alert(translations[currentLanguage].errorMessages.clipboardSuccess);
       }
       document.getElementById('emojiSound').currentTime = 0; document.getElementById('emojiSound').play();
     };
@@ -1145,7 +1504,7 @@ image.png<!DOCTYPE html>
               } else {
                 // Fallback: kopyala
                 navigator.clipboard.writeText(text);
-                alert('Emoji kopyalandı!');
+                alert(translations[currentLanguage].errorMessages.emojiCopied);
               }
               playEmojiClickSound();
             }

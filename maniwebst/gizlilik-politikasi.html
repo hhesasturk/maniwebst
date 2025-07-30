@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gizlilik Politikası - Manifest | Günün Manifestosu</title>
-  <meta name="description" content="Manifest.com gizlilik politikası. Kişisel verilerinizin nasıl korunduğu ve kullanıldığı hakkında bilgi.">
+  <title data-tr="Gizlilik Politikası - Manifest | Günün Manifestosu" data-en="Privacy Policy - Manifest | Daily Manifesto">Gizlilik Politikası - Manifest | Günün Manifestosu</title>
+  <meta name="description" content="Manifest felsefesi ile hayallerinizi gerçeğe dönüştürün. Motivasyon, pozitif düşünce ve manifest teknikleri ile hedeflerinize ulaşın.">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Indie+Flower&display=swap" rel="stylesheet">
   <style>
     body {
@@ -16,30 +16,94 @@
       background-size: 400% 400%;
       animation: gradientShift 15s ease infinite;
     }
+    
+    /* Language Switcher Styles */
+    .language-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 25px;
+      padding: 8px 16px;
+      box-shadow: 0 4px 16px rgba(34, 87, 122, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .language-switcher:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(34, 87, 122, 0.25);
+    }
+    
+    .language-btn {
+      background: none;
+      border: none;
+      padding: 6px 12px;
+      margin: 0 2px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: 'Indie Flower', cursive;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      color: #2193b0;
+    }
+    
+    .language-btn.active {
+      background: linear-gradient(135deg, #2193b0 0%, #176b8a 100%);
+      color: white;
+      box-shadow: 0 2px 8px rgba(34, 87, 122, 0.2);
+    }
+    
+    .language-btn:hover:not(.active) {
+      background: rgba(33, 147, 176, 0.1);
+      transform: scale(1.05);
+    }
+    
+    @media (max-width: 600px) {
+      .language-switcher {
+        top: 10px;
+        right: 10px;
+        padding: 6px 12px;
+      }
+      
+      .language-btn {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+      }
+    }
+    
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+    
     .container {
       max-width: 800px;
       margin: 0 auto;
       padding: 40px 20px;
       color: #fff;
     }
+    
     .header {
       text-align: center;
       margin-bottom: 40px;
     }
+    
     .header h1 {
       font-size: 3rem;
       margin-bottom: 10px;
       text-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
+    
     .header p {
       font-size: 1.2rem;
       opacity: 0.9;
     }
+    
     .content {
       background: rgba(255,255,255,0.1);
       backdrop-filter: blur(10px);
@@ -48,37 +112,36 @@
       margin-bottom: 30px;
       border: 1px solid rgba(255,255,255,0.2);
     }
+    
     .content h2 {
       font-size: 2rem;
       margin-bottom: 20px;
       color: #fff;
     }
+    
     .content h3 {
       font-size: 1.5rem;
-      margin: 25px 0 15px 0;
+      margin-bottom: 15px;
       color: #fff;
     }
+    
     .content p {
       font-size: 1.1rem;
       line-height: 1.8;
       margin-bottom: 15px;
     }
+    
     .content ul {
-      margin: 15px 0;
-      padding-left: 20px;
-    }
-    .content li {
       font-size: 1.1rem;
       line-height: 1.8;
+      margin-bottom: 15px;
+      padding-left: 20px;
+    }
+    
+    .content li {
       margin-bottom: 8px;
     }
-    .highlight {
-      background: rgba(255,255,255,0.15);
-      border-radius: 10px;
-      padding: 20px;
-      margin: 20px 0;
-      border-left: 4px solid #fff;
-    }
+    
     .back-btn {
       display: inline-block;
       background: rgba(255,255,255,0.2);
@@ -90,10 +153,12 @@
       transition: all 0.3s ease;
       border: 1px solid rgba(255,255,255,0.3);
     }
+    
     .back-btn:hover {
       background: rgba(255,255,255,0.3);
       transform: translateY(-2px);
     }
+    
     @media (max-width: 600px) {
       .container {
         padding: 20px 15px;
@@ -104,111 +169,183 @@
       .content h2 {
         font-size: 1.5rem;
       }
+      .content h3 {
+        font-size: 1.3rem;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="language-switcher">
+    <button class="language-btn active" data-lang="tr">TR</button>
+    <button class="language-btn" data-lang="en">EN</button>
+  </div>
+  
   <div class="container">
     <div class="header">
-      <h1>🔒 Gizlilik Politikası</h1>
-      <p>Kişisel verilerinizin korunması bizim için önemli</p>
+      <h1 data-tr="🔒 Gizlilik Politikası" data-en="🔒 Privacy Policy">🔒 Gizlilik Politikası</h1>
+      <p data-tr="Kişisel verilerinizin güvenliği bizim için önemlidir" data-en="Your personal data security is important to us">Kişisel verilerinizin güvenliği bizim için önemlidir</p>
     </div>
 
     <div class="content">
-      <h2>📋 Genel Bilgiler</h2>
-      <p>Manifest.com olarak, kullanıcılarımızın gizliliğini korumayı taahhüt ediyoruz. Bu gizlilik politikası, web sitemizi ziyaret ettiğinizde toplanan bilgilerin nasıl kullanıldığını açıklar.</p>
-      
-      <div class="highlight">
-        <p><strong>Son güncelleme:</strong> 2024</p>
-        <p><strong>İletişim:</strong> maniwebst@gmail.com</p>
-      </div>
+      <h2 data-tr="📋 Genel Bilgiler" data-en="📋 General Information">📋 Genel Bilgiler</h2>
+      <p data-tr="Bu gizlilik politikası, maniwebst.com web sitesini ziyaret ettiğinizde toplanan bilgilerin nasıl kullanıldığını açıklar. Kişisel verilerinizin güvenliği bizim için çok önemlidir ve bu politikayı okuduktan sonra herhangi bir sorunuz varsa bizimle iletişime geçebilirsiniz." data-en="This privacy policy explains how information collected when you visit maniwebst.com is used. Your personal data security is very important to us, and if you have any questions after reading this policy, you can contact us.">Bu gizlilik politikası, maniwebst.com web sitesini ziyaret ettiğinizde toplanan bilgilerin nasıl kullanıldığını açıklar. Kişisel verilerinizin güvenliği bizim için çok önemlidir ve bu politikayı okuduktan sonra herhangi bir sorunuz varsa bizimle iletişime geçebilirsiniz.</p>
     </div>
 
     <div class="content">
-      <h2>📊 Toplanan Bilgiler</h2>
-      
-      <h3>🤖 Yapay Zeka İşlemleri</h3>
-      <p>Manifest özelliğimizi kullandığınızda, yazdığınız metin OpenAI API'sine gönderilir. Bu veriler:</p>
+      <h2 data-tr="📊 Toplanan Bilgiler" data-en="📊 Collected Information">📊 Toplanan Bilgiler</h2>
+      <h3 data-tr="Kişisel Bilgiler" data-en="Personal Information">Kişisel Bilgiler</h3>
+      <p data-tr="Sitemizi kullanırken aşağıdaki bilgiler toplanabilir:" data-en="The following information may be collected when using our site:">Sitemizi kullanırken aşağıdaki bilgiler toplanabilir:</p>
       <ul>
-        <li>Sadece manifest yanıtı oluşturmak için kullanılır</li>
-        <li>Sunucularımızda saklanmaz</li>
-        <li>Üçüncü taraflarla paylaşılmaz</li>
-        <li>İşlem tamamlandıktan sonra silinir</li>
-      </ul>
-
-      <h3>🌐 Web Sitesi Kullanımı</h3>
-      <p>Web sitemizi ziyaret ettiğinizde aşağıdaki bilgiler otomatik olarak toplanabilir:</p>
-      <ul>
-        <li>IP adresiniz (genel konum bilgisi için)</li>
-        <li>Tarayıcı türü ve sürümü</li>
-        <li>İşletim sistemi</li>
-        <li>Sayfa ziyaret süreleri</li>
-        <li>Tıklanan bağlantılar</li>
+        <li data-tr="Yazdığınız manifest mesajları (sadece size özel yanıt vermek için)" data-en="Manifest messages you write (only to provide you with personalized responses)">Yazdığınız manifest mesajları (sadece size özel yanıt vermek için)</li>
+        <li data-tr="Tarayıcı bilgileri (cihaz türü, işletim sistemi)" data-en="Browser information (device type, operating system)">Tarayıcı bilgileri (cihaz türü, işletim sistemi)</li>
+        <li data-tr="IP adresi (güvenlik amaçlı)" data-en="IP address (for security purposes)">IP adresi (güvenlik amaçlı)</li>
+        <li data-tr="Dil tercihiniz (localStorage'da saklanır)" data-en="Your language preference (stored in localStorage)">Dil tercihiniz (localStorage'da saklanır)</li>
       </ul>
     </div>
 
     <div class="content">
-      <h2>🍪 Çerezler (Cookies)</h2>
-      <p>Web sitemizde çerezler kullanılmaktadır:</p>
-      
-      <h3>📱 Gerekli Çerezler</h3>
+      <h2 data-tr="🔐 Veri Güvenliği" data-en="🔐 Data Security">🔐 Veri Güvenliği</h2>
+      <p data-tr="Kişisel verilerinizi korumak için aşağıdaki güvenlik önlemlerini alıyoruz:" data-en="We take the following security measures to protect your personal data:">Kişisel verilerinizi korumak için aşağıdaki güvenlik önlemlerini alıyoruz:</p>
       <ul>
-        <li>Site fonksiyonlarının düzgün çalışması için</li>
-        <li>Kullanıcı tercihlerini hatırlamak için</li>
-        <li>Güvenlik amaçlı</li>
-      </ul>
-
-      <h3>📊 Analitik Çerezler</h3>
-      <ul>
-        <li>Site kullanım istatistikleri için</li>
-        <li>Performans iyileştirmeleri için</li>
-        <li>Kullanıcı deneyimini geliştirmek için</li>
+        <li data-tr="HTTPS şifreleme ile güvenli veri transferi" data-en="Secure data transfer with HTTPS encryption">HTTPS şifreleme ile güvenli veri transferi</li>
+        <li data-tr="Verilerin şifrelenmiş olarak saklanması" data-en="Data stored in encrypted form">Verilerin şifrelenmiş olarak saklanması</li>
+        <li data-tr="Düzenli güvenlik güncellemeleri" data-en="Regular security updates">Düzenli güvenlik güncellemeleri</li>
+        <li data-tr="Üçüncü taraf erişimine karşı koruma" data-en="Protection against third-party access">Üçüncü taraf erişimine karşı koruma</li>
       </ul>
     </div>
 
     <div class="content">
-      <h2>🔐 Veri Güvenliği</h2>
-      <p>Kişisel verilerinizi korumak için aşağıdaki önlemleri alıyoruz:</p>
+      <h2 data-tr="📧 Veri Kullanımı" data-en="📧 Data Usage">📧 Veri Kullanımı</h2>
+      <p data-tr="Topladığımız bilgileri aşağıdaki amaçlarla kullanırız:" data-en="We use the information we collect for the following purposes:">Topladığımız bilgileri aşağıdaki amaçlarla kullanırız:</p>
       <ul>
-        <li>HTTPS şifreleme protokolü kullanımı</li>
-        <li>Güvenli sunucu altyapısı</li>
-        <li>Düzenli güvenlik güncellemeleri</li>
-        <li>Veri erişim kontrolleri</li>
+        <li data-tr="Size kişiselleştirilmiş manifest yanıtları sunmak" data-en="To provide you with personalized manifest responses">Size kişiselleştirilmiş manifest yanıtları sunmak</li>
+        <li data-tr="Sitemizi iyileştirmek ve geliştirmek" data-en="To improve and develop our site">Sitemizi iyileştirmek ve geliştirmek</li>
+        <li data-tr="Güvenlik ve spam koruması" data-en="Security and spam protection">Güvenlik ve spam koruması</li>
+        <li data-tr="Dil tercihinizi hatırlamak" data-en="To remember your language preference">Dil tercihinizi hatırlamak</li>
       </ul>
     </div>
 
     <div class="content">
-      <h2>📤 Veri Paylaşımı</h2>
-      <p>Kişisel verileriniz aşağıdaki durumlar dışında üçüncü taraflarla paylaşılmaz:</p>
-      <ul>
-        <li>Yasal zorunluluk durumunda</li>
-        <li>Güvenlik tehditlerine karşı koruma için</li>
-        <li>Hizmet sağlayıcılarımızla (sadece gerekli bilgiler)</li>
-      </ul>
+      <h2 data-tr="🚫 Veri Paylaşımı" data-en="🚫 Data Sharing">🚫 Veri Paylaşımı</h2>
+      <p data-tr="Kişisel verilerinizi üçüncü taraflarla paylaşmıyoruz. Sadece yasal zorunluluk durumunda ve sizin açık izninizle veri paylaşımı yapılabilir." data-en="We do not share your personal data with third parties. Data sharing can only be done in case of legal obligation and with your explicit consent.">Kişisel verilerinizi üçüncü taraflarla paylaşmıyoruz. Sadece yasal zorunluluk durumunda ve sizin açık izninizle veri paylaşımı yapılabilir.</p>
     </div>
 
     <div class="content">
-      <h2>👤 Kullanıcı Hakları</h2>
-      <p>KVKK kapsamında aşağıdaki haklara sahipsiniz:</p>
-      <ul>
-        <li>Kişisel verilerinize erişim hakkı</li>
-        <li>Verilerinizin düzeltilmesi hakkı</li>
-        <li>Verilerinizin silinmesi hakkı</li>
-        <li>İşleme kısıtlama hakkı</li>
-        <li>Veri taşınabilirliği hakkı</li>
-      </ul>
+      <h2 data-tr="🍪 Çerezler (Cookies)" data-en="🍪 Cookies">🍪 Çerezler (Cookies)</h2>
+      <p data-tr="Sitemizde çerez kullanımı minimal düzeydedir. Sadece dil tercihinizi hatırlamak için localStorage kullanılır. Bu bilgiler sadece sizin cihazınızda saklanır ve bize gönderilmez." data-en="Cookie usage on our site is minimal. Only localStorage is used to remember your language preference. This information is only stored on your device and is not sent to us.">Sitemizde çerez kullanımı minimal düzeydedir. Sadece dil tercihinizi hatırlamak için localStorage kullanılır. Bu bilgiler sadece sizin cihazınızda saklanır ve bize gönderilmez.</p>
     </div>
 
     <div class="content">
-      <h2>📞 İletişim</h2>
-      <p>Gizlilik politikamız hakkında sorularınız için:</p>
-      <p><strong>E-posta:</strong> maniwebst@gmail.com</p>
-      <p>Size en kısa sürede dönüş yapacağız.</p>
+      <h2 data-tr="📞 İletişim" data-en="📞 Contact">📞 İletişim</h2>
+      <p data-tr="Gizlilik politikamız hakkında herhangi bir sorunuz varsa, lütfen bizimle iletişime geçin:" data-en="If you have any questions about our privacy policy, please contact us:">Gizlilik politikamız hakkında herhangi bir sorunuz varsa, lütfen bizimle iletişime geçin:</p>
+      <p><strong data-tr="E-posta:" data-en="Email:">E-posta:</strong> maniwebst@gmail.com</p>
+      <p data-tr="Size en kısa sürede dönüş yapacağız." data-en="We will get back to you as soon as possible.">Size en kısa sürede dönüş yapacağız.</p>
     </div>
 
     <div style="text-align: center; margin-top: 40px;">
-      <a href="index.html" class="back-btn">🏠 Ana Sayfaya Dön</a>
+      <a href="index.html" class="back-btn" data-tr="🏠 Ana Sayfaya Dön" data-en="🏠 Back to Home">🏠 Ana Sayfaya Dön</a>
     </div>
   </div>
+  
+  <script>
+    // Language Management
+    let currentLanguage = 'tr';
+    
+    // Language translations
+    const translations = {
+      tr: {
+        title: "Gizlilik Politikası - Manifest | Günün Manifestosu",
+        description: "Manifest felsefesi ile hayallerinizi gerçeğe dönüştürün. Motivasyon, pozitif düşünce ve manifest teknikleri ile hedeflerinize ulaşın.",
+        privacyPolicy: "🔒 Gizlilik Politikası",
+        subtitle: "Kişisel verilerinizin güvenliği bizim için önemlidir",
+        generalInfo: "📋 Genel Bilgiler",
+        generalInfoText: "Bu gizlilik politikası, maniwebst.com web sitesini ziyaret ettiğinizde toplanan bilgilerin nasıl kullanıldığını açıklar. Kişisel verilerinizin güvenliği bizim için çok önemlidir ve bu politikayı okuduktan sonra herhangi bir sorunuz varsa bizimle iletişime geçebilirsiniz.",
+        collectedInfo: "📊 Toplanan Bilgiler",
+        personalInfo: "Kişisel Bilgiler",
+        collectedInfoText: "Sitemizi kullanırken aşağıdaki bilgiler toplanabilir:",
+        dataSecurity: "🔐 Veri Güvenliği",
+        dataSecurityText: "Kişisel verilerinizi korumak için aşağıdaki güvenlik önlemlerini alıyoruz:",
+        dataUsage: "📧 Veri Kullanımı",
+        dataUsageText: "Topladığımız bilgileri aşağıdaki amaçlarla kullanırız:",
+        dataSharing: "🚫 Veri Paylaşımı",
+        dataSharingText: "Kişisel verilerinizi üçüncü taraflarla paylaşmıyoruz. Sadece yasal zorunluluk durumunda ve sizin açık izninizle veri paylaşımı yapılabilir.",
+        cookies: "🍪 Çerezler (Cookies)",
+        cookiesText: "Sitemizde çerez kullanımı minimal düzeydedir. Sadece dil tercihinizi hatırlamak için localStorage kullanılır. Bu bilgiler sadece sizin cihazınızda saklanır ve bize gönderilmez.",
+        contact: "📞 İletişim",
+        contactText1: "Gizlilik politikamız hakkında herhangi bir sorunuz varsa, lütfen bizimle iletişime geçin:",
+        contactText2: "Size en kısa sürede dönüş yapacağız.",
+        backToHome: "🏠 Ana Sayfaya Dön"
+      },
+      en: {
+        title: "Privacy Policy - Manifest | Daily Manifesto",
+        description: "Transform your dreams into reality with manifest philosophy. Reach your goals with motivation, positive thinking, and manifest techniques.",
+        privacyPolicy: "🔒 Privacy Policy",
+        subtitle: "Your personal data security is important to us",
+        generalInfo: "📋 General Information",
+        generalInfoText: "This privacy policy explains how information collected when you visit maniwebst.com is used. Your personal data security is very important to us, and if you have any questions after reading this policy, you can contact us.",
+        collectedInfo: "📊 Collected Information",
+        personalInfo: "Personal Information",
+        collectedInfoText: "The following information may be collected when using our site:",
+        dataSecurity: "🔐 Data Security",
+        dataSecurityText: "We take the following security measures to protect your personal data:",
+        dataUsage: "📧 Data Usage",
+        dataUsageText: "We use the information we collect for the following purposes:",
+        dataSharing: "🚫 Data Sharing",
+        dataSharingText: "We do not share your personal data with third parties. Data sharing can only be done in case of legal obligation and with your explicit consent.",
+        cookies: "🍪 Cookies",
+        cookiesText: "Cookie usage on our site is minimal. Only localStorage is used to remember your language preference. This information is only stored on your device and is not sent to us.",
+        contact: "📞 Contact",
+        contactText1: "If you have any questions about our privacy policy, please contact us:",
+        contactText2: "We will get back to you as soon as possible.",
+        backToHome: "🏠 Back to Home"
+      }
+    };
+
+    // Language switcher functionality
+    function switchLanguage(lang) {
+      currentLanguage = lang;
+      
+      // Update language buttons
+      document.querySelectorAll('.language-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) {
+          btn.classList.add('active');
+        }
+      });
+      
+      // Update page title
+      document.title = translations[lang].title;
+      
+      // Update HTML lang attribute
+      document.documentElement.lang = lang;
+      
+      // Update all elements with data attributes
+      document.querySelectorAll('[data-tr], [data-en]').forEach(element => {
+        if (element.dataset[lang]) {
+          element.textContent = element.dataset[lang];
+        }
+      });
+      
+      // Save language preference
+      localStorage.setItem('preferredLanguage', lang);
+    }
+    
+    // Initialize language switcher
+    document.addEventListener('DOMContentLoaded', function() {
+      // Load saved language preference
+      const savedLang = localStorage.getItem('preferredLanguage');
+      if (savedLang && (savedLang === 'tr' || savedLang === 'en')) {
+        switchLanguage(savedLang);
+      }
+      
+      // Add click handlers to language buttons
+      document.querySelectorAll('.language-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          switchLanguage(this.dataset.lang);
+        });
+      });
+    });
+  </script>
 </body>
 </html> 
