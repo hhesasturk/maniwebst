@@ -536,11 +536,20 @@
         font-size: 1.1rem;
         font-weight: 600;
         box-shadow: 0 8px 24px 2px rgba(34,87,122,0.18), 0 2px 8px rgba(0,0,0,0.10);
-        white-space: nowrap;
+        white-space: normal;
         min-width: 180px;
+        max-width: 85vw;
         text-align: center;
         z-index: 15;
         animation: fadeIn 0.4s;
+        word-wrap: break-word;
+        line-height: 1.4;
+        /* Mobilde taşma kontrolü */
+        max-height: 30vh;
+        overflow-y: auto;
+        /* Mobilde kenar boşlukları */
+        margin: 0 10px;
+        box-sizing: border-box;
       }
     }
     @media (max-height: 600px) {
@@ -1322,6 +1331,108 @@
           const currentMsg = element.dataset.message || msg;
           msgDiv.textContent = currentMsg;
           msgDiv.style.display = 'block';
+          
+          // Mobilde mesaj konumlandırmasını kontrol et
+          if (window.innerWidth <= 600) {
+            setTimeout(() => {
+              const rect = msgDiv.getBoundingClientRect();
+              const viewportWidth = window.innerWidth;
+              const viewportHeight = window.innerHeight;
+              
+              // Sağ kenar taşması kontrolü
+              if (rect.right > viewportWidth - 10) {
+                msgDiv.style.left = 'auto';
+                msgDiv.style.right = '10px';
+                msgDiv.style.transform = 'translateY(10px)';
+              }
+              
+              // Sol kenar taşması kontrolü
+              if (rect.left < 10) {
+                msgDiv.style.left = '10px';
+                msgDiv.style.transform = 'translateY(10px)';
+              }
+              
+              // Alt kenar taşması kontrolü
+              if (rect.bottom > viewportHeight - 10) {
+                msgDiv.style.top = 'auto';
+                msgDiv.style.bottom = '100%';
+                msgDiv.style.transform = 'translateX(-50%) translateY(-10px)';
+              }
+            }, 10);
+          }
+          
+          clickCount = 0;
+          
+          // Track emoji click in Google Analytics
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'emoji_click', {
+              'emoji_symbol': element.textContent.trim(),
+              'language': currentLanguage
+            });
+          }
+          }, 200);
+        } else {
+          // Çift tıklama - özel efekt
+          clearTimeout(clickTimer);
+          clickCount = 0;
+          element.classList.add('double-clicked');
+          setTimeout(() => {
+            element.classList.remove('double-clicked');
+          }, 600);
+          
+          // Renk değişimi
+          const colors = ['#FFD700', '#FF69B4', '#00CED1', '#FF6347', '#9370DB'];
+          const randomColor = colors[Math.floor(Math.random() * colors.length)];
+          element.style.filter = `drop-shadow(0 8px 24px ${randomColor}40) hue-rotate(${Math.random() * 360}deg)`;
+          
+          // Mesajı gizle
+          msgDiv.style.display = 'none';
+        }
+      });
+      
+      // Mobil touch event'leri için
+      element.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        if (isDragging) return;
+        
+        clickCount++;
+        if (clickCount === 1) {
+          clickTimer = setTimeout(() => {
+                      // Tek tıklama - mesaj göster
+          document.querySelectorAll('.element-message').forEach(el => el.style.display = 'none');
+          const currentMsg = element.dataset.message || msg;
+          msgDiv.textContent = currentMsg;
+          msgDiv.style.display = 'block';
+          
+          // Mobilde mesaj konumlandırmasını kontrol et
+          if (window.innerWidth <= 600) {
+            setTimeout(() => {
+              const rect = msgDiv.getBoundingClientRect();
+              const viewportWidth = window.innerWidth;
+              const viewportHeight = window.innerHeight;
+              
+              // Sağ kenar taşması kontrolü
+              if (rect.right > viewportWidth - 10) {
+                msgDiv.style.left = 'auto';
+                msgDiv.style.right = '10px';
+                msgDiv.style.transform = 'translateY(10px)';
+              }
+              
+              // Sol kenar taşması kontrolü
+              if (rect.left < 10) {
+                msgDiv.style.left = '10px';
+                msgDiv.style.transform = 'translateY(10px)';
+              }
+              
+              // Alt kenar taşması kontrolü
+              if (rect.bottom > viewportHeight - 10) {
+                msgDiv.style.top = 'auto';
+                msgDiv.style.bottom = '100%';
+                msgDiv.style.transform = 'translateX(-50%) translateY(-10px)';
+              }
+            }, 10);
+          }
+          
           clickCount = 0;
           
           // Track emoji click in Google Analytics
