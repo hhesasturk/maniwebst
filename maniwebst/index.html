@@ -694,12 +694,12 @@ image.png<!DOCTYPE html>
   </div>
   
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LE6WWPKYH"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    gtag('config', 'G-2LE6WWPKYH');
   </script>
   
   <!-- Google AdSense -->
@@ -887,8 +887,16 @@ image.png<!DOCTYPE html>
          }
        });
       
-      // Save language preference
-      localStorage.setItem('preferredLanguage', lang);
+             // Save language preference
+       localStorage.setItem('preferredLanguage', lang);
+       
+       // Track language change in Google Analytics
+       if (typeof gtag !== 'undefined') {
+         gtag('event', 'language_change', {
+           'language': lang,
+           'page_title': document.title
+         });
+       }
     }
     
     // Initialize language switcher
@@ -1214,6 +1222,14 @@ image.png<!DOCTYPE html>
           msgDiv.textContent = currentMsg;
           msgDiv.style.display = 'block';
           clickCount = 0;
+          
+          // Track emoji click in Google Analytics
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'emoji_click', {
+              'emoji_symbol': element.textContent.trim(),
+              'language': currentLanguage
+            });
+          }
           }, 200);
         } else {
           // Çift tıklama - özel efekt
@@ -1345,10 +1361,18 @@ image.png<!DOCTYPE html>
           centerAnswer.textContent = data.answer;
           centerAnswer.style.color = '#1a237e';
           
-          // Başarı efektleri
-          createConfetti();
-          successSound.currentTime = 0;
-          successSound.play().catch(e => console.log('Ses çalınamadı'));
+                  // Başarı efektleri
+        createConfetti();
+        successSound.currentTime = 0;
+        successSound.play().catch(e => console.log('Ses çalınamadı'));
+        
+        // Track successful manifest in Google Analytics
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'manifest_success', {
+            'language': currentLanguage,
+            'input_length': centerInput.value.length
+          });
+        }
           
           // Başarı animasyonu
           centerAnswer.style.animation = 'none';
@@ -1391,11 +1415,27 @@ image.png<!DOCTYPE html>
       const url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(centerAnswer.textContent.trim());
       window.open(url, '_blank');
       document.getElementById('emojiSound').currentTime = 0; document.getElementById('emojiSound').play();
+      
+      // Track X share in Google Analytics
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'share', {
+          'method': 'twitter',
+          'language': currentLanguage
+        });
+      }
     };
     document.getElementById('shareWhatsapp').onclick = function() {
       const url = 'https://wa.me/?text=' + encodeURIComponent(centerAnswer.textContent.trim());
       window.open(url, '_blank');
       document.getElementById('emojiSound').currentTime = 0; document.getElementById('emojiSound').play();
+      
+      // Track WhatsApp share in Google Analytics
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'share', {
+          'method': 'whatsapp',
+          'language': currentLanguage
+        });
+      }
     };
     document.getElementById('shareInsta').onclick = function() {
       // Instagram doğrudan metin paylaşımı desteklemez, kopyala önerisi
@@ -1410,6 +1450,14 @@ image.png<!DOCTYPE html>
         navigator.clipboard.writeText(centerAnswer.textContent.trim());
       }
       document.getElementById('emojiSound').currentTime = 0; document.getElementById('emojiSound').play();
+      
+      // Track copy in Google Analytics
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'share', {
+          'method': 'copy',
+          'language': currentLanguage
+        });
+      }
     };
     // Web Share API desteği (mobilde)
     if (navigator.share) {
