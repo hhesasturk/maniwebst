@@ -1,4 +1,4 @@
-image.png<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
@@ -390,6 +390,11 @@ image.png<!DOCTYPE html>
         width: 100vw;
         height: 100vh;
         overflow: hidden;
+        font-family: 'Indie Flower', cursive;
+        background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -507,6 +512,13 @@ image.png<!DOCTYPE html>
         touch-action: manipulation;
         -webkit-tap-highlight-color: transparent;
       }
+      .floating-element:hover {
+        filter: drop-shadow(0 16px 32px rgba(34,87,122,0.25));
+        transform: scale(1.15) rotate(-3deg);
+        color: rgba(255,255,255,1);
+        text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        cursor: grabbing;
+      }
       .floating-element:active {
         transform: scale(0.95);
         filter: drop-shadow(0 4px 12px rgba(34,87,122,0.3));
@@ -581,48 +593,7 @@ image.png<!DOCTYPE html>
       }
     }
     
-    /* Mobil cihaz için özel ayarlar */
-    .mobile-device .floating-element {
-      font-size: 2.2rem;
-      min-width: 55px;
-      min-height: 55px;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(5px);
-      border-radius: 50%;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      pointer-events: auto;
-      z-index: 5;
-    }
-    
-    /* Mobilde emojilerin merkez kutu alanını etkilememesi */
-    .mobile-device .center-box {
-      z-index: 100;
-      position: relative;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-    }
-    
-    /* Mobilde emojilerin yazma alanı üzerinde olmaması */
-    .mobile-device .floating-element {
-      /* Emojilerin merkez kutu alanında olmamasını sağla */
-      pointer-events: auto;
-    }
-    
-    /* Mobilde emoji bölgelerini daha da sınırla */
-    @media (max-width: 600px) {
-      .floating-element {
-        /* Emojilerin merkez kutu alanından uzak durması */
-        z-index: 5;
-      }
-      
-      .center-box {
-        z-index: 100;
-        position: relative;
-        background: rgba(255,255,255,0.95);
-        backdrop-filter: blur(10px);
-      }
-    }
+
     
     .mobile-device .center-box {
       padding: 20px 16px 16px 16px;
