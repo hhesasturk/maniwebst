@@ -1,0 +1,17 @@
+{
+  "name": "maniwebst",
+  "version": "1.0.0",
+  "description": "Manifest web sitesi",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "vercel build",
+    "start": "vercel start"
+  },
+  "dependencies": {
+    "openai": "^5.10.2"
+  },
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  }
+} 
