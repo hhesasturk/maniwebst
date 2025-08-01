@@ -1724,19 +1724,15 @@
       const progressInterval = startProgress();
       
       try {
-        const response = await fetch('https://maniwebst.com/api/manifest', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ userMessage: centerInput.value })
-        });
-        const data = await response.json();
+        // Yerel AI sistemi ile cevap üret
+        const aiResponse = manifestAI.generateResponse(centerInput.value, currentLanguage);
         
         // Progress bar tamamla
         clearInterval(progressInterval);
         completeProgress();
         
-        if (data.answer) {
-          centerAnswer.textContent = data.answer;
+        if (aiResponse) {
+          centerAnswer.textContent = aiResponse;
           centerAnswer.style.color = '#1a237e';
           
                   // Başarı efektleri
@@ -1972,6 +1968,180 @@
           'method': 'telegram',
           'language': currentLanguage
         });
+      }
+    };
+
+    // Manifest AI Sistemi - Yerel Cevap Üretici
+    const manifestAI = {
+      // Türkçe manifest cevapları
+      tr: {
+        patterns: [
+          {
+            keywords: ['aşk', 'sevgi', 'romantik', 'ilişki', 'kalp'],
+            responses: [
+              "Sevgi en güzel duygudur ve sen de sevilmeyi hak ediyorsun. Kalbinin sesini dinle ve sevgiyi hayatına çek.",
+              "Aşk, hayatın en değerli armağanıdır. Sen de sevgi dolu bir hayatı hak ediyorsun.",
+              "Kalbinin rehberliğinde, gerçek aşkı bulacaksın. Sevgi dolu bir hayat seni bekliyor."
+            ]
+          },
+          {
+            keywords: ['iş', 'kariyer', 'başarı', 'çalışma', 'para'],
+            responses: [
+              "Kariyerinde büyük başarılar seni bekliyor. Çalışmalarının karşılığını alacaksın.",
+              "İş hayatında yükselişe geçeceksin. Başarı ve para seninle olacak.",
+              "Mesleğinde tanınır ve saygın bir konuma geleceksin. Finansal özgürlüğüne kavuşacaksın."
+            ]
+          },
+          {
+            keywords: ['sağlık', 'hastalık', 'iyileşme', 'enerji'],
+            responses: [
+              "Sağlığın her geçen gün daha da güçlenecek. Vücudun kendini yenileyecek.",
+              "Enerjin ve canlılığın artacak. Sağlıklı bir yaşam seni bekliyor.",
+              "İyileşme sürecinde hızla ilerleyeceksin. Güçlü ve sağlıklı olacaksın."
+            ]
+          },
+          {
+            keywords: ['aile', 'ev', 'çocuk', 'anne', 'baba'],
+            responses: [
+              "Ailenle güzel anlar yaşayacaksın. Ev huzur dolu olacak.",
+              "Aile bağların güçlenecek. Sevgi dolu bir aile ortamı seni bekliyor.",
+              "Ailenle ilişkilerin daha da güçlenecek. Mutlu bir aile hayatı seninle olacak."
+            ]
+          },
+          {
+            keywords: ['arkadaş', 'sosyal', 'topluluk', 'insanlar'],
+            responses: [
+              "Yeni arkadaşlıklar kuracaksın. Sosyal çevren genişleyecek.",
+              "İnsanlarla ilişkilerin güçlenecek. Destekleyici bir topluluk seni bekliyor.",
+              "Sosyal hayatın renklenecek. Güzel arkadaşlıklar kuracaksın."
+            ]
+          },
+          {
+            keywords: ['hedef', 'amaç', 'plan', 'gelecek'],
+            responses: [
+              "Hedeflerine ulaşacaksın. Planların başarıyla gerçekleşecek.",
+              "Geleceğin parlak olacak. Amaçların gerçekleşecek.",
+              "Hedeflerine doğru hızla ilerleyeceksin. Başarı seninle olacak."
+            ]
+          },
+          {
+            keywords: ['mutluluk', 'huzur', 'neşe', 'gülümseme'],
+            responses: [
+              "Mutluluğun her geçen gün artacak. İç huzurun güçlenecek.",
+              "Neşe ve sevinç hayatının bir parçası olacak. Gülümsemen hiç eksik olmayacak.",
+              "Huzur dolu bir hayat seni bekliyor. Mutluluk seninle olacak."
+            ]
+          }
+        ],
+        general: [
+          "Hayallerin gerçekleşecek ve sen mutlu olacaksın.",
+          "Pozitif enerji seni saracak ve başarıların artacak.",
+          "İçindeki güç ortaya çıkacak ve hedeflerine ulaşacaksın.",
+          "Kaderin sana gülümsüyor ve güzel şeyler seni bekliyor.",
+          "Yıldızlar seninle ve başarıların devam edecek.",
+          "İçindeki ışık parlayacak ve çevreni aydınlatacaksın.",
+          "Hayatının her alanında başarı ve mutluluk seninle olacak.",
+          "Pozitif düşüncelerin gerçeğe dönüşecek ve hayallerin gerçekleşecek.",
+          "Kendine güvenin artacak ve her şeyi başarabileceksin.",
+          "Hayatının en güzel dönemini yaşayacaksın."
+        ]
+      },
+      
+      // İngilizce manifest cevapları
+      en: {
+        patterns: [
+          {
+            keywords: ['love', 'romance', 'heart', 'relationship'],
+            responses: [
+              "Love is the most beautiful emotion and you deserve to be loved. Listen to your heart and attract love into your life.",
+              "Love is life's most precious gift. You deserve a life filled with love.",
+              "Guided by your heart, you will find true love. A loving life awaits you."
+            ]
+          },
+          {
+            keywords: ['work', 'career', 'success', 'money', 'job'],
+            responses: [
+              "Great success in your career awaits you. You will reap the rewards of your hard work.",
+              "You will rise in your professional life. Success and money will be with you.",
+              "You will become recognized and respected in your profession. You will achieve financial freedom."
+            ]
+          },
+          {
+            keywords: ['health', 'healing', 'energy', 'wellness'],
+            responses: [
+              "Your health will strengthen day by day. Your body will renew itself.",
+              "Your energy and vitality will increase. A healthy life awaits you.",
+              "You will progress rapidly in your healing process. You will be strong and healthy."
+            ]
+          },
+          {
+            keywords: ['family', 'home', 'children', 'parents'],
+            responses: [
+              "You will have beautiful moments with your family. Your home will be filled with peace.",
+              "Your family bonds will strengthen. A loving family environment awaits you.",
+              "Your relationships with your family will grow stronger. A happy family life will be with you."
+            ]
+          },
+          {
+            keywords: ['friends', 'social', 'community', 'people'],
+            responses: [
+              "You will form new friendships. Your social circle will expand.",
+              "Your relationships with people will strengthen. A supportive community awaits you.",
+              "Your social life will become colorful. You will form beautiful friendships."
+            ]
+          },
+          {
+            keywords: ['goal', 'purpose', 'plan', 'future'],
+            responses: [
+              "You will achieve your goals. Your plans will be successfully realized.",
+              "Your future will be bright. Your purposes will be fulfilled.",
+              "You will progress rapidly towards your goals. Success will be with you."
+            ]
+          },
+          {
+            keywords: ['happiness', 'joy', 'peace', 'smile'],
+            responses: [
+              "Your happiness will increase day by day. Your inner peace will strengthen.",
+              "Joy and happiness will be part of your life. Your smile will never be missing.",
+              "A peaceful life awaits you. Happiness will be with you."
+            ]
+          }
+        ],
+        general: [
+          "Your dreams will come true and you will be happy.",
+          "Positive energy will surround you and your successes will increase.",
+          "The power within you will emerge and you will achieve your goals.",
+          "Destiny is smiling at you and beautiful things await you.",
+          "The stars are with you and your successes will continue.",
+          "The light within you will shine and you will illuminate your surroundings.",
+          "Success and happiness will be with you in every area of your life.",
+          "Your positive thoughts will become reality and your dreams will come true.",
+          "Your self-confidence will increase and you will be able to achieve everything.",
+          "You will live the most beautiful period of your life."
+        ]
+      },
+      
+      // Cevap üretme fonksiyonu
+      generateResponse: function(userMessage, language) {
+        const lang = language || 'tr';
+        const patterns = this[lang].patterns;
+        const general = this[lang].general;
+        
+        // Kullanıcı mesajını küçük harfe çevir
+        const message = userMessage.toLowerCase();
+        
+        // Anahtar kelimelere göre cevap bul
+        for (let pattern of patterns) {
+          for (let keyword of pattern.keywords) {
+            if (message.includes(keyword)) {
+              const responses = pattern.responses;
+              return responses[Math.floor(Math.random() * responses.length)];
+            }
+          }
+        }
+        
+        // Genel cevap döndür
+        return general[Math.floor(Math.random() * general.length)];
       }
     };
   </script>
