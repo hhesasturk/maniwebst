@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Günlük Manifest Bülteni | Ücretsiz Motivasyon</title>
+  <meta name="description" content="Günlük manifest cümleleri, motivasyon sözleri ve pozitif düşünce teknikleri için ücretsiz bültenimize katılın.">
+  <style>
+    body {
+      font-family: 'Indie Flower', cursive;
+      background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .newsletter-container {
+      background: rgba(255,255,255,0.95);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .newsletter-title {
+      color: #2193b0;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .newsletter-description {
+      color: #666;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    .email-input {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      font-family: inherit;
+    }
+    .email-input:focus {
+      outline: none;
+      border-color: #2193b0;
+    }
+    .subscribe-btn {
+      background: linear-gradient(135deg, #2193b0 0%, #176b8a 100%);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: transform 0.3s ease;
+    }
+    .subscribe-btn:hover {
+      transform: translateY(-2px);
+    }
+    .benefits {
+      margin-top: 30px;
+      text-align: left;
+    }
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      color: #555;
+    }
+    .benefit-item:before {
+      content: "✨";
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="newsletter-container">
+    <h1 class="newsletter-title">Günlük Manifest Bülteni</h1>
+    <p class="newsletter-description">
+      Her sabah gelen kutunuza pozitif enerji ve motivasyon gönderelim. 
+      Ücretsiz manifest cümleleri, motivasyon sözleri ve kişisel gelişim ipuçları.
+    </p>
+    
+    <form id="newsletterForm">
+      <input type="email" class="email-input" placeholder="E-posta adresiniz" required>
+      <button type="submit" class="subscribe-btn">Ücretsiz Katıl</button>
+    </form>
+    
+    <div class="benefits">
+      <div class="benefit-item">Günlük manifest cümleleri</div>
+      <div class="benefit-item">Motivasyon sözleri ve hikayeler</div>
+      <div class="benefit-item">Pozitif düşünce teknikleri</div>
+      <div class="benefit-item">Hedef belirleme ipuçları</div>
+      <div class="benefit-item">Kişisel gelişim önerileri</div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.querySelector('.email-input').value;
+      
+      // Email validation
+      if (!email.includes('@')) {
+        alert('Lütfen geçerli bir e-posta adresi girin.');
+        return;
+      }
+      
+      // Store email (you can integrate with your email service)
+      localStorage.setItem('newsletter_email', email);
+      
+      // Success message
+      alert('Bültenimize başarıyla katıldınız! İlk manifest cümlemiz yakında e-posta kutunuzda.');
+      
+      // Redirect to main page
+      window.location.href = '/';
+    });
+  </script>
+</body>
+</html> 

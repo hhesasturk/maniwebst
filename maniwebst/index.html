@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-tr="Manifest - Günün Manifestosu | Motivasyon ve Hayal Gücü" data-en="Manifest - Daily Manifesto | Motivation and Imagination">Manifest - Günün Manifestosu | Motivasyon ve Hayal Gücü</title>
   <meta name="description" content="Manifest felsefesi ile hayallerinizi gerçeğe dönüştürün. Ücretsiz manifest aracı, günlük manifestosu, pozitif düşünce ve motivasyon teknikleri ile hedeflerinize ulaşın. AI destekli manifest yazıcı.">
-  <meta name="keywords" content="manifest, manifest aracı, günlük manifestosu, pozitif düşünce, motivasyon, hayal gücü, hedef belirleme, başarı, AI manifest, ücretsiz manifest, manifest yazıcı, manifest felsefesi, günün manifestosu, manifest etmek, manifest teknikleri">
+  <meta name="keywords" content="manifest, manifest aracı, günlük manifestosu, pozitif düşünce, motivasyon, hayal gücü, hedef belirleme, başarı, AI manifest, ücretsiz manifest, manifest yazıcı, manifest felsefesi, günün manifestosu, manifest etmek, manifest teknikleri, kişisel gelişim, mindfulness, self care, pozitif yaşam, motivasyon sözleri, günlük motivasyon, hayal gücü geliştirme, hedef belirleme teknikleri, başarı sırları, pozitif düşünce teknikleri">
   <meta name="author" content="Günün Manifestosu">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <meta name="bingbot" content="index, follow">
+  <link rel="alternate" hreflang="tr" href="https://maniwebst.com">
+  <link rel="alternate" hreflang="en" href="https://maniwebst.com/en">
+  <link rel="alternate" hreflang="x-default" href="https://maniwebst.com">
   <meta property="og:title" content="Manifest - Günün Manifestosu | Ücretsiz Manifest Aracı">
   <meta property="og:description" content="Hayallerinizi gerçeğe dönüştürün. Ücretsiz manifest aracı, AI destekli manifest yazıcı ve günlük manifestosu ile motivasyon ve başarı.">
   <meta property="og:type" content="website">
@@ -380,6 +386,49 @@
       transform: scale(1.05);
     }
     
+    /* Instagram Link Styles */
+    .instagram-link {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(34, 87, 122, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .instagram-link:hover {
+      transform: translateY(-2px) scale(1.1);
+      box-shadow: 0 8px 24px rgba(34, 87, 122, 0.25);
+    }
+    
+    .instagram-link a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+    }
+    
+    .instagram-link svg {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s ease;
+    }
+    
+    .instagram-link:hover svg {
+      transform: scale(1.1);
+    }
+    
     @media (max-width: 600px) {
       .language-switcher {
         top: 10px;
@@ -390,6 +439,18 @@
       .language-btn {
         font-size: 0.8rem;
         padding: 4px 8px;
+      }
+      
+      .instagram-link {
+        top: 70px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+      }
+      
+      .instagram-link svg {
+        width: 20px;
+        height: 20px;
       }
     }
     @media (max-width: 600px) {
@@ -772,6 +833,32 @@
     <button class="language-btn active" data-lang="tr">TR</button>
     <button class="language-btn" data-lang="en">EN</button>
   </div>
+  
+  <!-- Instagram Link -->
+  <div class="instagram-link">
+    <a href="https://instagram.com/maniwebst" target="_blank" title="Instagram'da bizi takip edin">
+      <svg width="24" height="24" viewBox="0 0 24 24">
+        <defs>
+          <linearGradient id="instagram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#405DE6"/>
+            <stop offset="10%" style="stop-color:#5851DB"/>
+            <stop offset="20%" style="stop-color:#833AB4"/>
+            <stop offset="30%" style="stop-color:#C13584"/>
+            <stop offset="40%" style="stop-color:#E1306C"/>
+            <stop offset="50%" style="stop-color:#FD1D1D"/>
+            <stop offset="60%" style="stop-color:#F56040"/>
+            <stop offset="70%" style="stop-color:#F77737"/>
+            <stop offset="80%" style="stop-color:#FCAF45"/>
+            <stop offset="90%" style="stop-color:#FFDC80"/>
+            <stop offset="100%" style="stop-color:#FFFFFF"/>
+          </linearGradient>
+        </defs>
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="url(#instagram-gradient)"/>
+        <circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="2"/>
+        <circle cx="16" cy="8" r="1" fill="white"/>
+      </svg>
+    </a>
+  </div>
   <div class="progress-bar" id="progressBar"></div>
   <div id="elements-container"></div>
   <div class="center-box">
@@ -791,12 +878,41 @@
         <span class="tooltip" data-tr="WhatsApp'ta paylaş" data-en="Share on WhatsApp">WhatsApp'ta paylaş</span>
       </button>
       <button class="share-btn" id="shareInsta" title="Instagram Story">
-        <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24"><radialGradient id="ig" cx="0.5" cy="0.5" r="0.7"><stop offset="0%" stop-color="#f9ce34"/><stop offset="45%" stop-color="#ee2a7b"/><stop offset="100%" stop-color="#6228d7"/></radialGradient><circle cx="12" cy="12" r="10" fill="url(#ig)"/><rect x="7" y="7" width="10" height="10" rx="5" fill="#fff"/><circle cx="17" cy="7" r="1.5" fill="#fff"/></svg></span>
+        <span class="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <defs>
+              <linearGradient id="instagram-share-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#405DE6"/>
+                <stop offset="10%" style="stop-color:#5851DB"/>
+                <stop offset="20%" style="stop-color:#833AB4"/>
+                <stop offset="30%" style="stop-color:#C13584"/>
+                <stop offset="40%" style="stop-color:#E1306C"/>
+                <stop offset="50%" style="stop-color:#FD1D1D"/>
+                <stop offset="60%" style="stop-color:#F56040"/>
+                <stop offset="70%" style="stop-color:#F77737"/>
+                <stop offset="80%" style="stop-color:#FCAF45"/>
+                <stop offset="90%" style="stop-color:#FFDC80"/>
+                <stop offset="100%" style="stop-color:#FFFFFF"/>
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="url(#instagram-share-gradient)"/>
+            <circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="2"/>
+            <circle cx="16" cy="8" r="1" fill="white"/>
+          </svg>
+        </span>
         <span class="tooltip" data-tr="Story at" data-en="Share Story">Story at</span>
       </button>
       <button class="share-btn" id="shareCopy" title="Kopyala">
         <span class="icon">📋</span>
         <span class="tooltip" data-tr="Kopyala" data-en="Copy">Kopyala</span>
+      </button>
+      <button class="share-btn" id="shareFacebook" title="Facebook">
+        <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span>
+        <span class="tooltip" data-tr="Facebook'ta paylaş" data-en="Share on Facebook">Facebook'ta paylaş</span>
+      </button>
+      <button class="share-btn" id="shareTelegram" title="Telegram">
+        <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#0088cc" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></span>
+        <span class="tooltip" data-tr="Telegram'da paylaş" data-en="Share on Telegram">Telegram'da paylaş</span>
       </button>
     </div>
   </div>
@@ -807,6 +923,31 @@
          style="display:block"
          data-ad-client="ca-pub-1811756065125179"
          data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  
+  <!-- Google AdSense Sidebar -->
+  <div style="position: fixed; right: 10px; top: 50%; transform: translateY(-50%); z-index: 1000; display: none;" id="sidebarAd">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-1811756065125179"
+         data-ad-slot="1234567891"
+         data-ad-format="vertical"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  
+  <!-- Google AdSense Footer -->
+  <div style="text-align: center; margin: 20px 0; padding: 10px;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-1811756065125179"
+         data-ad-slot="1234567892"
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
     <script>
@@ -1103,7 +1244,7 @@
       '🛵', '🚗', '🚕', '🚙', '🚌', '🚎', '🚑', '🚒',
       '🚚', '🚛', '🚁', '✈️', '🛩️', '🚀', '🛸', '🪐',
       '🌍', '🌎', '🌏', '🌕', '🌖', '🌗', '🌘', '🌑',
-      '🌒', '🌓', '🌔', '🌙', '⭐', '🌟', '✨', '💫',
+      '🌒', '🌓', '🌔', '🌙', '⭐', '��', '✨', '💫',
       '💖', '💗', '💓', '💞', '💕', '💝', '💟', '❣️',
       '💌', '🕊️', '🦋', '🌸', '🌼', '🌻', '🌺', '🌹',
       '🌷', '🌱', '🌿', '🍀', '🍃'
@@ -1798,6 +1939,35 @@
         });
       });
     }
+
+    // New social media sharing buttons
+    document.getElementById('shareFacebook').onclick = function() {
+      const url = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href) + '&quote=' + encodeURIComponent(centerAnswer.textContent.trim());
+      window.open(url, '_blank');
+      document.getElementById('emojiSound').currentTime = 0; document.getElementById('emojiSound').play();
+      
+      // Track Facebook share in Google Analytics
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'share', {
+          'method': 'facebook',
+          'language': currentLanguage
+        });
+      }
+    };
+    
+    document.getElementById('shareTelegram').onclick = function() {
+      const url = 'https://t.me/share/url?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(centerAnswer.textContent.trim());
+      window.open(url, '_blank');
+      document.getElementById('emojiSound').currentTime = 0; document.getElementById('emojiSound').play();
+      
+      // Track Telegram share in Google Analytics
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'share', {
+          'method': 'telegram',
+          'language': currentLanguage
+        });
+      }
+    };
   </script>
 </body>
 </html> 
