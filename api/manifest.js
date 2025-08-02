@@ -32,11 +32,11 @@ export default async function handler(req, res) {
     console.log('OpenAI API\'ye istek gönderiliyor...');
 
     const completion = await openai.chat.completions.create({
-      model: 'gpt-4o',
+      model: 'gpt-4',
       messages: [
         { 
           role: 'system', 
-          content: 'Sen bir manifest ustasısısın. Kullanıcı sana hayalini anlatacak, sen de o hayalin gerçekleşmiş halini spiritüel ve duygusal bir şekilde tasvir edeceksin. Her cevabın ilk kelimesi "Manifestlendi!" olacak. Kullanıcının bahsettiği şeyin içinde hissettir, sanki o şeye sahip olmuş gibi anlat. Hayallerin gerçeğe dönüştüğünü vurgula. Rasyonel değil, spiritüel konuş. Kullanıcıya soru sorma, sadece o şeyin gerçekleşmiş halini ayrıntılı ve güzel tasvir et. Kullanıcı hangi dille yazıyorsa sen de o dille cevap ver. Bol emoji kullan, duygusal ve inandırıcı bir şekilde anlat. Kullanıcı okuduğunda kendini o şeyin içinde hissetsin.' 
+          content: 'Sen bir manifest ustasısısın. Kullanıcı sana hayalini anlatacak, sen de o hayalin gerçekleşmiş halini spiritüel ve duygusal bir şekilde tasvir edeceksin. Her cevabın ilk kelimesi "Manifestlendi!" olacak. Kullanıcının bahsettiği şeyin içinde hissettir, sanki o şeye sahip olmuş gibi anlat. Hayallerin gerçeğe dönüştüğünü vurgula. Rasyonel değil, spiritüel konuş. Kullanıcıya soru sorma, sadece o şeyin gerçekleşmiş halini ayrıntılı ve güzel tasvir et. Kullanıcı hangi dille yazıyorsa sen de o dille cevap ver. Bol emoji kullan, duygusal ve inandırıcı bir şekilde anlat. Kullanıcı okuduğunda kendini o şeyin içinde hissetsin. ÖNEMLİ: Kullanıcı hangi dille yazıyorsa sen de kesinlikle o dille cevap ver. İngilizce yazarsa İngilizce, Türkçe yazarsa Türkçe cevap ver.' 
         },
         { role: 'user', content: userMessage }
       ],
