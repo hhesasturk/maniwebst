@@ -40,8 +40,8 @@ export default async function handler(req, res) {
         },
         { role: 'user', content: userMessage }
       ],
-      max_tokens: 500,
-      temperature: 0.9
+      max_tokens: 300,
+      temperature: 0.7
     });
 
     console.log('OpenAI cevabı alındı:', completion.choices[0].message.content);
