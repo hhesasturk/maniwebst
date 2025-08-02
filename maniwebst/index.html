@@ -1048,45 +1048,7 @@
       }
     };
 
-    // English manifest messages
-    const manifestMessagesEn = [
-      "I will reach my dreams in the healthiest and happiest way in the shortest time possible.",
-      "Love, peace, and abundance are constantly increasing in my life.",
-      "Each new day brings me hope, luck, and beauty.",
-      "I accept myself and others unconditionally.",
-      "I find a reason to be grateful in every moment.",
-      "My inner peace and health strengthen every day.",
-      "Life offers me the most beautiful surprises.",
-      "I trust myself and my path.",
-      "Every difficulty adds strength and wisdom to me.",
-      "My dreams come to me easily and healthily.",
-      "I love and approve of myself as I am.",
-      "Each day passes better than the previous one.",
-      "Abundance, prosperity, and happiness flow in my life.",
-      "I am kind to myself and others.",
-      "I find peace in every breath.",
-      "I make room for miracles in my life.",
-      "The best of everything finds me.",
-      "I illuminate my surroundings with the light within me.",
-      "I enjoy every moment.",
-      "I create new opportunities for myself.",
-      "I am surrounded by love and I live with love.",
-      "Each day starts with new hope.",
-      "I trust the flow of life.",
-      "Health, peace, and happiness are with me.",
-      "I forgive myself and become free.",
-      "Everything has its time, I am patient.",
-      "I am strong and determined.",
-      "There is balance and harmony in my life.",
-      "Every day is filled with love.",
-      "I value myself and care about myself.",
-      "Life always offers me new opportunities.",
-      "I take a step every day to improve myself.",
-      "I make room for beauty in my life.",
-      "I inspire myself and others.",
-      "Every day is filled with love, joy, and peace.",
-      "I embrace myself and everyone who enters my life with love."
-    ];
+
 
     // Language switcher functionality
     function switchLanguage(lang) {
@@ -1138,7 +1100,7 @@
          }
        }
       
-             // Update manifest messages
+       // Update manifest messages
        if (lang === 'en') {
          manifestMessages.length = 0;
          manifestMessages.push(...manifestMessagesEn);
@@ -1159,7 +1121,7 @@
          }
        });
       
-             // Save language preference
+       // Save language preference
        localStorage.setItem('preferredLanguage', lang);
        
        // Track language change in Google Analytics
@@ -1187,54 +1149,96 @@
       });
     });
 
-    // Turkish manifest messages
-    const manifestMessagesTr = [
-      "En kısa sürede hayallerime en sağlıklı ve mutlu şekilde ulaşacağım.",
-      "Hayatımda sevgi, huzur ve bolluk sürekli artıyor.",
-      "Her yeni gün bana umut, şans ve güzellik getiriyor.",
-      "Kendimi ve başkalarını koşulsuzca kabul ediyorum.",
-      "Her anımda şükredecek bir neden buluyorum.",
-      "İç huzurum ve sağlığım her geçen gün güçleniyor.",
-      "Hayat bana en güzel sürprizleri sunuyor.",
-      "Kendime ve yoluma güveniyorum.",
-      "Her zorluk bana güç ve bilgelik katıyor.",
-      "Hayallerim bana kolaylıkla ve sağlıkla geliyor.",
-      "Kendimi olduğum gibi seviyor ve onaylıyorum.",
-      "Her günüm bir öncekinden daha iyi geçiyor.",
-      "Bolluk, bereket ve mutluluk hayatımda akıyor.",
-      "Kendime ve başkalarına nazik davranıyorum.",
-      "Her nefeste huzur buluyorum.",
-      "Hayatımda mucizelere yer açıyorum.",
-      "Her şeyin en iyisi beni bulur.",
-      "İçimdeki ışıkla çevremi aydınlatıyorum.",
-      "Her anın tadını çıkarıyorum.",
-      "Kendime yeni fırsatlar yaratıyorum.",
-      "Sevgiyle çevriliyim ve sevgiyle yaşıyorum.",
-      "Her gün yeni bir umutla başlıyor.",
-      "Hayatın akışına güveniyorum.",
-      "Sağlık, huzur ve mutluluk benimle.",
-      "Kendimi affediyor ve özgürleşiyorum.",
-      "Her şeyin bir zamanı var, sabırlıyım.",
-      "Güçlü ve kararlıyım.",
-      "Hayatımda denge ve uyum var.",
-      "Her günüm sevgiyle dolu.",
-      "Kendime değer veriyorum ve kendimi önemsiyorum.",
-      "Hayat bana her zaman yeni fırsatlar sunar.",
-      "Kendimi geliştirmek için her gün bir adım atıyorum.",
-      "Hayatımda güzelliklere yer açıyorum.",
-      "Kendime ve başkalarına ilham veriyorum.",
-      "Her günüm sevgi, neşe ve huzurla dolu.",
-      "Kendimi ve hayatıma giren herkesi sevgiyle kucaklıyorum."
-    ];
 
-    // Motivasyon ve manifest cümleleri
-    const manifestMessages = [...manifestMessagesTr];
 
-    // Yüzen elementler oluştur (yıldız, kalp, güneş, ay sembolleri)
-    const elementCount = 12;
-    const elementsContainer = document.getElementById('elements-container');
-    const usedMessages = [];
-    const symbols = [
+          // Turkish manifest messages
+      const manifestMessagesTr = [
+        "En kısa sürede hayallerime en sağlıklı ve mutlu şekilde ulaşacağım.",
+        "Hayatımda sevgi, huzur ve bolluk sürekli artıyor.",
+        "Her yeni gün bana umut, şans ve güzellik getiriyor.",
+        "Kendimi ve başkalarını koşulsuzca kabul ediyorum.",
+        "Her anımda şükredecek bir neden buluyorum.",
+        "İç huzurum ve sağlığım her geçen gün güçleniyor.",
+        "Hayat bana en güzel sürprizleri sunuyor.",
+        "Kendime ve yoluma güveniyorum.",
+        "Her zorluk bana güç ve bilgelik katıyor.",
+        "Hayallerim bana kolaylıkla ve sağlıkla geliyor.",
+        "Kendimi olduğum gibi seviyor ve onaylıyorum.",
+        "Her günüm bir öncekinden daha iyi geçiyor.",
+        "Bolluk, bereket ve mutluluk hayatımda akıyor.",
+        "Kendime ve başkalarına nazik davranıyorum.",
+        "Her nefeste huzur buluyorum.",
+        "Hayatımda mucizelere yer açıyorum.",
+        "Her şeyin en iyisi beni bulur.",
+        "İçimdeki ışıkla çevremi aydınlatıyorum.",
+        "Her anın tadını çıkarıyorum.",
+        "Kendime yeni fırsatlar yaratıyorum.",
+        "Sevgiyle çevriliyim ve sevgiyle yaşıyorum.",
+        "Her gün yeni bir umutla başlıyor.",
+        "Hayatın akışına güveniyorum.",
+        "Sağlık, huzur ve mutluluk benimle.",
+        "Kendimi affediyor ve özgürleşiyorum.",
+        "Her şeyin bir zamanı var, sabırlıyım.",
+        "Güçlü ve kararlıyım.",
+        "Hayatımda denge ve uyum var.",
+        "Her günüm sevgiyle dolu.",
+        "Kendime değer veriyorum ve kendimi önemsiyorum.",
+        "Hayat bana her zaman yeni fırsatlar sunar.",
+        "Kendimi geliştirmek için her gün bir adım atıyorum.",
+        "Hayatımda güzelliklere yer açıyorum.",
+        "Kendime ve başkalarına ilham veriyorum.",
+        "Her günüm sevgi, neşe ve huzurla dolu.",
+        "Kendimi ve hayatıma giren herkesi sevgiyle kucaklıyorum."
+      ];
+
+      // English manifest messages
+      const manifestMessagesEn = [
+        "I will reach my dreams in the healthiest and happiest way in the shortest time possible.",
+        "Love, peace, and abundance are constantly increasing in my life.",
+        "Each new day brings me hope, luck, and beauty.",
+        "I accept myself and others unconditionally.",
+        "I find a reason to be grateful in every moment.",
+        "My inner peace and health strengthen every day.",
+        "Life offers me the most beautiful surprises.",
+        "I trust myself and my path.",
+        "Every difficulty adds strength and wisdom to me.",
+        "My dreams come to me easily and healthily.",
+        "I love and approve of myself as I am.",
+        "Each day passes better than the previous one.",
+        "Abundance, prosperity, and happiness flow in my life.",
+        "I am kind to myself and others.",
+        "I find peace in every breath.",
+        "I make room for miracles in my life.",
+        "The best of everything finds me.",
+        "I illuminate my surroundings with the light within me.",
+        "I enjoy every moment.",
+        "I create new opportunities for myself.",
+        "I am surrounded by love and I live with love.",
+        "Each day starts with new hope.",
+        "I trust the flow of life.",
+        "Health, peace, and happiness are with me.",
+        "I forgive myself and become free.",
+        "Everything has its time, I am patient.",
+        "I am strong and determined.",
+        "There is balance and harmony in my life.",
+        "Every day is filled with love.",
+        "I value myself and care about myself.",
+        "Life always offers me new opportunities.",
+        "I take a step every day to improve myself.",
+        "I make room for beauty in my life.",
+        "I inspire myself and others.",
+        "Every day is filled with love, joy, and peace.",
+        "I embrace myself and everyone who enters my life with love."
+      ];
+
+      // Motivasyon ve manifest cümleleri
+      const manifestMessages = [...manifestMessagesTr];
+
+      // Yüzen elementler oluştur (yıldız, kalp, güneş, ay sembolleri)
+      const elementCount = 12;
+      const elementsContainer = document.getElementById('elements-container');
+      const usedMessages = [];
+      const symbols = [
       '⭐', '💫', '✨', '🌟', '💖', '🌙', '☀️', '🌈',
       '🦋', '🍀', '🌸', '🌻', '🍃', '🎈', '🎉', '🌺',
       '🌞', '🧸', '🎵', '🎶', '🌼', '🍂', '🦜', '🦩',
@@ -1976,179 +1980,7 @@
       }
     };
 
-    // Manifest AI Sistemi - Yerel Cevap Üretici
-    const manifestAI = {
-      // Türkçe manifest cevapları
-      tr: {
-        patterns: [
-          {
-            keywords: ['aşk', 'sevgi', 'romantik', 'ilişki', 'kalp'],
-            responses: [
-              "Sevgi en güzel duygudur ve sen de sevilmeyi hak ediyorsun. Kalbinin sesini dinle ve sevgiyi hayatına çek.",
-              "Aşk, hayatın en değerli armağanıdır. Sen de sevgi dolu bir hayatı hak ediyorsun.",
-              "Kalbinin rehberliğinde, gerçek aşkı bulacaksın. Sevgi dolu bir hayat seni bekliyor."
-            ]
-          },
-          {
-            keywords: ['iş', 'kariyer', 'başarı', 'çalışma', 'para'],
-            responses: [
-              "Kariyerinde büyük başarılar seni bekliyor. Çalışmalarının karşılığını alacaksın.",
-              "İş hayatında yükselişe geçeceksin. Başarı ve para seninle olacak.",
-              "Mesleğinde tanınır ve saygın bir konuma geleceksin. Finansal özgürlüğüne kavuşacaksın."
-            ]
-          },
-          {
-            keywords: ['sağlık', 'hastalık', 'iyileşme', 'enerji'],
-            responses: [
-              "Sağlığın her geçen gün daha da güçlenecek. Vücudun kendini yenileyecek.",
-              "Enerjin ve canlılığın artacak. Sağlıklı bir yaşam seni bekliyor.",
-              "İyileşme sürecinde hızla ilerleyeceksin. Güçlü ve sağlıklı olacaksın."
-            ]
-          },
-          {
-            keywords: ['aile', 'ev', 'çocuk', 'anne', 'baba'],
-            responses: [
-              "Ailenle güzel anlar yaşayacaksın. Ev huzur dolu olacak.",
-              "Aile bağların güçlenecek. Sevgi dolu bir aile ortamı seni bekliyor.",
-              "Ailenle ilişkilerin daha da güçlenecek. Mutlu bir aile hayatı seninle olacak."
-            ]
-          },
-          {
-            keywords: ['arkadaş', 'sosyal', 'topluluk', 'insanlar'],
-            responses: [
-              "Yeni arkadaşlıklar kuracaksın. Sosyal çevren genişleyecek.",
-              "İnsanlarla ilişkilerin güçlenecek. Destekleyici bir topluluk seni bekliyor.",
-              "Sosyal hayatın renklenecek. Güzel arkadaşlıklar kuracaksın."
-            ]
-          },
-          {
-            keywords: ['hedef', 'amaç', 'plan', 'gelecek'],
-            responses: [
-              "Hedeflerine ulaşacaksın. Planların başarıyla gerçekleşecek.",
-              "Geleceğin parlak olacak. Amaçların gerçekleşecek.",
-              "Hedeflerine doğru hızla ilerleyeceksin. Başarı seninle olacak."
-            ]
-          },
-          {
-            keywords: ['mutluluk', 'huzur', 'neşe', 'gülümseme'],
-            responses: [
-              "Mutluluğun her geçen gün artacak. İç huzurun güçlenecek.",
-              "Neşe ve sevinç hayatının bir parçası olacak. Gülümsemen hiç eksik olmayacak.",
-              "Huzur dolu bir hayat seni bekliyor. Mutluluk seninle olacak."
-            ]
-          }
-        ],
-        general: [
-          "Hayallerin gerçekleşecek ve sen mutlu olacaksın.",
-          "Pozitif enerji seni saracak ve başarıların artacak.",
-          "İçindeki güç ortaya çıkacak ve hedeflerine ulaşacaksın.",
-          "Kaderin sana gülümsüyor ve güzel şeyler seni bekliyor.",
-          "Yıldızlar seninle ve başarıların devam edecek.",
-          "İçindeki ışık parlayacak ve çevreni aydınlatacaksın.",
-          "Hayatının her alanında başarı ve mutluluk seninle olacak.",
-          "Pozitif düşüncelerin gerçeğe dönüşecek ve hayallerin gerçekleşecek.",
-          "Kendine güvenin artacak ve her şeyi başarabileceksin.",
-          "Hayatının en güzel dönemini yaşayacaksın."
-        ]
-      },
-      
-      // İngilizce manifest cevapları
-      en: {
-        patterns: [
-          {
-            keywords: ['love', 'romance', 'heart', 'relationship'],
-            responses: [
-              "Love is the most beautiful emotion and you deserve to be loved. Listen to your heart and attract love into your life.",
-              "Love is life's most precious gift. You deserve a life filled with love.",
-              "Guided by your heart, you will find true love. A loving life awaits you."
-            ]
-          },
-          {
-            keywords: ['work', 'career', 'success', 'money', 'job'],
-            responses: [
-              "Great success in your career awaits you. You will reap the rewards of your hard work.",
-              "You will rise in your professional life. Success and money will be with you.",
-              "You will become recognized and respected in your profession. You will achieve financial freedom."
-            ]
-          },
-          {
-            keywords: ['health', 'healing', 'energy', 'wellness'],
-            responses: [
-              "Your health will strengthen day by day. Your body will renew itself.",
-              "Your energy and vitality will increase. A healthy life awaits you.",
-              "You will progress rapidly in your healing process. You will be strong and healthy."
-            ]
-          },
-          {
-            keywords: ['family', 'home', 'children', 'parents'],
-            responses: [
-              "You will have beautiful moments with your family. Your home will be filled with peace.",
-              "Your family bonds will strengthen. A loving family environment awaits you.",
-              "Your relationships with your family will grow stronger. A happy family life will be with you."
-            ]
-          },
-          {
-            keywords: ['friends', 'social', 'community', 'people'],
-            responses: [
-              "You will form new friendships. Your social circle will expand.",
-              "Your relationships with people will strengthen. A supportive community awaits you.",
-              "Your social life will become colorful. You will form beautiful friendships."
-            ]
-          },
-          {
-            keywords: ['goal', 'purpose', 'plan', 'future'],
-            responses: [
-              "You will achieve your goals. Your plans will be successfully realized.",
-              "Your future will be bright. Your purposes will be fulfilled.",
-              "You will progress rapidly towards your goals. Success will be with you."
-            ]
-          },
-          {
-            keywords: ['happiness', 'joy', 'peace', 'smile'],
-            responses: [
-              "Your happiness will increase day by day. Your inner peace will strengthen.",
-              "Joy and happiness will be part of your life. Your smile will never be missing.",
-              "A peaceful life awaits you. Happiness will be with you."
-            ]
-          }
-        ],
-        general: [
-          "Your dreams will come true and you will be happy.",
-          "Positive energy will surround you and your successes will increase.",
-          "The power within you will emerge and you will achieve your goals.",
-          "Destiny is smiling at you and beautiful things await you.",
-          "The stars are with you and your successes will continue.",
-          "The light within you will shine and you will illuminate your surroundings.",
-          "Success and happiness will be with you in every area of your life.",
-          "Your positive thoughts will become reality and your dreams will come true.",
-          "Your self-confidence will increase and you will be able to achieve everything.",
-          "You will live the most beautiful period of your life."
-        ]
-      },
-      
-      // Cevap üretme fonksiyonu
-      generateResponse: function(userMessage, language) {
-        const lang = language || 'tr';
-        const patterns = this[lang].patterns;
-        const general = this[lang].general;
-        
-        // Kullanıcı mesajını küçük harfe çevir
-        const message = userMessage.toLowerCase();
-        
-        // Anahtar kelimelere göre cevap bul
-        for (let pattern of patterns) {
-          for (let keyword of pattern.keywords) {
-            if (message.includes(keyword)) {
-              const responses = pattern.responses;
-              return responses[Math.floor(Math.random() * responses.length)];
-            }
-          }
-        }
-        
-        // Genel cevap döndür
-        return general[Math.floor(Math.random() * general.length)];
-      }
-    };
+
   </script>
 </body>
 </html> 
