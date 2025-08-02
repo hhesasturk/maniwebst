@@ -29,7 +29,6 @@ export default async function handler(req, res) {
     }
 
     console.log('Kullanıcı mesajı:', userMessage);
-    console.log('OpenAI API\'ye istek gönderiliyor...');
 
     const completion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
@@ -40,8 +39,8 @@ export default async function handler(req, res) {
         },
         { role: 'user', content: userMessage }
       ],
-      max_tokens: 300,
-      temperature: 0.7
+      max_tokens: 250,
+      temperature: 0.8
     });
 
     console.log('OpenAI cevabı alındı:', completion.choices[0].message.content);
@@ -51,15 +50,6 @@ export default async function handler(req, res) {
     console.error('HATA OLUŞTU:', err.message);
     console.error('Hata detayı:', err);
     
-    // Daha detaylı hata mesajları
-    if (err.code === 'ENOTFOUND') {
-      res.status(500).json({ error: 'İnternet bağlantısı sorunu. Lütfen tekrar deneyin.' });
-    } else if (err.code === 'ECONNRESET') {
-      res.status(500).json({ error: 'Bağlantı kesildi. Lütfen tekrar deneyin.' });
-    } else if (err.message.includes('API key')) {
-      res.status(500).json({ error: 'API anahtarı sorunu. Lütfen daha sonra tekrar deneyin.' });
-    } else {
-      res.status(500).json({ error: 'Yapay zeka cevabı alınamadı. Lütfen tekrar deneyin.' });
-    }
+    res.status(500).json({ error: 'Yapay zeka cevabı alınamadı. Lütfen tekrar deneyin.' });
   }
 } 
