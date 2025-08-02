@@ -17,17 +17,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Check if API key exists
-  if (!process.env.OPENAI_API_KEY) {
-    console.error('OPENAI_API_KEY bulunamadı');
-    return res.status(500).json({ error: 'API anahtarı yapılandırılmamış' });
-  }
-
   try {
-    const openai = new OpenAI({ 
-      apiKey: process.env.OPENAI_API_KEY 
-    });
-
     const { userMessage, language = 'tr' } = req.body;
     
     if (!userMessage || userMessage.trim().length === 0) {
@@ -36,6 +26,16 @@ export default async function handler(req, res) {
 
     console.log('Kullanıcı mesajı:', userMessage);
     console.log('Dil:', language);
+
+    // OpenAI API key kontrolü
+    if (!process.env.OPENAI_API_KEY) {
+      console.error('OPENAI_API_KEY bulunamadı');
+      return res.status(500).json({ error: 'API anahtarı yapılandırılmamış' });
+    }
+
+    const openai = new OpenAI({ 
+      apiKey: process.env.OPENAI_API_KEY 
+    });
 
     // Dil bazlı prompt oluştur
     let systemPrompt = '';
