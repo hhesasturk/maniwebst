@@ -1,6 +1,6 @@
-import { OpenAI } from 'openai';
+const { OpenAI } = require('openai');
 
-export default async function handler(req, res) {
+module.exports = async (req, res) => {
   // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -70,4 +70,4 @@ export default async function handler(req, res) {
       res.status(500).json({ error: 'Yapay zeka cevabı alınamadı. Lütfen tekrar deneyin. Hata: ' + err.message });
     }
   }
-} 
+}; 

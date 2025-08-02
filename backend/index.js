@@ -12,6 +12,7 @@ app.use(cors({
   origin: [
     'https://maniwebst.com',
     'https://www.maniwebst.com',
+    'https://maniwebst.vercel.app',
     'http://localhost:3000',
     'http://localhost:5000',
     'http://127.0.0.1:5500',
@@ -32,6 +33,16 @@ app.get('/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
+// Test endpoint
+app.get('/api/test', (req, res) => {
+  res.json({ 
+    message: 'Backend API çalışıyor!',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development',
+    apiKeyExists: !!process.env.OPENAI_API_KEY
+  });
+});
+
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 app.post('/api/manifest', async (req, res) => {
@@ -43,6 +54,7 @@ app.post('/api/manifest', async (req, res) => {
   }
   
   console.log('Kullanıcı mesajı:', userMessage);
+  console.log('API Key mevcut:', process.env.OPENAI_API_KEY ? 'Evet' : 'Hayır');
   
   try {
     console.log('OpenAI API\'ye istek gönderiliyor...');

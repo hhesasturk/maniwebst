@@ -4,6 +4,9 @@
     "api/manifest.js": {
       "runtime": "nodejs18.x"
     },
+    "api/manifest-direct.js": {
+      "runtime": "nodejs18.x"
+    },
     "api/test.js": {
       "runtime": "nodejs18.x"
     }

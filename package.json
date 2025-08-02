@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Manifest web sitesi",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "dev": "vercel dev",
     "build": "vercel build",
