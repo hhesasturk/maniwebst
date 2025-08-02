@@ -1728,31 +1728,12 @@
       const progressInterval = startProgress();
       
       try {
-        // Vercel API'si ile cevap al - alternatif endpoint'ler dene
-        let response;
-        try {
-          response = await fetch('/api/manifest', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ userMessage: centerInput.value })
-          });
-        } catch (firstError) {
-          console.log('İlk endpoint başarısız, alternatif deneniyor...');
-          try {
-            response = await fetch('/api/manifest-direct', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ userMessage: centerInput.value })
-            });
-          } catch (secondError) {
-            console.log('İkinci endpoint de başarısız, backend deneniyor...');
-            response = await fetch('https://maniwebst-backend.onrender.com/api/manifest', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ userMessage: centerInput.value })
-            });
-          }
-        }
+        // Vercel API'si ile cevap al
+        const response = await fetch('/api/manifest', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userMessage: centerInput.value })
+        });
         
         console.log('API Response Status:', response.status);
         console.log('API Response Headers:', response.headers);
