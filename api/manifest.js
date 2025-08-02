@@ -17,6 +17,12 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  // Check if API key exists
+  if (!process.env.OPENAI_API_KEY) {
+    console.error('OPENAI_API_KEY bulunamadı');
+    return res.status(500).json({ error: 'API anahtarı yapılandırılmamış. Lütfen Vercel dashboard\'da environment variable\'ları kontrol edin.' });
+  }
+
   try {
     const { userMessage } = req.body;
     
@@ -26,8 +32,11 @@ export default async function handler(req, res) {
 
     console.log('Kullanıcı mesajı:', userMessage);
     console.log('OpenAI API\'ye istek gönderiliyor...');
+    console.log('API Key mevcut:', process.env.OPENAI_API_KEY ? 'Evet' : 'Hayır');
 
-    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+    const openai = new OpenAI({ 
+      apiKey: process.env.OPENAI_API_KEY 
+    });
 
     const completion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
@@ -50,14 +59,16 @@ export default async function handler(req, res) {
     console.error('Hata detayı:', err);
     
     // Daha detaylı hata mesajları
-    if (err.code === 'ENOTFOUND') {
-      res.status(500).json({ error: 'İnternet bağlantısı sorunu. Lütfen tekrar deneyin.' });
-    } else if (err.code === 'ECONNRESET') {
-      res.status(500).json({ error: 'Bağlantı kesildi. Lütfen tekrar deneyin.' });
-    } else if (err.message.includes('API key')) {
-      res.status(500).json({ error: 'API anahtarı sorunu. Lütfen daha sonra tekrar deneyin.' });
+    if (err.message.includes('API key') || err.message.includes('authentication')) {
+      res.status(500).json({ error: 'API anahtarı sorunu. Lütfen Vercel dashboard\'da OPENAI_API_KEY environment variable\'ını kontrol edin.' });
+    } else if (err.message.includes('rate limit')) {
+      res.status(429).json({ error: 'Çok fazla istek. Lütfen biraz bekleyip tekrar deneyin.' });
+    } else if (err.message.includes('quota') || err.message.includes('billing')) {
+      res.status(500).json({ error: 'API kotası doldu. Lütfen daha sonra tekrar deneyin.' });
+    } else if (err.message.includes('network') || err.message.includes('fetch')) {
+      res.status(500).json({ error: 'Ağ bağlantısı sorunu. Lütfen internetinizi kontrol edin ve tekrar deneyin.' });
     } else {
-      res.status(500).json({ error: 'Yapay zeka cevabı alınamadı. Lütfen tekrar deneyin.' });
+      res.status(500).json({ error: 'Yapay zeka cevabı alınamadı. Lütfen tekrar deneyin. Hata: ' + err.message });
     }
   }
 } 

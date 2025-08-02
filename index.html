@@ -1734,7 +1734,12 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ userMessage: centerInput.value })
         });
+        
+        console.log('API Response Status:', response.status);
+        console.log('API Response Headers:', response.headers);
+        
         const data = await response.json();
+        console.log('API Response Data:', data);
         
         // Progress bar tamamla
         clearInterval(progressInterval);
@@ -1744,36 +1749,42 @@
           centerAnswer.textContent = data.answer;
           centerAnswer.style.color = '#1a237e';
           
-                  // Başarı efektleri
-        createConfetti();
-        successSound.currentTime = 0;
-        successSound.play().catch(e => console.log('Ses çalınamadı'));
-        
-        // Track successful manifest in Google Analytics
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'manifest_success', {
-            'language': currentLanguage,
-            'input_length': centerInput.value.length
-          });
-        }
+          // Başarı efektleri
+          createConfetti();
+          successSound.currentTime = 0;
+          successSound.play().catch(e => console.log('Ses çalınamadı'));
+          
+          // Track successful manifest in Google Analytics
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'manifest_success', {
+              'language': currentLanguage,
+              'input_length': centerInput.value.length
+            });
+          }
           
           // Başarı animasyonu
           centerAnswer.style.animation = 'none';
           centerAnswer.offsetHeight; // Reflow
           centerAnswer.style.animation = 'answerFadeIn 0.5s ease';
           
+        } else if (data.error) {
+          centerAnswer.textContent = data.error;
+          centerAnswer.style.color = '#b71c1c';
         } else {
           centerAnswer.textContent = translations[currentLanguage].errorMessages.generalError;
           centerAnswer.style.color = '#b71c1c';
         }
       } catch (err) {
         console.error('API Hatası:', err);
+        clearInterval(progressInterval);
+        completeProgress();
+        
         if (err.name === 'TypeError' && err.message.includes('fetch')) {
           centerAnswer.textContent = translations[currentLanguage].errorMessages.serverError;
         } else if (err.message.includes('CORS')) {
           centerAnswer.textContent = translations[currentLanguage].errorMessages.corsError;
         } else {
-          centerAnswer.textContent = translations[currentLanguage].errorMessages.generalError;
+          centerAnswer.textContent = translations[currentLanguage].errorMessages.generalError + ' (Hata: ' + err.message + ')';
         }
         centerAnswer.style.color = '#b71c1c';
       }

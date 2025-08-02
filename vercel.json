@@ -1,3 +1,21 @@
 {
-  "version": 2
+  "version": 2,
+  "functions": {
+    "api/manifest.js": {
+      "runtime": "nodejs18.x"
+    },
+    "api/test.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/manifest",
+      "dest": "/api/manifest.js"
+    },
+    {
+      "src": "/api/test",
+      "dest": "/api/test.js"
+    }
+  ]
 } 
