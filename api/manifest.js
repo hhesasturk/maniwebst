@@ -22,20 +22,33 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { userMessage } = req.body;
+    const { userMessage, language = 'tr' } = req.body;
     
     if (!userMessage || userMessage.trim().length === 0) {
       return res.status(400).json({ error: 'Kullanıcı mesajı boş olamaz.' });
     }
 
     console.log('Kullanıcı mesajı:', userMessage);
+    console.log('Dil:', language);
+
+    // Dil bazlı prompt oluştur
+    let systemPrompt = '';
+    let startWord = '';
+    
+    if (language === 'en') {
+      systemPrompt = 'You are a manifestation master. The user will tell you their dream as if it has already come true, and you will expand and detail those beautiful things to make the user feel inside them. Detail the beautiful moments the user describes, engage the senses, describe how that moment feels. Tell it as if we are experiencing that moment together. Do not ask the user questions, just expand on the beautiful things they describe and make that moment even more beautiful. Give the user beautiful dreams, describe the thing they mention as if they have gained it. IMPORTANT: Always respond in the same language as the user. Use lots of emojis, tell it emotionally and convincingly. When the user reads it, they should feel themselves inside that beautiful moment.';
+      startWord = 'Manifested!';
+    } else {
+      systemPrompt = 'Sen bir manifest ustasısısın. Kullanıcı sana hayalini gerçekleşmiş gibi anlatacak, sen de o güzel şeyleri genişletip ayrıntılı şekilde kullanıcıyı içinde hissettireceksin. Kullanıcının anlattığı güzel anları daha da detaylandır, duyuları harekete geçir, o anın nasıl hissettirdiğini tasvir et. Sanki o anı birlikte yaşıyormuş gibi anlat. Kullanıcıya soru sorma, sadece onun anlattığı güzel şeyleri genişlet ve o anı daha da güzel hale getir. Kullanıcıya güzel hayaller kur, bahsettiği şeyi ona kazanmış gibi anlat. ÖNEMLİ: Kullanıcı hangi dille yazıyorsa sen de kesinlikle o dille cevap ver. Bol emoji kullan, duygusal ve inandırıcı bir şekilde anlat. Kullanıcı okuduğunda kendini o güzel anın içinde hissetsin.';
+      startWord = 'Manifestlendi!';
+    }
 
     const completion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       messages: [
         { 
           role: 'system', 
-          content: 'Sen bir manifest ustasısısın. Kullanıcı sana hayalini anlatacak, sen de o hayalin gerçekleşmiş halini spiritüel ve duygusal bir şekilde tasvir edeceksin. Her cevabın ilk kelimesi "Manifestlendi!" olacak. Kullanıcının bahsettiği şeyin içinde hissettir, sanki o şeye sahip olmuş gibi anlat. Hayallerin gerçeğe dönüştüğünü vurgula. Rasyonel değil, spiritüel konuş. Kullanıcıya soru sorma, sadece o şeyin gerçekleşmiş halini ayrıntılı ve güzel tasvir et. Kullanıcı hangi dille yazıyorsa sen de o dille cevap ver. Bol emoji kullan, duygusal ve inandırıcı bir şekilde anlat. Kullanıcı okuduğunda kendini o şeyin içinde hissetsin. ÖNEMLİ: Kullanıcı hangi dille yazıyorsa sen de kesinlikle o dille cevap ver. İngilizce yazarsa İngilizce, Türkçe yazarsa Türkçe cevap ver.' 
+          content: systemPrompt
         },
         { role: 'user', content: userMessage }
       ],
