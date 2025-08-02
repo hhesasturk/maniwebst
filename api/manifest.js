@@ -17,12 +17,6 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Check if API key exists
-  if (!process.env.OPENAI_API_KEY) {
-    console.error('OPENAI_API_KEY bulunamadı');
-    return res.status(500).json({ error: 'API anahtarı yapılandırılmamış. Lütfen Vercel dashboard\'da environment variable\'ları kontrol edin.' });
-  }
-
   try {
     const { userMessage } = req.body;
     
@@ -30,8 +24,13 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Kullanıcı mesajı boş olamaz.' });
     }
 
+    // Check if API key exists
+    if (!process.env.OPENAI_API_KEY) {
+      console.error('OPENAI_API_KEY bulunamadı');
+      return res.status(500).json({ error: 'API anahtarı yapılandırılmamış.' });
+    }
+
     console.log('Kullanıcı mesajı:', userMessage);
-    console.log('API Key mevcut:', process.env.OPENAI_API_KEY ? 'Evet' : 'Hayır');
 
     const openai = new OpenAI({ 
       apiKey: process.env.OPENAI_API_KEY 
@@ -55,19 +54,7 @@ export default async function handler(req, res) {
     res.status(200).json({ answer: completion.choices[0].message.content });
   } catch (err) {
     console.error('HATA OLUŞTU:', err.message);
-    console.error('Hata detayı:', err);
     
-    // Daha detaylı hata mesajları
-    if (err.message.includes('API key') || err.message.includes('authentication')) {
-      res.status(500).json({ error: 'API anahtarı sorunu. Lütfen Vercel dashboard\'da OPENAI_API_KEY environment variable\'ını kontrol edin.' });
-    } else if (err.message.includes('rate limit')) {
-      res.status(429).json({ error: 'Çok fazla istek. Lütfen biraz bekleyip tekrar deneyin.' });
-    } else if (err.message.includes('quota') || err.message.includes('billing')) {
-      res.status(500).json({ error: 'API kotası doldu. Lütfen daha sonra tekrar deneyin.' });
-    } else if (err.message.includes('network') || err.message.includes('fetch')) {
-      res.status(500).json({ error: 'Ağ bağlantısı sorunu. Lütfen internetinizi kontrol edin ve tekrar deneyin.' });
-    } else {
-      res.status(500).json({ error: 'Yapay zeka cevabı alınamadı. Lütfen tekrar deneyin. Hata: ' + err.message });
-    }
+    res.status(500).json({ error: 'Yapay zeka cevabı alınamadı. Lütfen tekrar deneyin.' });
   }
 } 
