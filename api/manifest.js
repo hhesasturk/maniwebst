@@ -31,7 +31,6 @@ export default async function handler(req, res) {
     }
 
     console.log('Kullanıcı mesajı:', userMessage);
-    console.log('OpenAI API\'ye istek gönderiliyor...');
     console.log('API Key mevcut:', process.env.OPENAI_API_KEY ? 'Evet' : 'Hayır');
 
     const openai = new OpenAI({ 

@@ -7,15 +7,5 @@
     "api/test.js": {
       "runtime": "nodejs18.x"
     }
-  },
-  "routes": [
-    {
-      "src": "/api/manifest",
-      "dest": "/api/manifest.js"
-    },
-    {
-      "src": "/api/test",
-      "dest": "/api/test.js"
-    }
-  ]
+  }
 } 

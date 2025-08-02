@@ -980,7 +980,7 @@
   
   <audio id="bgMusic" src="melody.mp3" loop></audio>
   <audio id="emojiSound" src="pop.mp3" preload="auto"></audio>
-  <audio id="emojiClickSound" src="../ses dosyaları/bubble-pop-06-351337.mp3" preload="auto"></audio>
+  <audio id="emojiClickSound" src="pop.mp3" preload="auto"></audio>
   <audio id="successSound" src="success.mp3" preload="auto"></audio>
   <script>
     // Language Management
@@ -1797,10 +1797,11 @@
 
     // Otomatik başlat (bazı tarayıcılarda kullanıcı etkileşimi gerekebilir)
     window.addEventListener('DOMContentLoaded', function() {
-      setTimeout(() => {
-        const bgMusic = document.getElementById('bgMusic');
-        bgMusic.play();
-      }, 500);
+      // Autoplay'i kaldır - kullanıcı etkileşimi gerektirir
+      // setTimeout(() => {
+      //   const bgMusic = document.getElementById('bgMusic');
+      //   bgMusic.play().catch(e => console.log('Autoplay engellendi'));
+      // }, 500);
     });
 
     // --- PAYLAŞIM MENÜSÜ JS ---
