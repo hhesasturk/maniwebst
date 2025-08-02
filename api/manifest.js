@@ -1,9 +1,5 @@
 import { OpenAI } from 'openai';
 
-const openai = new OpenAI({ 
-  apiKey: process.env.OPENAI_API_KEY 
-});
-
 export default async function handler(req, res) {
   // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -21,7 +17,17 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  // Check if API key exists
+  if (!process.env.OPENAI_API_KEY) {
+    console.error('OPENAI_API_KEY bulunamadı');
+    return res.status(500).json({ error: 'API anahtarı yapılandırılmamış' });
+  }
+
   try {
+    const openai = new OpenAI({ 
+      apiKey: process.env.OPENAI_API_KEY 
+    });
+
     const { userMessage, language = 'tr' } = req.body;
     
     if (!userMessage || userMessage.trim().length === 0) {
@@ -60,6 +66,15 @@ export default async function handler(req, res) {
     console.error('HATA OLUŞTU:', err.message);
     console.error('Hata detayı:', err);
     
-    res.status(500).json({ error: 'Yapay zeka cevabı alınamadı. Lütfen tekrar deneyin.' });
+    // Daha detaylı hata mesajları
+    if (err.message.includes('API key')) {
+      res.status(500).json({ error: 'API anahtarı sorunu. Lütfen daha sonra tekrar deneyin.' });
+    } else if (err.message.includes('rate limit')) {
+      res.status(429).json({ error: 'Çok fazla istek. Lütfen biraz bekleyip tekrar deneyin.' });
+    } else if (err.message.includes('quota')) {
+      res.status(500).json({ error: 'API kotası doldu. Lütfen daha sonra tekrar deneyin.' });
+    } else {
+      res.status(500).json({ error: 'Yapay zeka cevabı alınamadı. Lütfen tekrar deneyin.' });
+    }
   }
 } 
