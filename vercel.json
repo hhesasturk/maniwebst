@@ -1,3 +1,39 @@
 {
-  "version": 2
+  "version": 2,
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/hakkimizda",
+      "dest": "/hakkimizda.html"
+    },
+    {
+      "src": "/gizlilik-politikasi",
+      "dest": "/gizlilik-politikasi.html"
+    },
+    {
+      "src": "/iletisim",
+      "dest": "/iletisim.html"
+    },
+    {
+      "src": "/api/manifest",
+      "dest": "/api/manifest.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
 } 
