@@ -1,8 +1,14 @@
 import { OpenAI } from 'openai';
 
+// Initialize OpenAI with error checking
 const openai = new OpenAI({ 
-  apiKey: process.env.OPENAI_API_KEY 
+  apiKey: process.env.OPENAI_API_KEY || ''
 });
+
+// Check if API key is available
+if (!process.env.OPENAI_API_KEY) {
+  console.error('OPENAI_API_KEY environment variable is not set');
+}
 
 export default async function handler(req, res) {
   // CORS headers
