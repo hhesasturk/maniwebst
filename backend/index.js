@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { OpenAI } from 'openai';
+import path from 'path';
 
 dotenv.config();
 
@@ -28,69 +29,111 @@ app.use(cors({
 
 app.use(express.json());
 
+// Statik dosyalar için - frontend'i servis et
+app.use(express.static(path.join(process.cwd(), '..')));
+
 // Health check endpoint
 app.get('/health', (req, res) => {
-  res.json({ status: 'OK', timestamp: new Date().toISOString() });
-});
-
-// Test endpoint
-app.get('/api/test', (req, res) => {
-  res.json({ 
-    message: 'Backend API çalışıyor!',
+  res.json({
+    status: 'OK',
+    message: 'Backend is running',
     timestamp: new Date().toISOString(),
     environment: process.env.NODE_ENV || 'development',
     apiKeyExists: !!process.env.OPENAI_API_KEY
   });
 });
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+// OpenAI client'ı sadece API key varsa oluştur
+let openai = null;
+if (process.env.OPENAI_API_KEY && process.env.OPENAI_API_KEY !== 'sk-test-key-for-development') {
+  openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+}
 
 app.post('/api/manifest', async (req, res) => {
   console.log('API isteği geldi:', req.body);
-  const { userMessage } = req.body;
+  const { manifest } = req.body;
   
-  if (!userMessage || userMessage.trim().length === 0) {
-    return res.status(400).json({ error: 'Kullanıcı mesajı boş olamaz.' });
+  if (!manifest || manifest.trim().length === 0) {
+    return res.status(400).json({ error: 'Manifest metni boş olamaz.' });
   }
   
-  console.log('Kullanıcı mesajı:', userMessage);
+  console.log('Kullanıcı manifesti:', manifest);
   console.log('API Key mevcut:', process.env.OPENAI_API_KEY ? 'Evet' : 'Hayır');
+  
+  // Eğer OpenAI API key yoksa veya test key ise fallback yanıt ver
+  if (!openai) {
+    console.log('OpenAI API key bulunamadı veya test key, fallback yanıt veriliyor...');
+    const fallbackResponse = `Bu harika, zaten bu gerçekliğe doğru çekiliyorsun! ✨
+
+Şu an bu hayalin içindesin, hisset. "${manifest}" - bu energia seninle uyum içinde çalışıyor. 
+
+Manifesto enerjin çalıştı bile, kendini olmuş gibi hisset. Bu gerçeklik artık senin yaşam alanında var. Her nefes alışında bu hayal daha da güçleniyor, evren senin bu niyetini duyuyor ve gerçekleştiriyor.
+
+Bu deneyimi yaşarken kendini nasıl hissediyorsun? Bu gerçekliğin tadını çıkar, çünkü bu artık senin yaşamının bir parçası.
+
+Tüm bunlar gerçek olmuş olsaydı, günlüğüne nasıl yazardın? 📖`;
+
+    return res.json({ response: fallbackResponse });
+  }
   
   try {
     console.log('OpenAI API\'ye istek gönderiliyor...');
+    const prompt = `Sen spiritüel bir manifest koçusun. Kullanıcının yazdığı hayali gerçekleşmiş gibi kabul et ve ona çok detaylı, spiritüel ve motive edici bir yanıt ver.
+
+Kullanıcının manifesti: "${manifest}"
+
+Yanıtın şu özelliklerde olmalı:
+1. "Bu harika, zaten bu gerçekliğe doğru çekiliyorsun" tarzında başla
+2. Kullanıcının bahsettiği konuyu çok detaylı ele al
+3. Bu hayalin gerçekleştiği dünyayı betimle
+4. Kullanıcının hissettiği duyguları ve deneyimleri detaylandır
+5. "Şu an bu hayalin içindesin, hisset. Seninle uyum içinde" gibi cümleler ekle
+6. "Manifesto enerjin çalıştı bile, kendini olmuş gibi hisset.✨" tarzında devam et
+7. Bu gerçekliğin nasıl hissettirdiğini detaylı anlat
+8. En sonunda mutlaka şu soruyu sor: "Tüm bunlar gerçek olmuş olsaydı, günlüğüne nasıl yazardın?"
+
+Yanıtın 4-5 paragraf uzunluğunda olsun, çok detaylı ve betimleyici olsun. Kullanıcıyı bu gerçekliğin içine çeksin. Emoji kullan ama abartma.`;
+
     const completion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       messages: [
         { 
           role: 'system', 
-          content: 'Sen manifest felsefesine uygun, motive edici, psikolojik olarak iyi hissettiren bir yardımcı yapay zekasın. Kullanıcıya hayal kurdur, olumlu ve destekleyici cevaplar ver. Eğer kullanıcı hayalini yazarsa, olumsuz kısımları olumluya çevir ve hayali daha da güzelleştir. Türkçe cevap ver.' 
+          content: 'Sen spiritüel bir manifest koçusun. Kullanıcının hayallerini gerçekleşmiş gibi kabul eder ve onu çok detaylı, motive edici, spiritüel bir dille yanıtlarsın. Kullanıcının bahsettiği konuyu derinlemesine ele alır ve o gerçekliği yaşatırsın.' 
         },
-        { role: 'user', content: userMessage }
+        { role: 'user', content: prompt }
       ],
-      max_tokens: 300,
+      max_tokens: 800,
       temperature: 0.8
     });
     
     console.log('OpenAI cevabı alındı:', completion.choices[0].message.content);
-    res.json({ answer: completion.choices[0].message.content });
+    res.json({ response: completion.choices[0].message.content });
   } catch (err) {
     console.error('HATA OLUŞTU:', err.message);
     console.error('Hata detayı:', err);
     
-    // Daha detaylı hata mesajları
-    if (err.code === 'ENOTFOUND') {
-      res.status(500).json({ error: 'İnternet bağlantısı sorunu. Lütfen tekrar deneyin.' });
-    } else if (err.code === 'ECONNRESET') {
-      res.status(500).json({ error: 'Bağlantı kesildi. Lütfen tekrar deneyin.' });
-    } else if (err.message.includes('API key')) {
-      res.status(500).json({ error: 'API anahtarı sorunu. Lütfen daha sonra tekrar deneyin.' });
-    } else {
-      res.status(500).json({ error: 'Yapay zeka cevabı alınamadı. Lütfen tekrar deneyin.' });
-    }
+    // Fallback response if API fails
+    const fallbackResponse = `Bu harika, zaten bu gerçekliğe doğru çekiliyorsun! ✨
+
+Şu an bu hayalin içindesin, hisset. "${manifest}" - bu energia seninle uyum içinde çalışıyor. 
+
+Manifesto enerjin çalıştı bile, kendini olmuş gibi hisset. Bu gerçeklik artık senin yaşam alanında var. Her nefes alışında bu hayal daha da güçleniyor, evren senin bu niyetini duyuyor ve gerçekleştiriyor.
+
+Bu deneyimi yaşarken kendini nasıl hissediyorsun? Bu gerçekliğin tadını çıkar, çünkü bu artık senin yaşamının bir parçası.
+
+Tüm bunlar gerçek olmuş olsaydı, günlüğüne nasıl yazardın? 📖`;
+
+    res.json({ response: fallbackResponse });
   }
 });
 
-// Error handling middleware
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ error: 'Endpoint bulunamadı' });
+});
+
+// Error handler
 app.use((err, req, res, next) => {
   console.error('Genel hata:', err);
   res.status(500).json({ error: 'Sunucu hatası oluştu.' });
@@ -101,6 +144,7 @@ const HOST = process.env.HOST || '0.0.0.0'; // Tüm IP'lerden erişime izin ver
 
 app.listen(PORT, HOST, () => {
   console.log(`Backend çalışıyor: http://${HOST}:${PORT}`);
+  console.log('Frontend: http://localhost:3002');
   console.log('API endpoint: http://localhost:3002/api/manifest');
   console.log('CORS aktif');
   console.log('OpenAI API anahtarı yüklendi:', process.env.OPENAI_API_KEY ? 'Evet' : 'Hayır');
