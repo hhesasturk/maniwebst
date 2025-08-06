@@ -2,7 +2,35 @@
   "version": 2,
   "builds": [
     {
-      "src": "*.html",
+      "src": "**/*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.mp3",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.png",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.jpg",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.ico",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.txt",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.xml",
       "use": "@vercel/static"
     },
     {
@@ -12,24 +40,28 @@
   ],
   "routes": [
     {
-      "src": "/",
-      "dest": "/index.html"
+      "src": "/api/manifest",
+      "dest": "/api/manifest.js"
     },
     {
       "src": "/hakkimizda",
-      "dest": "/hakkimizda.html"
+      "dest": "/maniwebst/hakkimizda.html"
     },
     {
       "src": "/gizlilik-politikasi",
-      "dest": "/gizlilik-politikasi.html"
+      "dest": "/maniwebst/gizlilik-politikasi.html"
     },
     {
       "src": "/iletisim",
-      "dest": "/iletisim.html"
+      "dest": "/maniwebst/iletisim.html"
     },
     {
-      "src": "/api/manifest",
-      "dest": "/api/manifest.js"
+      "src": "/newsletter-signup",
+      "dest": "/maniwebst/newsletter-signup.html"
+    },
+    {
+      "src": "/",
+      "dest": "/index.html"
     },
     {
       "src": "/(.*)",

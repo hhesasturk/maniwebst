@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-tr="İletişim - Manifest | Günün Manifestosu" data-en="Contact - Manifest | Daily Manifesto">İletişim - Manifest | Günün Manifestosu</title>
+  <meta name="description" content="Manifest platformu ile iletişime geçin. Sorularınız, önerileriniz ve geri bildirimleriniz için bizimle iletişim kurun.">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Indie+Flower&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: 'Indie Flower', cursive;
+      background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+    
+    /* Language Switcher Styles */
+    .language-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 25px;
+      padding: 8px 16px;
+      box-shadow: 0 4px 16px rgba(34, 87, 122, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .language-switcher:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(34, 87, 122, 0.25);
+    }
+    
+    .language-btn {
+      background: none;
+      border: none;
+      padding: 6px 12px;
+      margin: 0 2px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: 'Indie Flower', cursive;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      color: #666;
+    }
+    
+    .language-btn.active {
+      background: linear-gradient(135deg, #2193b0, #6dd5ed);
+      color: white;
+      transform: scale(1.05);
+    }
+    
+    .language-btn:hover:not(.active) {
+      background: rgba(33, 147, 176, 0.1);
+      color: #2193b0;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: 60px;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      background: linear-gradient(135deg, #2193b0, #6dd5ed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 30px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-content {
+      line-height: 1.8;
+      font-size: 1.2rem;
+      color: #555;
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    .contact-info {
+      background: linear-gradient(135deg, rgba(33, 147, 176, 0.1), rgba(109, 213, 237, 0.1));
+      border-radius: 15px;
+      padding: 25px;
+      margin: 25px 0;
+      border-left: 4px solid #2193b0;
+    }
+
+    .contact-item {
+      margin: 15px 0;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(33, 147, 176, 0.2);
+    }
+
+    .contact-item:last-child {
+      border-bottom: none;
+    }
+
+    .contact-label {
+      font-weight: bold;
+      color: #2193b0;
+      font-size: 1.1rem;
+    }
+
+    .contact-value {
+      color: #666;
+      margin-top: 5px;
+    }
+
+    .contact-form {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 15px;
+      padding: 30px;
+      margin-top: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #2193b0;
+    }
+
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid rgba(33, 147, 176, 0.3);
+      border-radius: 10px;
+      font-family: 'Indie Flower', cursive;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      outline: none;
+      border-color: #2193b0;
+      box-shadow: 0 0 0 3px rgba(33, 147, 176, 0.1);
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #2193b0, #6dd5ed);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 25px;
+      font-family: 'Indie Flower', cursive;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(33, 147, 176, 0.3);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #2193b0;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border: 2px solid rgba(33, 147, 176, 0.3);
+    }
+
+    .back-link:hover {
+      background: #2193b0;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(33, 147, 176, 0.3);
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .container {
+        margin: 20px;
+        padding: 30px 15px;
+        margin-top: 80px;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .contact-content {
+        font-size: 1.1rem;
+      }
+      
+      .language-switcher {
+        top: 15px;
+        right: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <button class="language-btn active" data-lang="tr">TR</button>
+    <button class="language-btn" data-lang="en">EN</button>
+  </div>
+
+  <div class="container">
+    <h1 data-tr="İletişim" data-en="Contact">İletişim</h1>
+    
+    <div class="contact-content">
+      <p data-tr="Manifest platformu ile ilgili sorularınız, önerileriniz veya geri bildirimleriniz için bizimle iletişime geçebilirsiniz. Size en kısa sürede dönüş yapmaya çalışacağız." 
+         data-en="You can contact us for questions, suggestions, or feedback about the Manifest platform. We will try to get back to you as soon as possible.">
+        Manifest platformu ile ilgili sorularınız, önerileriniz veya geri bildirimleriniz için bizimle iletişime geçebilirsiniz. Size en kısa sürede dönüş yapmaya çalışacağız.
+      </p>
+    </div>
+
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-label" data-tr="E-posta" data-en="Email">E-posta</div>
+        <div class="contact-value">info@maniwebst.com</div>
+      </div>
+      
+      <div class="contact-item">
+        <div class="contact-label" data-tr="Destek" data-en="Support">Destek</div>
+        <div class="contact-value">destek@maniwebst.com</div>
+      </div>
+      
+      <div class="contact-item">
+        <div class="contact-label" data-tr="Çalışma Saatleri" data-en="Working Hours">Çalışma Saatleri</div>
+        <div class="contact-value" data-tr="Pazartesi - Cuma: 09:00 - 18:00" data-en="Monday - Friday: 09:00 - 18:00">Pazartesi - Cuma: 09:00 - 18:00</div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h2 data-tr="İletişim Formu" data-en="Contact Form" style="color: #2193b0; margin-bottom: 20px; font-family: 'Dancing Script', cursive;">İletişim Formu</h2>
+      
+      <form id="contactForm">
+        <div class="form-group">
+          <label class="form-label" data-tr="Adınız Soyadınız" data-en="Full Name">Adınız Soyadınız</label>
+          <input type="text" class="form-input" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" data-tr="E-posta Adresiniz" data-en="Email Address">E-posta Adresiniz</label>
+          <input type="email" class="form-input" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" data-tr="Konu" data-en="Subject">Konu</label>
+          <input type="text" class="form-input" name="subject" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" data-tr="Mesajınız" data-en="Your Message">Mesajınız</label>
+          <textarea class="form-textarea" name="message" required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn" data-tr="Mesaj Gönder" data-en="Send Message">Mesaj Gönder</button>
+      </form>
+    </div>
+
+    <a href="/" class="back-link" data-tr="← Ana Sayfaya Dön" data-en="← Back to Home">← Ana Sayfaya Dön</a>
+  </div>
+
+  <script>
+    // Language switching functionality
+    const languageButtons = document.querySelectorAll('.language-btn');
+    const elementsWithLang = document.querySelectorAll('[data-tr]');
+    
+    let currentLanguage = 'tr';
+    
+    languageButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const selectedLang = btn.getAttribute('data-lang');
+        
+        if (selectedLang !== currentLanguage) {
+          // Update active button
+          languageButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          
+          // Update all text elements
+          elementsWithLang.forEach(element => {
+            const newText = element.getAttribute(`data-${selectedLang}`);
+            if (newText) {
+              if (element.tagName === 'INPUT' && element.type === 'submit') {
+                element.value = newText;
+              } else {
+                element.textContent = newText;
+              }
+            }
+          });
+          
+          // Update page title
+          const titleElement = document.querySelector('title');
+          const newTitle = titleElement.getAttribute(`data-${selectedLang}`);
+          if (newTitle) {
+            titleElement.textContent = newTitle;
+          }
+          
+          currentLanguage = selectedLang;
+        }
+      });
+    });
+
+    // Contact form handling
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Simple form validation and submission
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+      
+      // Here you would typically send the data to your backend
+      alert(currentLanguage === 'tr' ? 
+        'Mesajınız alınmıştır. En kısa sürede size dönüş yapacağız.' :
+        'Your message has been received. We will get back to you as soon as possible.'
+      );
+      
+      // Reset form
+      this.reset();
+    });
+  </script>
+</body>
+</html>
