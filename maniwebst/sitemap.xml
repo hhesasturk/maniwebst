@@ -10,27 +10,35 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://maniwebst.com/"/>
   </url>
   <url>
-    <loc>https://maniwebst.com/hakkimizda.html</loc>
+    <loc>https://maniwebst.com/hakkimizda</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://maniwebst.com/hakkimizda.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maniwebst.com/hakkimizda.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://maniwebst.com/hakkimizda"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://maniwebst.com/hakkimizda"/>
   </url>
   <url>
-    <loc>https://maniwebst.com/gizlilik-politikasi.html</loc>
+    <loc>https://maniwebst.com/gizlilik-politikasi</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://maniwebst.com/gizlilik-politikasi.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maniwebst.com/gizlilik-politikasi.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://maniwebst.com/gizlilik-politikasi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://maniwebst.com/gizlilik-politikasi"/>
   </url>
   <url>
-    <loc>https://maniwebst.com/iletisim.html</loc>
+    <loc>https://maniwebst.com/iletisim</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://maniwebst.com/iletisim.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://maniwebst.com/iletisim.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://maniwebst.com/iletisim"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://maniwebst.com/iletisim"/>
+  </url>
+  <url>
+    <loc>https://maniwebst.com/newsletter-signup</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://maniwebst.com/newsletter-signup"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://maniwebst.com/newsletter-signup"/>
   </url>
 </urlset> 

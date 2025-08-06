@@ -6,6 +6,10 @@
       "use": "@vercel/static"
     },
     {
+      "src": "maniwebst/*.html",
+      "use": "@vercel/static"
+    },
+    {
       "src": "api/**/*.js",
       "use": "@vercel/node"
     }
@@ -17,15 +21,19 @@
     },
     {
       "src": "/hakkimizda",
-      "dest": "/hakkimizda.html"
+      "dest": "/maniwebst/hakkimizda.html"
     },
     {
       "src": "/gizlilik-politikasi",
-      "dest": "/gizlilik-politikasi.html"
+      "dest": "/maniwebst/gizlilik-politikasi.html"
     },
     {
       "src": "/iletisim",
-      "dest": "/iletisim.html"
+      "dest": "/maniwebst/iletisim.html"
+    },
+    {
+      "src": "/newsletter-signup",
+      "dest": "/maniwebst/newsletter-signup.html"
     },
     {
       "src": "/api/manifest",
