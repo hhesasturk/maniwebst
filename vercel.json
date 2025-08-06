@@ -12,6 +12,14 @@
   ],
   "routes": [
     {
+      "src": "/api/manifest",
+      "dest": "/api/manifest.js"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1.js"
+    },
+    {
       "src": "/",
       "dest": "/index.html"
     },
@@ -26,10 +34,6 @@
     {
       "src": "/iletisim",
       "dest": "/iletisim.html"
-    },
-    {
-      "src": "/api/manifest",
-      "dest": "/api/manifest.js"
     },
     {
       "src": "/(.*)",
