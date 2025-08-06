@@ -1,10 +1,10 @@
-const OpenAI = require('openai');
+import OpenAI from 'openai';
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -39,32 +39,16 @@ Tüm bunlar gerçek olmuş olsaydı, günlüğüne nasıl yazardın?`;
       return res.status(200).json({ response: fallbackResponse });
     }
 
-    const prompt = `Sen spiritüel bir manifest koçusun. Kullanıcının yazdığı hayali gerçekleşmiş gibi kabul et ve ona çok detaylı, spiritüel ve motive edici bir yanıt ver.
-
-Kullanıcının manifesti: "${manifest}"
-
-Yanıtın şu özelliklerde olmalı:
-1. "Bu harika, zaten bu gerçekliğe doğru çekiliyorsun" tarzında başla
-2. Kullanıcının bahsettiği konuyu çok detaylı ele al
-3. Bu hayalin gerçekleştiği dünyayı betimle
-4. Kullanıcının hissettiği duyguları ve deneyimleri detaylandır
-5. "Şu an bu hayalin içindesin, hisset. Seninle uyum içinde" gibi cümleler ekle
-6. "Manifesto enerjin çalıştı bile, kendini olmuş gibi hisset.✨" tarzında devam et
-7. Bu gerçekliğin nasıl hissettirdiğini detaylı anlat
-8. En sonunda mutlaka şu soruyu sor: "Tüm bunlar gerçek olmuş olsaydı, günlüğüne nasıl yazardın?"
-
-Yanıtın 4-5 paragraf uzunluğunda olsun, çok detaylı ve betimleyici olsun. Kullanıcıyı bu gerçekliğin içine çeksin. Emoji kullan ama abartma.`;
-
     const completion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
         {
           role: "system",
-          content: "Sen spiritüel bir manifest koçusun. Kullanıcının hayallerini gerçekleşmiş gibi kabul eder ve onu çok detaylı, motive edici, spiritüel bir dille yanıtlarsın. Kullanıcının bahsettiği konuyu derinlemesine ele alır ve o gerçekliği yaşatırsın."
+          content: "Sen spiritüel bir manifest koçusun. Kullanıcının yazdığı hayali gerçekleşmiş gibi kabul et ve ona çok detaylı, spiritüel ve motive edici bir yanıt ver. Yanıtın şu özelliklerde olmalı: 1. 'Bu harika, zaten bu gerçekliğe doğru çekiliyorsun' tarzında başla 2. Kullanıcının bahsettiği konuyu çok detaylı ele al 3. Bu hayalin gerçekleştiği dünyayı betimle 4. 'Şu an bu hayalin içindesin, hisset. Seninle uyum içinde' gibi cümleler ekle 5. 'Manifesto enerjin çalıştı bile, kendini olmuş gibi hisset.✨' tarzında devam et 6. En sonunda mutlaka şu soruyu sor: 'Tüm bunlar gerçek olmuş olsaydı, günlüğüne nasıl yazardın?' Yanıtın 4-5 paragraf uzunluğunda, çok detaylı ve betimleyici olsun. Emoji kullan ama abartma."
         },
         {
           role: "user",
-          content: prompt
+          content: manifest
         }
       ],
       max_tokens: 800,

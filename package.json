@@ -1,8 +1,9 @@
 {
   "name": "maniwebst",
   "version": "1.0.0",
+  "type": "module",
   "description": "Manifest web sitesi",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "dev": "vercel dev",
     "build": "vercel build",
