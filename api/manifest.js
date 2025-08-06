@@ -55,6 +55,7 @@ Yanıtın şu özelliklerde olmalı:
 
 Yanıtın 4-5 paragraf uzunluğunda olsun, çok detaylı ve betimleyici olsun. Kullanıcıyı bu gerçekliğin içine çeksin. Emoji kullan ama abartma.`;
 
+    console.log('OpenAI API çağrısı yapılıyor...');
     const completion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
@@ -72,11 +73,17 @@ Yanıtın 4-5 paragraf uzunluğunda olsun, çok detaylı ve betimleyici olsun. K
     });
 
     const response = completion.choices[0].message.content;
+    console.log('OpenAI yanıtı alındı:', response.substring(0, 100) + '...');
 
     res.status(200).json({ response });
 
   } catch (error) {
     console.error('OpenAI API Error:', error);
+    
+    // More detailed error logging
+    if (error.response) {
+      console.error('Error response:', error.response.status, error.response.data);
+    }
     
     // Fallback response if API fails
     const fallbackResponse = `Bu harika, zaten bu gerçekliğe doğru çekiliyorsun. 
