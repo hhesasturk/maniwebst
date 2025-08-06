@@ -2,11 +2,35 @@
   "version": 2,
   "builds": [
     {
-      "src": "*.html",
+      "src": "**/*.html",
       "use": "@vercel/static"
     },
     {
-      "src": "maniwebst/*.html",
+      "src": "**/*.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.mp3",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.png",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.jpg",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.ico",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.txt",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.xml",
       "use": "@vercel/static"
     },
     {
@@ -16,8 +40,8 @@
   ],
   "routes": [
     {
-      "src": "/",
-      "dest": "/index.html"
+      "src": "/api/manifest",
+      "dest": "/api/manifest.js"
     },
     {
       "src": "/hakkimizda",
@@ -36,8 +60,8 @@
       "dest": "/maniwebst/newsletter-signup.html"
     },
     {
-      "src": "/api/manifest",
-      "dest": "/api/manifest.js"
+      "src": "/",
+      "dest": "/index.html"
     },
     {
       "src": "/(.*)",
