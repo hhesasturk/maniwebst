@@ -475,7 +475,7 @@
       <textarea 
         id="manifestInput" 
         class="manifest-input" 
-        placeholder="hayalini gerçekleştirmiş gibi yaz ve buna inan"
+        placeholder="Hayal ettiğin şeyleri gerçekleşmiş gibi yaz"
         maxlength="500"
       ></textarea>
       
@@ -576,7 +576,16 @@
         }
         
         const data = await response.json();
-        responseText.innerHTML = data.response.replace(/\n/g, '<br>');
+        
+        // Handle both successful responses and fallback responses
+        if (data.response) {
+          responseText.innerHTML = data.response.replace(/\n/g, '<br>');
+        } else if (data.error) {
+          responseText.innerHTML = data.error;
+        } else {
+          responseText.innerHTML = 'Beklenmeyen bir yanıt alındı.';
+        }
+        
         responseBox.style.display = 'block';
         
         // Scroll to response
@@ -592,7 +601,14 @@
         
       } catch (error) {
         console.error('Error:', error);
-        responseText.innerHTML = 'Üzgünüz, şu anda manifesto oluşturamıyoruz. Lütfen daha sonra tekrar deneyin.';
+        // Fallback response for network errors
+        responseText.innerHTML = `Bu harika, zaten bu gerçekliğe doğru çekiliyorsun. 
+
+Şu an bu hayalin içindesin, hisset. Seninle uyum içinde. Manifesto enerjin çalıştı bile, kendini olmuş gibi hisset.✨
+
+Bu gerçeklik seninle uyum içinde çalışıyor. Her nefes alışında bu hayal daha da güçleniyor. Evren senin bu niyetini duyuyor ve gerçekleştiriyor.
+
+Tüm bunlar gerçek olmuş olsaydı, günlüğüne nasıl yazardın?`.replace(/\n/g, '<br>');
         responseBox.style.display = 'block';
       } finally {
         button.disabled = false;
